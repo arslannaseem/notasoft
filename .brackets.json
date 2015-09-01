@@ -1,0 +1,13 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/Applications/XAMPP/xamppfiles/htdocs/jobba-backend/public/bower_components/angular-google-maps/website_libs/dev_deps.js",
+        "/Applications/XAMPP/xamppfiles/htdocs/jobba-backend/public/bower_components/angular-loading-bar/build/loading-bar.js",
+        "/Applications/XAMPP/xamppfiles/htdocs/jobba-backend/public/bower_components/angular-loading-bar/build/loading-bar.min.js",
+        "/Applications/XAMPP/xamppfiles/htdocs/jobba-backend/public/bower_components/foundation/js/foundation/foundation.slider.js",
+        "/Applications/XAMPP/xamppfiles/htdocs/jobba-backend/public/js/services/seekerRegistrationService.js",
+        "/Applications/XAMPP/xamppfiles/htdocs/jobba-backend/public/bower_components/angular-route/angular-route.min.js",
+        "/Applications/XAMPP/xamppfiles/htdocs/jobba-backend/public/bower_components/jquery/src/css/hiddenVisibleSelectors.js",
+        "/Applications/XAMPP/xamppfiles/htdocs/jobba-backend/public/js/controllers/jobbaSearchNewJob.js",
+        "/Applications/XAMPP/xamppfiles/htdocs/jobba-backend/public/bower_components/jquery/src/css/swap.js"
+    ]
+}

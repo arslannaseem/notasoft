@@ -1,0 +1,58 @@
+<div class="row row-space-top-4">
+    <div class="col-md-5 col-lg-5 col-center">
+        <div class="alert alert-danger alert-dismissible hidden" role="alert" id="errorme">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Wrong username or password!</strong> Please try again.
+        </div>
+        <div class="alert alert-warning alert-dismissible hidden" role="alert" id="verifyerr">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Your account is not verified!</strong> Please verify your account and try again!
+        </div>
+        <div class="panel">
+            <header class="panel-heading">
+                <div class="row text-center">
+                    <!--<img src="public/images/logo.png" width="280">-->
+                </div>
+            </header>
+            <div class="panel-body">
+            <hr>
+                <div ng-controller="loginController">
+                    <form name="form" role="form" method="POST" ng-submit="login(newuser, form.$valid)" novalidate>
+                        <div class="form-group" ng-class="error('email')">
+                            <label for="email">Email</label>
+                            <div class="controls">
+                                <input id="email" name="email" type="email" class="form-control" ng-model="newuser.email" placeholder="yourname@domain.com" required/>
+                                <span class="help-block text-danger" ng-show="form.email.$invalid && submitted">Email address is required
+                                                            </span>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="error('password')">
+                            <label for="password">Password</label>
+                            <div class="controls">
+                                <input id="password" name="password" type="password" class="form-control" ng-model="newuser.password" placeholder="Password" ng-minlength="6" required/>
+                                <span class="help-block text-danger" ng-show="form.password.$invalid && submitted">Password should contain at least 6 characters 
+                                                            </span>
+                            </div>
+                        </div>
+                        <p class="pull-right"><a href="#forgot">Forgot Password?</a></p>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="control-group">
+                            <div class="controls text-center">
+                                <button ng-click="submitted=true" class="btn btn-xl">Sign in</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Nav -->
+<nav class="text-center">
+    <h5>
+        New to case?
+    </h5>
+</nav>
+<!-- / Nav -->

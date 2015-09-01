@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-6 col-lg-6 col-center">
+        <div class="alert alert-danger hidden" role="alert" id="errorme">
+            Your E-mail address already exists. Please <a href="http://notasoft.info">Sign in</a>
+        </div>
+        <div class="panel">
+            <header class="panel-heading">
+                <h1>{{title}}</h1>
+            </header>
+            <div class="panel-body">
+                <div data-ng-controller='registerController'>
+                    <form name="form" role="form" method="POST" ng-submit="registeruser(newuser, form.$valid)" novalidate>
+                        <div class="form-group" ng-class="error('firstName')">
+                            <label for="firstName">First Name</label>
+                            <div class="controls">
+                                <input id="firstName" name="firstName" type="text" class="form-control" ng-model="newuser.firstName" placeholder="Leonard" required/>
+                                <span class="help-block text-danger" ng-show="form.firstName.$invalid && submitted">Please enter your first name</span>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="error('lastName')">
+                            <label for="lastName">Last Name</label>
+                            <div class="controls">
+                                <input id="lastName" name="lastName" type="text" class="form-control" ng-model="newuser.lastName" placeholder="Gomez" required/>
+                                <span class="help-block text-danger" ng-show="form.lastName.$invalid && submitted">Please enter your last name</span>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="error('email')">
+                            <label for="email">Email</label>
+                            <div class="controls">
+                                <input id="email" name="email" type="email" class="form-control" ng-model="newuser.email" ng-pattern="/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/" placeholder="Email" required/>
+                                <span class="help-block text-danger" ng-show="form.email.$invalid && submitted">Please enter valid email address</span>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="error('password')">
+                            <label for="password">Password</label>
+                            <div class="controls">
+                                <input id="password" name="password" type="password" class="form-control" ng-model="newuser.password" placeholder="Password" ng-minlength="6" required/>
+                                <span class="help-block text-danger" ng-show="form.password.$invalid && submitted">Password should contain 6 characters or more</span>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="error('confirmpassword')">
+                            <label for="confirmpassword">Confirm Password</label>
+                            <div class="controls">
+                                <input id="confirmpassword" name="confirmpassword" type="password" class="form-control" ng-model="newuser.confirmpassword" placeholder="Confirm Password" compare-to='password' compare-validator required/>
+                                <span class="help-block text-danger" ng-show="form.confirmpassword.$invalid && submitted">Passwords don't match</span>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="error('agreeToTerms')">
+                            <div class="checkbox">
+                                <label class="form-control-static">
+                                    <input id="agreeToTerms" name="agreeToTerms" ng-model="newuser.agree" type="checkbox" required/>
+                                    <p>By signing up, you agree to our <a href="#" target="_blank">Terms &amp; Conditions</a>, and <a href="#" target="_blank">Privacy Policy</a>.</p>
+                                </label>
+                                <span class="help-block text-danger" ng-show="form.agreeToTerms.$invalid && submitted">In order to use our services, you must agree to Jobba's Terms &amp; Conditions.
+                                </span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="control-group row-space-top-4">
+                            <div class="controls">
+                                <button ng-click="submitted=true" class="btn btn-xl">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

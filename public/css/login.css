@@ -1,0 +1,144 @@
+.bodyContainer{
+    text-align: center;
+}
+
+.login-jobseeker {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.login-form-jobseeker {
+    display: table;
+    margin: 0 auto;
+}
+
+.validation-asterick
+{
+    display: inline;
+    color: red;
+    font-weight: bold;
+    margin-left: 3px;
+}
+
+.form-group {
+	text-align: center;
+}
+
+.login-form-recruiter {
+    min-width: 700px;
+    max-width: 700px;
+}
+
+Input.ng-invalid.ng-dirty {
+    border:1px solid #990000;
+}
+
+Input.ng-valid.ng-dirty {
+    border:1px solid #009900;
+}
+
+
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
+
+td {
+    text-align: left;
+}
+
+/* Makes responsive fields. Sets size and field alignment.*/
+label {
+    float:left;
+}
+
+select {
+    float:left;
+}
+
+input[type=text]{
+    margin-bottom: 10px;
+    margin-top: 0px;
+    width:100%;
+    padding: 5px;
+    border-radius:5px;
+    border:1px solid #7ac9b7;
+}
+input[type=submit]
+{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width:100%;
+    padding: 5px;
+    border-radius:5px;
+    border:1px solid #7ac9b7;
+    background-color: #4180C5;
+    color: aliceblue;
+    font-size:15px;
+    cursor:pointer;
+}
+#submit:hover
+{
+    background-color: black;
+}
+textarea{
+    width:100%;
+    border:1px solid #7ac9b7;
+    border-radius:5px;
+    resize:none;
+}
+input[type=text]:focus,textarea:focus {
+    border-color: #4697e4;
+}
+
+.addressDiv {
+    padding:10px;
+    border: 1px solid #CCCCCC;
+    border-radius:5px;
+    margin-bottom: 10px;
+}
+
+.stateTag {
+    color:#999999;
+    font-style: italic;
+    text-align: left;
+}
+
+legend {
+    font-size: 12px;
+    color:#616161;
+    font-weight:bold;
+    border: 0;
+    width: 100px;
+    text-align: left;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+button
+{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width:100%;
+    padding: 5px;
+    border-radius:5px;
+    border:1px solid #7ac9b7;
+    background-color: #4180C5;
+    color: aliceblue;
+    font-size:15px;
+    cursor:pointer;
+}
+
+th  {
+    font-size: 10px;
+}
+
+table, th, td {
+    margin-top: 10px;
+    border: 1px solid #CCC;
+    padding:5px;
+}
+.certRadio {
+    text-align: center;
+}
+
