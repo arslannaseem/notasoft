@@ -69,9 +69,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'case',
-			'username'  => 'root',
-			'password'  => '',
+			'database'  => 'notasoft_people',
+			'username'  => 'notasoft_shani',
+			'password'  => 'notasoft123',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
