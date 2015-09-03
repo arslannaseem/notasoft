@@ -1,0 +1,51 @@
+<div class="row row-space-top-4" ng-controller="forgotController">
+    <div class="col-md-5 col-lg-5 col-center">
+        <!-- Warning -->
+        <div class="alert alert-warning alert-dismissible" ng-show="fail" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>The system does not have a user account associated with your email.</strong> Please try again.
+        </div>
+        <!-- Please change messaging to the following, when success -->
+        <div class="alert alert-success alert-dismissible" ng-show="success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Awesome! We have just emailed you your password.</strong>
+        </div>
+        <div class="panel">
+            <header class="panel-heading">
+                <div class="row text-center">
+                    <!--<img src="public/images/logo.png" width="280" class="brand-mini-logo">-->
+                </div>
+            </header>
+            <div class="panel-body">
+                <hr>
+                <p class="text-muted">Please enter your email to retrive the password.</p>
+                <div>
+                    <form name="form" role="form" method="POST" ng-submit="forgot(newuser.email, form.$valid)" novalidate>
+                        <div class="form-group" ng-class="error('email')">
+                            <label for="email">Email</label>
+                            <div class="controls">
+                                <input id="email" name="email" type="email" class="form-control" ng-model="newuser.email" placeholder="yourname@domain.com" required/>
+                                <span class="help-block text-danger" ng-show="form.email.$invalid && submitted">Email address is required
+                                                            </span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="control-group">
+                            <div class="controls text-center">
+                                <button ng-click="submitted=true" class="btn btn-xl">Retrieve my new Password</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Nav -->
+<nav class="text-center">
+    <h5>
+        Already have an account?
+        <a href="#/login">Sign in</a>
+    </h5>
+</nav>
+<!-- / Nav -->
