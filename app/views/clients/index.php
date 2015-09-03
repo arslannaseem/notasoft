@@ -78,6 +78,7 @@
         <?php echo HTML::script('public/js/controllers/loginController.js') ?>
         <?php echo HTML::script('public/js/controllers/registerController.js') ?>
         <?php echo HTML::script('public/js/controllers/registersuccessController.js') ?>
+        <?php echo HTML::script('public/js/controllers/forgotController.js') ?>
         
         
             

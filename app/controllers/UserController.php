@@ -210,33 +210,33 @@ class UserController extends \BaseController {
 //		  
     }
     
-     public function forgotPassword() {
+     public function forgotpassword() {
         
         $pass = str_random(8);
         $new_pass = Hash::make($pass);
         $email = Input::get( 'email' );
-        $jobUpdate = DB::table('users')
+        $userUpdate = DB::table('users')
             ->where('users.email', '=', $email)
             ->update(array('password' => $new_pass));
         
-        if($jobUpdate == 1){
+        if($userUpdate == 1){
         $data = array(
            'new_pass' => $pass,
-           'sender_name' => 'hireajobba'
+           'sender_name' => 'Notasoft'
            );
 		   // print_r($data);exit;
 		       $user = array(
 			 'email'=> $email,
-			 'name'=>'hireajobba'
+			 'name'=>'Notasoft'
 			);
 	
 		   Mail::send('emails.forgot', $data, function($message) use($user){
-				$message->from('noreply@hireajobba.com', 'Jobba');
+				$message->from('noreply@Notasoft.info', 'Notasoft');
 				$message->to($user['email'])->subject('New Password Generated!!');
 			});
         }
 
-         return $jobUpdate;
+         return $userUpdate;
     }
     
     

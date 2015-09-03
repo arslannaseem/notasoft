@@ -63,6 +63,11 @@
 			templateUrl: 'public/templates/addclient.html',
 			controller: 'addclientController'
 		})
+                .when('/forgot',
+                            {
+                                templateUrl: 'public/templates/forgot.html',
+                                controller: 'forgotController'
+                            })
 		 .otherwise(
                             {
                                 templateUrl: 'public/templates/login.html',

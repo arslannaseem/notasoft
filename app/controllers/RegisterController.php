@@ -1,6 +1,6 @@
 <?php
 
-class RegisterNewUserController extends BaseController {
+class RegisterController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
