@@ -9,13 +9,7 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-                $data = DB::table('users')
-                ->Join('user_rating', 'users.id', '=', 'user_rating.rated_id')
-                ->select(DB::raw('avg(user_rating.rating) AS average'))
-                ->where('users.id' ,Session::get('userId'))
-                ->first();
-                    
-		return View::make('login/index',array('rate' => $data->average));
+		return View::make('clients/index');
 	}
     
     public function displayjobs()

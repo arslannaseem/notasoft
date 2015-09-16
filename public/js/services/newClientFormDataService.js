@@ -28,6 +28,19 @@
                         postcode: $sanitize(formData.postcode),
                         dob: $sanitize(formData.dob),
                         death: $sanitize(formData.death),
+                        phone1: $sanitize(formData.phone1),
+                        email1: $sanitize(formData.email1),
+                        phone2: $sanitize(formData.phone2),
+                        email2: $sanitize(formData.email2),
+                        cellphone: $sanitize(formData.cellphone),
+                        homephone: $sanitize(formData.homephone),
+                        cellphone2: $sanitize(formData.cellphone2),
+                        fax: $sanitize(formData.fax),
+                        facebook: $sanitize(formData.facebook),
+                        twitter: $sanitize(formData.twitter),
+                        linkedin: $sanitize(formData.linkedin),
+                        google: $sanitize(formData.google),
+                        photoids: $sanitize(formData.photoids)
                     };
                 };
 

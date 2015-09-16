@@ -9,7 +9,7 @@
 	-----------------------------------------------------------------------------*/
 	var jobbaLandingApplication = angular.module("JobbaLandingApp", ['ngSanitize']);
 
-	var jobbaApplication = angular.module("JobbaApp", ['ngRoute', 'ngSanitize' ,'angular-loading-bar','ngAnimate' ,'ui.date','ngAutocomplete','ngCookies']);
+	var jobbaApplication = angular.module("JobbaApp", ['ngRoute', 'ngSanitize' ,'angular-loading-bar','ngAnimate' ,'ui.date','ngAutocomplete','ngCookies', 'angularFileUpload']);
         jobbaApplication.filter('nospace', function () {
             return function (value) {
                 return (!value) ? '' : value.replace(/ /g, '');
@@ -28,6 +28,11 @@
 			templateUrl: 'public/templates/login.html',
 			controller: 'loginController'
 		})
+                .when('/verify/:code',
+                            {
+                                templateUrl: 'public/templates/verify.html',
+                                controller: 'verifyController'
+                            })
 		.when('/register',
 		{
 			templateUrl: 'public/templates/register.html',

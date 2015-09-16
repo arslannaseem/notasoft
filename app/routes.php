@@ -27,4 +27,10 @@ Route::post('/registernewuser', 'RegisterController@store');
 //forgot password call
 Route::post('/forgotpassword', 'UserController@forgotpassword');
 
+//activating user$
+Route::post('/activateUser', 'UserController@activate_user');
+Route::get('/login', 'UserController@index');
+
+
+
 

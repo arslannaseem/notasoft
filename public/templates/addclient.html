@@ -6,7 +6,7 @@
             </header>
             <div class="panel-body">
                 <div data-ng-controller='addclientController'>
-                    <form name="form" role="form" method="POST" ng-submit="addclient(newform, form.$valid)" novalidate>
+                    <form name="form" role="form" method="POST" ng-submit="addclient(newform, form.$valid)" novalidate nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
                         <div class="form-group" ng-class="error('typeId')">
                             <label for="typeId">User Type</label>
                             <div class="controls">
@@ -18,7 +18,7 @@
                                 <span class="help-block text-danger" ng-show="form.usertype.$invalid && submitted">User Type is required</span>
                             </div>
                         </div>
-                         <div class="form-group" ng-class="error('typeId')" ng-show="newform.usertype == 'foreign' ">
+                        <div class="form-group" ng-class="error('typeId')" ng-show="newform.usertype == 'foreign'">
                             <label for="typeId">Residence</label>
                             <div class="controls">
                                 <select  name="residence" id="residence" class="form-control" ng-model="newform.residence" ng-required = "newform.usertype == 'foreign' ">
@@ -99,7 +99,7 @@
 
 
                                         <div class="row" >
-                                            <div id="ced_address" ng-show="newform.usertype == 'cedula' || newform.residence == 'costrica' ">
+                                            <div id="ced_address" ng-show="newform.usertype == 'cedula' || newform.residence == 'costrica'">
                                                 <div class="form-group col-sm-4 col-md-4">
                                                     <div class="controls">
                                                         <label for="title ">Province</label>
@@ -138,7 +138,7 @@
                                                 </div>
                                             </div>
 
-                                            <div id="foreign_address" ng-show="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
+                                            <div id="foreign_address" ng-show="newform.usertype == 'foreign' && newform.residence != 'costrica'">
                                                 <div class="form-group col-sm-4 col-md-4">
                                                     <div class="controls">
                                                         <label for="title ">Country</label>
@@ -228,14 +228,178 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-6 col-md-6" ng-class="error('suburb')">
+                                                     <h4><label for="suburb">Dead : {{newform.death?'Yes':'No'}}</label></h4>
+                                                <input type="hidden" name="death" id="death" class="form-control" ng-model="newform.death" />
+                                            </div>
+<!--                                            <div class="form-group col-sm-6 col-md-6" ng-class="error('suburb')">
                                                 <label for="suburb">Dead</label>
-                                                 <select name="death" id="death" class="form-control" ng-model="newform.death" required>
-                                                            <option value="0" label="No">No</option>
-                                                            <option value="1" label="Yes">Yes</option>
-                                                        </select>
+                                                <select name="death" id="death" class="form-control" ng-model="newform.death" required>
+                                                    <option value="0" label="No">No</option>
+                                                    <option value="1" label="Yes">Yes</option>
+                                                </select>
                                                 <span class="help-block text-danger" ng-show="form.death.$invalid && submitted">Death Value is required!</span>
+                                            </div>-->
+                                        </div>
+                                        <h3>Contact Info</h3>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('phone1')">
+                                            <label for="phone1">Phone1 (optional)</label>
+                                            <div class="controls">
+                                                <input id="phone1" name="phone1" type="text" class="form-control" ng-model="newform.phone1" />
+                                                <span class="help-block text-danger" ng-show="form.phone1.$invalid && submitted">phone1 is required!</span>
                                             </div>
                                         </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('phone2')">
+                                            <label for="phone2">Phone2 (optional)</label>
+                                            <div class="controls">
+                                                <input id="phone2" name="phone2" type="text" class="form-control" ng-model="newform.phone2" />
+                                                <span class="help-block text-danger" ng-show="form.phone2.$invalid && submitted">phone2 is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('email1')">
+                                            <label for="email1">Email1 (optional)</label>
+                                            <div class="controls">
+                                                <input id="email1" name="email1" type="text" class="form-control" ng-model="newform.email1" />
+                                                <span class="help-block text-danger" ng-show="form.email1.$invalid && submitted">email1 is required!</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('email2')">
+                                            <label for="email2">Email2 (optional)</label>
+                                            <div class="controls">
+                                                <input id="email2" name="email2" type="text" class="form-control" ng-model="newform.email2" />
+                                                <span class="help-block text-danger" ng-show="form.email2.$invalid && submitted">email2 is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('cellphone')">
+                                            <label for="cellphone">Cellphone1 (optional)</label>
+                                            <div class="controls">
+                                                <input id="cellphone" name="cellphone" type="text" class="form-control" ng-model="newform.cellphone" />
+                                                <span class="help-block text-danger" ng-show="form.cellphone.$invalid && submitted">cellphone is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('cellphone2')">
+                                            <label for="cellphone2">cellphone2 (optional)</label>
+                                            <div class="controls">
+                                                <input id="cellphone2" name="cellphone2" type="text" class="form-control" ng-model="newform.cellphone2" />
+                                                <span class="help-block text-danger" ng-show="form.cellphone2.$invalid && submitted">cellphone2 is required!</span>
+                                            </div>
+                                        </div>
+                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('homephone')">
+                                            <label for="homephone">Homephone (optional)</label>
+                                            <div class="controls">
+                                                <input id="homephone" name="homephone" type="text" class="form-control" ng-model="newform.homephone" />
+                                                <span class="help-block text-danger" ng-show="form.homephone.$invalid && submitted">homephone is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('fax')">
+                                            <label for="fax">fax (optional)</label>
+                                            <div class="controls">
+                                                <input id="fax" name="fax" type="text" class="form-control" ng-model="newform.fax" />
+                                                <span class="help-block text-danger" ng-show="form.fax.$invalid && submitted">fax is required!</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>Social Info</h3>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('facebook')">
+                                            <label for="facebook">Facebook (optional)</label>
+                                            <div class="controls">
+                                                <input id="facebook" name="facebook" type="text" class="form-control" ng-model="newform.facebook" />
+                                                <span class="help-block text-danger" ng-show="form.phone1.$invalid && submitted">facebook is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('twitter')">
+                                            <label for="twitter">Twitter (optional)</label>
+                                            <div class="controls">
+                                                <input id="twitter" name="twitter" type="text" class="form-control" ng-model="newform.twitter" />
+                                                <span class="help-block text-danger" ng-show="form.twitter.$invalid && submitted">twitter is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('linkedin')">
+                                            <label for="linkedin">Linked in (optional)</label>
+                                            <div class="controls">
+                                                <input id="linkedin" name="linkedin" type="text" class="form-control" ng-model="newform.linkedin" />
+                                                <span class="help-block text-danger" ng-show="form.linkedin.$invalid && submitted">linkedin is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('google')">
+                                            <label for="google">Google (optional)</label>
+                                            <div class="controls">
+                                                <input id="google" name="google" type="text" class="form-control" ng-model="newform.google" />
+                                                <span class="help-block text-danger" ng-show="form.google.$invalid && submitted">google is required!</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>Photo ID's</h3>
+                                        <input id="photoids" name="photoids" type="hidden" class="form-control" ng-model="newform.photoids" />
+                                        <div class="form-group  col-sm-12 col-md-12" ng-class="error('google')">
+
+                                            <div class="col-md-12">
+
+                                                <div ng-show="uploader.isHTML5">
+                                                    <!-- 3. nv-file-over uploader="link" over-class="className" -->
+                                                    <div class="well my-drop-zone" nv-file-over="" uploader="uploader">
+                                                        Drag/Drop Files Here
+                                                    </div>
+                                                </div>
+                                                <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                                                Add Image
+                                                <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
+                                            </div>
+
+
+                                            <table class="table">
+                                                <tbody>
+                                                    
+                                                    <tr ng-repeat="item in uploader.queue">
+                                                        <td id="{{removespaces(item.file.name)}}" style="width: 150px"></td>
+                                                        <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size / 1024 / 1024|number:2 }} MB</td>
+                                                        <td ng-show="uploader.isHTML5" style="width : 200px">
+                                                            <div class="progress" style="margin-bottom: 0;">
+                                                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                                                            <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                                            <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                                                        </td>
+                                                        <td nowrap>
+                                                            {{item.upload}}
+                                                            <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                                                <span class="glyphicon glyphicon-upload"></span> Upload
+                                                            </button>
+                                                            <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                                            </button>
+                                                            <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                                                <span class="glyphicon glyphicon-trash"></span> Remove
+                                                            </button><br>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+
+                                            <div>
+                                                <div>
+                                                    All Items Progress:
+                                                    <div class="progress" style="">
+                                                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                                                    <span class="glyphicon glyphicon-upload"></span> Upload all
+                                                </button>
+                                                <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                                                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                                                    <span class="glyphicon glyphicon-trash"></span> Remove all
+                                                </button>
+                                            </div>
+                                        </div>
+
+
 
                                         <div class="control-group">
                                             <div class="controls">

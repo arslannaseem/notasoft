@@ -1,0 +1,4 @@
+total amount	= 1450USD
+
+abdullah	= 700
+arslan		= 750

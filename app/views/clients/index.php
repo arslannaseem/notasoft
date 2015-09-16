@@ -18,7 +18,15 @@
             <script>
 	        var path = '<?php echo URL::to('/')?>';
 	    </script>
-                
+                <nav class="navbar">
+                            <div class="container-fluid">
+                                <div class="button-group text-center">
+                                    <a href="#/login"> <button class="btn btn-brand btn-md">Login</button></a>
+                                    <a href="#/register"><button class="btn btn-brand btn-md">Register</button></a>
+                                    <a href="#/newclient"><button class="btn btn-brand btn-md">Add Client</button></a>
+                                    <a href="#/clients"><button class="btn btn-brand btn-md">List Clients</button></a>
+                            </div>
+                        </nav>
                  <section class="content-panel">
                     <!-- extra section for emulating position:fixed of the menu -->
                     <!-- Top Navigation -->
@@ -79,6 +87,7 @@
         <?php echo HTML::script('public/js/controllers/registerController.js') ?>
         <?php echo HTML::script('public/js/controllers/registersuccessController.js') ?>
         <?php echo HTML::script('public/js/controllers/forgotController.js') ?>
+        <?php echo HTML::script('public/js/controllers/verifyController.js') ?>
         
         
             
@@ -90,6 +99,7 @@
 	    <!-- Angularjs directives -->
         <?php echo HTML::script('public/js/directives/customFormValidators.js') ?>
         <?php echo HTML::script('public/js/directives/ngAutocomplete.js') ?>
+        <?php echo HTML::script('public/js/directives/angular-file-upload.js') ?>
 
         <?php echo HTML::script('public/js/lib/angular-1.3.12/angular-touch.min.js') ?>       
         <?php echo HTML::script('public/js/lib/angular-1.3.12/angular-cookies.js') ?>       
