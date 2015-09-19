@@ -9,9 +9,13 @@
                 </div>
             </div>
             <div ng-repeat="client in clients">
+                
             <a href="#/addclients/{{client.usertype}}/{{client.passport}}{{client.idnumber}}" class="list-group-item">
-
-                <h4 class="list-group-item-heading">{{client.firstname}}</h4>
+                
+                <h4 class="list-group-item-heading">
+                    <img ng-show="album" src="{{path}}/public/upload_images/id_images/{{client.profile_image}}" alt="profile_image" width="50px" height="50px" />
+                    {{client.firstname}}
+                </h4>
                 <p class="list-group-item-text">{{client.usertype}}</p>
             </a>
 </div>
