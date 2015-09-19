@@ -9,6 +9,7 @@
     <?php echo HTML::style('public/bower_components/angular-loading-bar/build/loading-bar.min.css') ?>
     <?php echo HTML::style('public/bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css') ?>
     <?php echo HTML::style('public/css/frontend.css') ?>
+    <?php echo HTML::style('public/css/custom_css.css') ?>
     <?php echo HTML::script('public/js/lib/modernizr.custom.js') ?>
 </head>
 
