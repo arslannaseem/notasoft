@@ -40,7 +40,8 @@
                         twitter: $sanitize(formData.twitter),
                         linkedin: $sanitize(formData.linkedin),
                         google: $sanitize(formData.google),
-                        photoids: $sanitize(formData.photoids)
+                        photoids: $sanitize(formData.photoids),
+                        profile_image: $sanitize(formData.profile_image)
                     };
                 };
 

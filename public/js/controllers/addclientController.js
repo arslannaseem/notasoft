@@ -156,7 +156,6 @@
                     };
 
                     $scope.addclient = function (newclient, validity) {     // sends the data from form object to backend using service
-
                     $scope.fileslist();
                         console.log(newclient);
                         if (validity) {
@@ -164,6 +163,7 @@
                             newClientFormDataService.registerNewJob(newclient)
                                     .success(function (data, status, headers, config) {
                                         alert('Client Added Successfully!');
+                                        $location.path('/clients');
                                         console.log("success>" + data);
                                     }).
                                     error(function (data, status, headers, config) {
@@ -178,6 +178,27 @@
                         }
 
                     };
+                    
+                    //profile image uploader
+        var profile_uploader = $scope.profile_uploader = new FileUploader({
+            url: path + '/public/php_libraries/upload.php'
+        });
+
+        
+         profile_uploader.onCompleteItem = function(fileItem, response, status, headers) {
+            console.info('onCompleteItem', fileItem, response, status, headers);
+            
+            //loading image after upload completion
+            $('<img src="'+ path + '/public/upload_images/id_images/' + fileItem.file.name +'">').load(function() {
+                    $(this).width('133px').height('100px').appendTo('#pr_image');
+                    $('#pr_image').append(fileItem.file.name);
+                    $scope.newform.profile_image = fileItem.file.name;
+            }).error(function(){
+                    alert("error occured while displaying uploaded image");
+            });
+        };
+        
+        
         //function to remove spaces from string    
         $scope.removespaces = function(string) {
             if (!angular.isString(string)) {

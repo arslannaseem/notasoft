@@ -233,13 +233,56 @@
                                             </div>
 <!--                                            <div class="form-group col-sm-6 col-md-6" ng-class="error('suburb')">
                                                 <label for="suburb">Dead</label>
-                                                <select name="death" id="death" class="form-control" ng-model="newform.death" required>
-                                                    <option value="0" label="No">No</option>
+                                                                                            <select name="death" id="death" class="form-control" ng-model="newform.death" required>
+                                                                                                <option value="0" label="No">No</option>
                                                     <option value="1" label="Yes">Yes</option>
                                                 </select>
                                                 <span class="help-block text-danger" ng-show="form.death.$invalid && submitted">Death Value is required!</span>
                                             </div>-->
                                         </div>
+                                        <div class="row">
+                                        <div class="col-md-12">
+                                        <h3>Upload Profile Picture</h3>
+                                        Select Image
+                                        <input type="file" nv-file-select="" uploader="profile_uploader" />
+                                        </div>
+                                            
+                                             <table class="table">
+                                                <tbody>
+                                                    
+                                                    <tr ng-repeat="item in profile_uploader.queue">
+                                                        <td id="pr_image" style="width: 150px"></td>
+                                                        <input id="profile_image" name="profile_image" type="hidden" class="form-control" ng-model="newform.profile_image" />
+                                                        <td ng-show="profile_uploader.isHTML5" nowrap>{{ item.file.size / 1024 / 1024|number:2 }} MB</td>
+                                                        <td ng-show="profile_uploader.isHTML5" style="width : 200px">
+                                                            <div class="progress" style="margin-bottom: 0;">
+                                                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                                                            <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                                            <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                                                        </td>
+                                                        <td nowrap>
+                                                            {{item.upload}}
+                                                            <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                                                <span class="glyphicon glyphicon-upload"></span> Upload
+                                                            </button>
+                                                            <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                                            </button>
+                                                            <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                                                <span class="glyphicon glyphicon-trash"></span> Remove
+                                                            </button><br>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                </div>
+                    
+                    
+                    
                                         <h3>Contact Info</h3>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('phone1')">
                                             <label for="phone1">Phone1 (optional)</label>
@@ -298,7 +341,9 @@
                                                 <span class="help-block text-danger" ng-show="form.fax.$invalid && submitted">fax is required!</span>
                                             </div>
                                         </div>
-
+                                        
+                                        
+                                        
                                         <h3>Social Info</h3>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('facebook')">
                                             <label for="facebook">Facebook (optional)</label>
