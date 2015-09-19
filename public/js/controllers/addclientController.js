@@ -66,15 +66,20 @@
                                     
                                     //code to auto upload files to uploader
                                     var url = path + '/public/upload_images/id_images/Desert.jpg';
+//                                    console.log('url' + url);
                                     $http.get(url,{responseType: "blob"}).success(function(data, status, headers, config) {
                                         var mimetype = data.type;
+//                                        console.log('mimetype' + mimetype);
                                         var file = new File([data], "Desert.jpg",{type:mimetype});
-                                        console.log(file);
+//                                        console.log('file' +file);
                                         var dummy = new FileUploader.FileItem(uploader, {});
                                         dummy._file = file;
-                                        dummy.progress = 50;
+                                        dummy.file = dummy._file;
+                                        dummy.progress = 100;
                                         dummy.isUploaded = true;
                                         dummy.isSuccess = true;
+//                                        console.log('dummy'+ dummy)
+                                        console.log('this fine' + dummy.file.name);
                                         uploader.queue.push(dummy);
                                         console.log(uploader.queue);
                                         
