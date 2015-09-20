@@ -11,47 +11,47 @@
                 <div data-ng-controller='registerController'>
                     <form name="form" role="form" method="POST" ng-submit="registeruser(newuser, form.$valid)" novalidate>
                         <div class="form-group" ng-class="error('firstName')">
-                            <label for="firstName">First Name</label>
+                            <label for="firstName" translate="FIRST_NAME" class="ng-scope"></label>
                             <div class="controls">
-                                <input id="firstName" name="firstName" type="text" class="form-control" ng-model="newuser.firstName" placeholder="Leonard" required/>
-                                <span class="help-block text-danger" ng-show="form.firstName.$invalid && submitted">Please enter your first name</span>
+                                <input id="firstName" name="firstName" type="text" class="form-control" ng-model="newuser.firstName" placeholder="Leonard"  required/>
+                                <span class="help-block text-danger" ng-show="form.firstName.$invalid && submitted" translate="FIRST_NAME_VALIDATION" class="ng-scope"></span>
                             </div>
                         </div>
                         <div class="form-group" ng-class="error('lastName')">
-                            <label for="lastName">Last Name</label>
+                            <label for="lastName" translate="LAST_NAME" class="ng-scope"></label>
                             <div class="controls">
                                 <input id="lastName" name="lastName" type="text" class="form-control" ng-model="newuser.lastName" placeholder="Gomez" required/>
-                                <span class="help-block text-danger" ng-show="form.lastName.$invalid && submitted">Please enter your last name</span>
+                                <span class="help-block text-danger" ng-show="form.lastName.$invalid && submitted" translate="LAST_NAME_VALIDATION" class="ng-scope"></span>
                             </div>
                         </div>
                         <div class="form-group" ng-class="error('email')">
-                            <label for="email">Email</label>
+                            <label for="email" translate="EMAIL" class="ng-scope"></label>
                             <div class="controls">
                                 <input id="email" name="email" type="email" class="form-control" ng-model="newuser.email" ng-pattern="/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/" placeholder="Email" required/>
-                                <span class="help-block text-danger" ng-show="form.email.$invalid && submitted">Please enter valid email address</span>
+                                <span class="help-block text-danger" ng-show="form.email.$invalid && submitted" translate="EMAIL_VALIDATION" class="ng-scope"></span>
                             </div>
                         </div>
                         <div class="form-group" ng-class="error('password')">
-                            <label for="password">Password</label>
+                            <label for="password" translate="PASSWORD" class="ng-scope"></label>
                             <div class="controls">
                                 <input id="password" name="password" type="password" class="form-control" ng-model="newuser.password" placeholder="Password" ng-minlength="6" required/>
-                                <span class="help-block text-danger" ng-show="form.password.$invalid && submitted">Password should contain 6 characters or more</span>
+                                <span class="help-block text-danger" ng-show="form.password.$invalid && submitted" translate="PASSWORD_LENGTH" class="ng-scope"></span>
                             </div>
                         </div>
                         <div class="form-group" ng-class="error('confirmpassword')">
-                            <label for="confirmpassword">Confirm Password</label>
+                            <label for="confirmpassword" translate="CONFIRM_PASSWORD" class="ng-scope"></label>
                             <div class="controls">
                                 <input id="confirmpassword" name="confirmpassword" type="password" class="form-control" ng-model="newuser.confirmpassword" placeholder="Confirm Password" compare-to='password' compare-validator required/>
-                                <span class="help-block text-danger" ng-show="form.confirmpassword.$invalid && submitted">Passwords don't match</span>
+                                <span class="help-block text-danger" ng-show="form.confirmpassword.$invalid && submitted" translate="PASSWORD_DONT_MATCH" class="ng-scope">Passwords don't match</span>
                             </div>
                         </div>
                         <div class="form-group" ng-class="error('agreeToTerms')">
-                            <div class="checkbox">
+                             <div class="checkbox">
                                 <label class="form-control-static">
                                     <input id="agreeToTerms" name="agreeToTerms" ng-model="newuser.agree" type="checkbox" required/>
-                                    <p>By signing up, you agree to our <a href="#" target="_blank">Terms &amp; Conditions</a>, and <a href="#" target="_blank">Privacy Policy</a>.</p>
+                        <p><span translate="SINGINGUP_AGREEMENT" class="ng-scope"></span> <a href="#" target="_blank" translate="TERMS_AND_CONDITION" class="ng-scope"></a>,<span translate="AND" class="ng-scope"></span> <a href="#" target="_blank" translate="PRIVACY_POLICY" class="ng-scope"></a>.</p>
                                 </label>
-                                <span class="help-block text-danger" ng-show="form.agreeToTerms.$invalid && submitted">In order to use our services, you must agree to Jobba's Terms &amp; Conditions.
+        <span class="help-block text-danger" ng-show="form.agreeToTerms.$invalid && submitted" translate="HELP_BLOCK" class=" ng-scope">
                                 </span>
                             </div>
                         </div>

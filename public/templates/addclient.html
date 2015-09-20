@@ -8,21 +8,22 @@
                 <div data-ng-controller='addclientController'>
                     <form name="form" role="form" method="POST" ng-submit="addclient(newform, form.$valid)" novalidate nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
                         <div class="form-group" ng-class="error('typeId')">
-                            <label for="typeId">User Type</label>
+                            <label for="typeId" translate="USER_TYPE" class="ng-scope"></label>
                             <div class="controls">
                                 <select ng-change="reset()" name="usertype" id="usertype" class="form-control" ng-model="newform.usertype" required>
-                                    <option value="" class="">Select your type</option>
+                                    <option value="" translate="USER_TYPE_PLC" class="ng-scope"></option>
                                     <option value="cedula" label="Cedula">Cedula</option>
                                     <option value="foreign" label="foreign ">foreign</option>
                                 </select>
-                                <span class="help-block text-danger" ng-show="form.usertype.$invalid && submitted">User Type is required</span>
+                                <span class="help-block text-danger" ng-show="form.usertype.$invalid && submitted"></span>
                             </div>
                         </div>
+                        <!-- <p translate="FOO" class="ng-scope"></p> -->
                         <div class="form-group" ng-class="error('typeId')" ng-show="newform.usertype == 'foreign'">
-                            <label for="typeId">Residence</label>
+                            <label for="typeId" translate="RESIDENCE" class="ng-scope"></label>
                             <div class="controls">
                                 <select  name="residence" id="residence" class="form-control" ng-model="newform.residence" ng-required = "newform.usertype == 'foreign' ">
-                                    <option value="" class="">Select your Residence</option>
+                                    <option value="" translate="SELECT_RESIDENCE" class="ng-scope"></option>
                                     <option value="costrica" label="Cost Rica">Cost Rica</option>
                                     <option value="other" label="Other ">Other</option>
                                 </select>
@@ -30,40 +31,40 @@
                             </div>
                         </div>
                         <div class="form-group" ng-class="error('title')" ng-show="newform.usertype == 'cedula'">
-                            <label for="title ">ID Number</label>
+                            <label for="title " translate="ID_NUMBER" class="ng-scope"></label>
                             <div class="controls">
                                 <input id="idnumber" ng-minlength="9" ng-maxlength="9" name="idnumber" type="number"  class="form-control" ng-model="newform.idnumber" ng-required="newform.usertype == 'cedula'"/>
-                                <span class="help-block text-danger" ng-show="form.idnumber.$invalid && submitted">Please Enter valid 9 digit ID!</span>
+            <span class="help-block text-danger" ng-show="form.idnumber.$invalid && submitted" translate="ID_DIGIT" class="ng-scope"></span>
                                 <span><button ng-click="loaddata()" class="btn btn-xl">Load</button><span>
                                         <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
                                         </div>
                                         </div>
                                         <div class="form-group" ng-class="error('title')" ng-show="newform.usertype == 'foreign'">
-                                            <label for="title ">Passport Number</label>
+                                            <label for="title " translate="PASSPORT_NUMBER" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="passport" ng-minlength="5" name="passport" type="text" class="form-control" ng-model="newform.passport" ng-required="newform.usertype == 'foreign'"/>
-                                                <span class="help-block text-danger" ng-show="form.passport.$invalid && submitted">Please Enter Valid Passport Number!</span>
+                                                <span class="help-block text-danger" ng-show="form.passport.$invalid && submitted" translate="PASSPORT_VALIDATION" class="ng-scope"></span>
                                                 <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
                                             </div>
                                         </div>
                                         <div class="form-group" ng-class="error('title')">
-                                            <label for="title ">First Name</label>
+                                            <label for="title " translate="FIRST_NAME" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="firstname" name="firstname" type="text" class="form-control" ng-model="newform.firstname" required/>
-                                                <span class="help-block text-danger" ng-show="form.firstname.$invalid && submitted">First Name is required!</span>
+                         <span class="help-block text-danger" ng-show="form.firstname.$invalid && submitted" translate="FIRST_NMAE_VALIDATION" class="ng-scope"></span>
                                                 <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('company')">
-                                            <label for="company">Lastname1 (optional)</label>
+                                            <label for="company" translate="LAST_NAME_1" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="Lastname1" name="Lastname1" type="text" class="form-control" ng-model="newform.Lastname1" />
                                                 <span class="help-block text-danger" ng-show="form.Lastname1.$invalid && submitted">Lastname1 is required!</span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('company')">
-                                            <label for="company">Lastname2 (optional)</label>
+                                            <label for="company" translate="LAST_NAME_2" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="Lastname2" name="Lastname2" type="text" class="form-control" ng-model="newform.Lastname2" />
                                                 <span class="help-block text-danger" ng-show="form.Lastname2.$invalid && submitted">Lastname2 is required!</span>
@@ -71,28 +72,28 @@
                                         </div>
                                         <div class="row">
                                             <div  class="form-group col-sm-6 col-md-6" >
-                                                <label for="postcode">Nationality</label>
+                                                <label for="postcode" translate="NATONALITY" class="ng-scope"></label>
                                                 <div class="controls">
                                                     <select name="nationality" id="nationality" class="form-control" ng-model="newform.nationality" required>
-                                                        <option value="" class="">Select your Nationality</option>
+                                                        <option value="" translate="SELECT_NATIONALITY" class="ng-scope"></option>
                                                         <option value="0" label=" Costarricense">Costarricense</option>
                                                         <option value="1" label="Por Opción">Por Opción</option>
                                                         <option value="2" label="Naturalizado">Naturalizado</option>
                                                         <option value="3" label="No indica nacionalidad">No indica nacionalidad</option>
                                                         <option value="4" label="Conserva nacionalidad">Conserva nacionalidad</option>
                                                     </select>
-                                                    <span class="help-block text-danger" ng-show="form.nationality.$invalid && submitted">Nationality is required</span>
+                                                    <span class="help-block text-danger" ng-show="form.nationality.$invalid && submitted" translate="NATONALITY_VALIDATION" class="ng-scope"></span>
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-6 col-md-6" ng-class="error('postcode')">
-                                                <label for="postcode">gender</label>
+                                                <label for="postcode" translate="GENDER" class="ng-scope">gender</label>
                                                 <div class="controls">
                                                     <select name="gender" id="gender" class="form-control" ng-model="newform.gender" required>
-                                                        <option value="" class="">Select your gender</option>
-                                                        <option value="1" label="Male">Male</option>
-                                                        <option value="2" label="Female">Female</option>
+                                                        <option value="" translate="SELECT_GENDER" class="ng-scope"></option>
+                                                        <option value="1" label="Male" translate="MALE" class="ng-scope"></option>
+                                                        <option value="2" label="Female" translate="FEMALE" class="ng-scope">Female</option>
                                                     </select>
-                                                    <span class="help-block text-danger" ng-show="form.gender.$invalid && submitted">Gender is required</span>
+                                                    <span class="help-block text-danger" ng-show="form.gender.$invalid && submitted" translate="GENDER_VALIDATION" class="ng-scope"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -102,38 +103,38 @@
                                             <div id="ced_address" ng-show="newform.usertype == 'cedula' || newform.residence == 'costrica'">
                                                 <div class="form-group col-sm-4 col-md-4">
                                                     <div class="controls">
-                                                        <label for="title ">Province</label>
+                                                        <label for="title " translate="PROVINCE" class="ng-scope"></label>
                                                         <select name="province" id="province" class="form-control" ng-model="newform.province" ng-required="newform.usertype == 'cedula'">
-                                                            <option value="" class="">Select your province</option>
+                                                <option value="" translate="SELECT_PROVINCE" class="ng-scope">Select your province</option>
                                                             <option value="0" label="San José">San José</option>
                                                         </select>
-                                                        <span class="help-block text-danger" ng-show="form.province.$invalid && submitted">Province is required</span>
+                                                        <span class="help-block text-danger" ng-show="form.province.$invalid && submitted" translate="PROVINCE_VALIDATION" class="ng-scope"></span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-4 col-md-4" >
                                                     <div class="controls">
-                                                        <label for="title ">County</label>
+                                                        <label for="title " translate="COUNTRY" class="ng-scope"></label>
                                                         <select name="county" id="county" class="form-control" ng-model="newform.county" ng-required="newform.usertype == 'cedula'">
-                                                            <option value="" class="">Select your county</option>
+                                                            <option value="" translate="SELECT_COUNTRY" class="ng-scope">Select your county</option>
                                                             <option value="0" label="Desamparados">Desamparados</option>
                                                             <option value="1" label="Dota">Dota</option>
                                                             <option value="2" label="Escazú">Escazú</option>
                                                             <option value="3" label="Goicoechea">Goicoechea</option>
                                                         </select>
-                                                        <span class="help-block text-danger" ng-show="form.county.$invalid && submitted">County is required</span>
+                                                        <span class="help-block text-danger" ng-show="form.county.$invalid && submitted" translate="COUNTRY_VALIDATION" class="ng-scope"></span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-4 col-md-4" >
                                                     <div class="controls">
-                                                        <label for="title ">District</label>
+                                                        <label for="title "  translate="DISTRICT" class="ng-scope"></label>
                                                         <select name="district" id="district" class="form-control" ng-model="newform.district" ng-required="newform.usertype == 'cedula'">
-                                                            <option value="" class="">Select your District</option>
+                                                            <option value="" translate="SELECT_DISTRICT" class="ng-scope"></option>
                                                             <option value="0" label="Cangrejal">Cangrejal</option>
                                                             <option value="1" label="Guaitil">Guaitil</option>
                                                             <option value="2" label="Palmichal">Palmichal</option>
                                                             <option value="3" label="Sabanillas">Sabanillas</option>
                                                         </select>
-                                                        <span class="help-block text-danger" ng-show="form.district.$invalid && submitted">District is required</span>
+                                                        <span class="help-block text-danger" ng-show="form.district.$invalid && submitted" translate="DISTRICT_VALIDATION" class="ng-scope"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -141,54 +142,54 @@
                                             <div id="foreign_address" ng-show="newform.usertype == 'foreign' && newform.residence != 'costrica'">
                                                 <div class="form-group col-sm-4 col-md-4">
                                                     <div class="controls">
-                                                        <label for="title ">Country</label>
+                                                        <label for="title" translate="COUNTRY" class="ng-scope"></label>
                                                         <select name="country" id="country" class="form-control" ng-model="newform.country" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
-                                                            <option value="" class="">Select your Country</option>
+                                                            <option value="" translate="SELECT_COUNTRY" class="ng-scope"></option>
                                                             <option value="1" label="Canada">Canada</option>
                                                             <option value="2" label="America">America</option>
                                                         </select>
-                                                        <span class="help-block text-danger" ng-show="form.country.$invalid && submitted">country is required</span>
+                                                        <span class="help-block text-danger" ng-show="form.country.$invalid && submitted" translate="COUNTRY_VALIDATION" class="ng-scope"></span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-4 col-md-4">
                                                     <div class="controls">
-                                                        <label for="title ">Province</label>
+                                                        <label for="title "  translate="PROVINCE" class="ng-scope"></label>
                                                         <select name="fprovince" id="fprovince" class="form-control" ng-model="newform.fprovince" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
-                                                            <option value="" class="">Select your Province</option>
+                                                            <option value="" translate="SELECT_PROVINCE" class="ng-scope"></option>
                                                             <option value="1" label="province1">province1</option>
                                                             <option value="2" label="province2">province2</option>
                                                         </select>
-                                                        <span class="help-block text-danger" ng-show="form.fprovince.$invalid && submitted">Province is required</span>
+                                                        <span class="help-block text-danger" ng-show="form.fprovince.$invalid && submitted" translate="PROVINCE_VALIDATION" class="ng-scope"></span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-4 col-md-4">
                                                     <div class="controls">
-                                                        <label for="title ">State</label>
+                                                        <label for="title " translate="STATE" class="ng-scope"></label>
                                                         <select name="state" id="state" class="form-control" ng-model="newform.state" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
-                                                            <option value="" class="">Select your State</option>
+                                                            <option value="" translate="SELECT_STATE" class="ng-scope"></option>
                                                             <option value="1" label="Stste1">Stste1</option>
                                                             <option value="2" label="Stste2">Stste2</option>
                                                         </select>
-                                                        <span class="help-block text-danger" ng-show="form.state.$invalid && submitted">State is required</span>
+                                                        <span class="help-block text-danger" ng-show="form.state.$invalid && submitted" translate="STATE_VALIDATION" class="ng-scope"></span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-4 col-md-4" >
                                                     <div class="controls">
-                                                        <label for="title ">City</label>
+                                                        <label for="title " translate="CITY" class="ng-scope"></label>
                                                         <select name="city" id="city" class="form-control" ng-model="newform.city" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
-                                                            <option value="" class="">Select your City</option>
+                                                            <option value="" translate="SELECT_CITY" class="ng-scope"></option>
                                                             <option value="1" label="City1">City1</option>
                                                             <option value="2" label="City2">City2</option>
                                                         </select>
-                                                        <span class="help-block text-danger" ng-show="form.city.$invalid && submitted">City is required</span>
+                                                        <span class="help-block text-danger" ng-show="form.city.$invalid && submitted" translate="CITY_VALIDATION " class="ng-scope"></span>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-4 col-md-4" >
                                                     <div class="controls">
-                                                        <label for="company">Zip </label>
+                                                        <label for="company" translate="ZIP " class="ng-scope"> </label>
                                                         <div class="controls">
                                                             <input id="zip" name="zip" type="number" class="form-control" ng-model="newform.zip" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' "/>
-                                                            <span class="help-block text-danger" ng-show="form.zip.$invalid && submitted">ZipCode is required!</span>
+                                                            <span class="help-block text-danger" ng-show="form.zip.$invalid && submitted"translate="ZIP_VALIDATION " class="ng-scope"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -196,39 +197,39 @@
                                         </div>
                                         <div id="addresses" ng-show="newform.usertype == 'foreign' || newform.usertype == 'cedula'">
                                             <div class="form-group  col-sm-6 col-md-6" ng-class="error('title')">
-                                                <label for="title ">Address1</label>
+                                                <label for="title " translate="ADRESS1" class="ng-scope"></label>
                                                 <div class="controls">
                                                     <input id="address1" name="address1" type="text" class="form-control" ng-model="newform.address1" required/>
-                                                    <span class="help-block text-danger" ng-show="form.address1.$invalid && submitted">Address1 is required!</span>
+                        <span class="help-block text-danger" ng-show="form.address1.$invalid && submitted" translate="ADRESS1_VALIDATION" class="ng-scope"></span>
                                                     <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
                                                 </div>
                                             </div>
                                             <div class="form-group  col-sm-6 col-md-6" ng-class="error('company')">
-                                                <label for="company">Address2 (optional)</label>
+                                                <label for="company" translate="ADRESS2" class="ng-scope"></label>
                                                 <div class="controls">
                                                     <input id="address2" name="address2" type="text" class="form-control" ng-model="newform.address2" />
-                                                    <span class="help-block text-danger" ng-show="form.address2.$invalid && submitted">Address2 is required!</span>
+                                                    <span class="help-block text-danger" ng-show="form.address2.$invalid && submitted" translate="ADRESS2_VALIDATION" class="ng-scope"></span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('company')" ng-show="newform.usertype == 'cedula'">
-                                            <label for="company">Postcode</label>
+                                            <label for="company" translate="POSTAL_CODE" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="postcode" name="postcode" type="number" class="form-control" ng-model="newform.postcode" ng-required="newform.usertype == 'cedula'"/>
-                                                <span class="help-block text-danger" ng-show="form.postcode.$invalid && submitted">Postcode is required!</span>
+                                                <span class="help-block text-danger" ng-show="form.postcode.$invalid && submitted" translate="POSTAL_CODE_VALIDATION" class="ng-scope"></span>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="form-group col-sm-6 col-md-6" ng-class="error('suburb')">
-                                                <label for="suburb">Date of birth</label>
+                                                <label for="suburb" translate="DATE_OF_BIRTH" class="ng-scope"></label>
                                                 <div class="controls">
                                                     <input type="text" ng-minlength="8" ng-maxlength="8" placeholder="YYYYMMDD" id="dob" name="dob" ng-model="newform.dob"  min="1950-01-01" required>
-                                                    <span class="help-block text-danger" ng-show="form.dob.$invalid && submitted">Please enter Valid Date of birth!</span>
+                                                    <span class="help-block text-danger" ng-show="form.dob.$invalid && submitted" translate="DATE_OF_BIRTH_VALIDATION" class="ng-scope"></span>
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-6 col-md-6" ng-class="error('suburb')">
-                                                     <h4><label for="suburb">Dead : {{newform.death?'Yes':'No'}}</label></h4>
+                                                     <h4><label for="suburb"><span translate="DEAD" class="ng-scope"></span> : {{newform.death?'Yes':'No'}}</label></h4>
                                                 <input type="hidden" name="death" id="death" class="form-control" ng-model="newform.death" />
                                             </div>
 <!--                                            <div class="form-group col-sm-6 col-md-6" ng-class="error('suburb')">
@@ -240,10 +241,10 @@
                                                 <span class="help-block text-danger" ng-show="form.death.$invalid && submitted">Death Value is required!</span>
                                             </div>-->
                                         </div>
-                                        <div class="row">
-                                        <div class="col-md-12">
-                                        <h3>Upload Profile Picture</h3>
-                                        Select Image
+                                          <div class="form-group  col-sm-12 col-md-12" ng-class="error('google')">
+                                            <div class="col-md-12">
+                                        <h3 translate="UPLOAD_PROFILE_PIC" class="ng-scope"></h3>
+                                        <span translate="SELECT_IMAGE" class="ng-scope"></span>
                                         <input type="file" nv-file-select="" uploader="profile_uploader" />
                                         </div>
                                             
@@ -267,13 +268,13 @@
                                                         <td nowrap>
                                                             {{item.upload}}
                                                             <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                                                                <span class="glyphicon glyphicon-upload"></span> Upload
+                                                                <span class="glyphicon glyphicon-upload"></span>  <span translate="UPLOAD" class="ng-scope"></span>
                                                             </button>
                                                             <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                                                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                                                <span class="glyphicon glyphicon-ban-circle"></span>  <span translate="CANCEL" class="ng-scope"></span>
                                                             </button>
                                                             <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
-                                                                <span class="glyphicon glyphicon-trash"></span> Remove
+                                                                <span class="glyphicon glyphicon-trash"></span>     <span translate="REMOVE" class="ng-scope"></span> 
                                                             </button><br>
                                                         </td>
                                                     </tr>
@@ -283,59 +284,60 @@
                     
                     
                     
-                                        <h3>Contact Info</h3>
+                                        <h3 translate="CONTACT_INFO" class="ng-scope"></h3>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('phone1')">
-                                            <label for="phone1">Phone1 (optional)</label>
+                                            <label for="phone1" translate="PHONE1" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="phone1" name="phone1" type="text" class="form-control" ng-model="newform.phone1" />
-                                                <span class="help-block text-danger" ng-show="form.phone1.$invalid && submitted">phone1 is required!</span>
+                                                <span class="help-block text-danger" ng-show="form.phone1.$invalid && submitted"></span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('phone2')">
-                                            <label for="phone2">Phone2 (optional)</label>
+                                            <label for="phone2" translate="PHONE2" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="phone2" name="phone2" type="text" class="form-control" ng-model="newform.phone2" />
-                                                <span class="help-block text-danger" ng-show="form.phone2.$invalid && submitted">phone2 is required!</span>
+                                                <span class="help-block text-danger" ng-show="form.phone2.$invalid && submitted"></span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('email1')">
-                                            <label for="email1">Email1 (optional)</label>
+                                            <label for="email1" translate="EMAIL1" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="email1" name="email1" type="text" class="form-control" ng-model="newform.email1" />
-                                                <span class="help-block text-danger" ng-show="form.email1.$invalid && submitted">email1 is required!</span>
+                                                <span class="help-block text-danger" ng-show="form.email1.$invalid && submitted">
+                                                email1 is required!</span>
                                             </div>
                                         </div>
                                         
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('email2')">
-                                            <label for="email2">Email2 (optional)</label>
+                                            <label for="email2" translate="EMAIL2" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="email2" name="email2" type="text" class="form-control" ng-model="newform.email2" />
                                                 <span class="help-block text-danger" ng-show="form.email2.$invalid && submitted">email2 is required!</span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('cellphone')">
-                                            <label for="cellphone">Cellphone1 (optional)</label>
+                                            <label for="cellphone" translate="CELLPHONE1" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="cellphone" name="cellphone" type="text" class="form-control" ng-model="newform.cellphone" />
                                                 <span class="help-block text-danger" ng-show="form.cellphone.$invalid && submitted">cellphone is required!</span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('cellphone2')">
-                                            <label for="cellphone2">cellphone2 (optional)</label>
+                                            <label for="cellphone2" translate="CELLPHONE2" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="cellphone2" name="cellphone2" type="text" class="form-control" ng-model="newform.cellphone2" />
                                                 <span class="help-block text-danger" ng-show="form.cellphone2.$invalid && submitted">cellphone2 is required!</span>
                                             </div>
                                         </div>
                                          <div class="form-group  col-sm-6 col-md-6" ng-class="error('homephone')">
-                                            <label for="homephone">Homephone (optional)</label>
+                                            <label for="homephone" translate="HOMEPHONE" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="homephone" name="homephone" type="text" class="form-control" ng-model="newform.homephone" />
                                                 <span class="help-block text-danger" ng-show="form.homephone.$invalid && submitted">homephone is required!</span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('fax')">
-                                            <label for="fax">fax (optional)</label>
+                                            <label for="fax" translate="FAX" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="fax" name="fax" type="text" class="form-control" ng-model="newform.fax" />
                                                 <span class="help-block text-danger" ng-show="form.fax.$invalid && submitted">fax is required!</span>
@@ -346,35 +348,35 @@
                                         
                                         <h3>Social Info</h3>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('facebook')">
-                                            <label for="facebook">Facebook (optional)</label>
+                                            <label for="facebook" translate="FACEBOOK" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="facebook" name="facebook" type="text" class="form-control" ng-model="newform.facebook" />
                                                 <span class="help-block text-danger" ng-show="form.phone1.$invalid && submitted">facebook is required!</span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('twitter')">
-                                            <label for="twitter">Twitter (optional)</label>
+                                            <label for="twitter" translate="TWITTER" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="twitter" name="twitter" type="text" class="form-control" ng-model="newform.twitter" />
                                                 <span class="help-block text-danger" ng-show="form.twitter.$invalid && submitted">twitter is required!</span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('linkedin')">
-                                            <label for="linkedin">Linked in (optional)</label>
+                                            <label for="linkedin" translate="LINKEDIN" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="linkedin" name="linkedin" type="text" class="form-control" ng-model="newform.linkedin" />
                                                 <span class="help-block text-danger" ng-show="form.linkedin.$invalid && submitted">linkedin is required!</span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('google')">
-                                            <label for="google">Google (optional)</label>
+                                            <label for="google" translate="GOOGLE" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="google" name="google" type="text" class="form-control" ng-model="newform.google" />
                                                 <span class="help-block text-danger" ng-show="form.google.$invalid && submitted">google is required!</span>
                                             </div>
                                         </div>
 
-                                        <h3>Photo ID's</h3>
+                                        <h3 translate="PHOTO_ID" class="ng-scope"></h3>
                                         <input id="photoids" name="photoids" type="hidden" class="form-control" ng-model="newform.photoids" />
                                         <div class="form-group  col-sm-12 col-md-12" ng-class="error('google')">
 
@@ -382,12 +384,12 @@
 
                                                 <div ng-show="uploader.isHTML5">
                                                     <!-- 3. nv-file-over uploader="link" over-class="className" -->
-                                                    <div class="well my-drop-zone" nv-file-over="" uploader="uploader">
-                                                        Drag/Drop Files Here
+                                                    <div class="well my-drop-zone" nv-file-over="" uploader="uploader" translate="DRAP_DROP_IMAGE" class="ng-scope"> 
+                                                        
                                                     </div>
                                                 </div>
                                                 <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
-                                                Add Image
+                                                <span translate="ADD_IMAGE" class="ng-scope"></span>
                                                 <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
                                             </div>
 
@@ -397,6 +399,10 @@
                                                     
                                                     <tr ng-repeat="item in uploader.queue">
                                                         <td id="{{removespaces(item.file.name)}}" style="width: 150px"></td>
+                                                       <td>
+                                                       <!-- <img style="height :100px; width : 133px;"   
+                                                       src="{{path}}/public/upload_images/id_images/{{item.file.name}}" />
+                                                       </td>  -->
                                                         <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size / 1024 / 1024|number:2 }} MB</td>
                                                         <td ng-show="uploader.isHTML5" style="width : 200px">
                                                             <div class="progress" style="margin-bottom: 0;">
@@ -411,13 +417,13 @@
                                                         <td nowrap>
                                                             {{item.upload}}
                                                             <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                                                                <span class="glyphicon glyphicon-upload"></span> Upload
+                                                                <span class="glyphicon glyphicon-upload"></span> <span translate="UPLOAD" class="ng-scope"></span>
                                                             </button>
                                                             <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                                                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                                                <span class="glyphicon glyphicon-ban-circle"></span> <span translate="CANCEL" class="ng-scope"></span> 
                                                             </button>
                                                             <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
-                                                                <span class="glyphicon glyphicon-trash"></span> Remove
+                                                                <span class="glyphicon glyphicon-trash"></span> <span translate="REMOVE" class="ng-scope"></span>
                                                             </button><br>
                                                         </td>
                                                     </tr>
@@ -427,19 +433,19 @@
 
                                             <div>
                                                 <div>
-                                                    All Items Progress:
+                                                             <span translate="ALL_ITEMS_PROGRESS" class="ng-scope">  :</span>
                                                     <div class="progress" style="">
                                                         <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
                                                     </div>
                                                 </div>
                                                 <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
-                                                    <span class="glyphicon glyphicon-upload"></span> Upload all
+                                                    <span class="glyphicon glyphicon-upload"></span><span translate="UPLOAD_ALL" class="ng-scope"></span>
                                                 </button>
                                                 <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
-                                                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                                                    <span class="glyphicon glyphicon-ban-circle"></span><span translate="CANCELL_ALL" class="ng-scope"></span>
                                                 </button>
                                                 <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
-                                                    <span class="glyphicon glyphicon-trash"></span> Remove all
+                                                    <span class="glyphicon glyphicon-trash"></span> <span translate="REMOVE_ALL" class="ng-scope"></span>
                                                 </button>
                                             </div>
                                         </div>

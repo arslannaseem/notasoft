@@ -3,15 +3,19 @@
 (function () {
 
     angular.module("JobbaApp")
-            .controller('addclientController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', 'FileUploader', function ($scope, $http, newClientFormDataService, $location, $routeParams, FileUploader) {
+            .controller('addclientController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', 'FileUploader', '$timeout', function ($scope, $http, newClientFormDataService, $location, $routeParams, FileUploader, $timeout, $translate) {
 
 
+                    
                     $scope.result2 = '';
                     $scope.newform = {};
+                       $scope.title = "Add Client";
+                       $scope.path = path;
                     if ($routeParams.type) {            //if the page is opened for editing perform editing functions
                         $scope.newform.usertype = $routeParams.type;
                         $http.post(path + '/edit_client_data', {idnumber: $routeParams.value, type: $routeParams.type}).success(function (response) {
                             if (response == '') {
+                              
                                 $scope.newform.Lastname1 = '';
                                 $scope.newform.Lastname2 = '';
                                 $scope.newform.death = '';
@@ -20,7 +24,13 @@
                                 $scope.newform.gender = '';
                                 $scope.newform.nationality = '';
                             } else {
+                                    $scope.title = "Edit Client";
+                                $scope.newform.edit = true;
+                                // console.log($scope.newform.edit);
                                 if ($routeParams.type == 'cedula') {
+                                    $scope.newform.idnumber =  parseFloat(response[0].idnumber,10);
+                                 $scope.newform.postcode = parseFloat(response[0].postcode,10);
+                                     $scope.newform.county = response[0].county;
                                     $scope.newform.Lastname1 = response[0].Lastname1;
                                     $scope.newform.Lastname2 = response[0].Lastname2;
                                     $scope.newform.death = response[0].death;
@@ -35,6 +45,9 @@
                                     $scope.newform.district = response[0].district;
                                     $scope.newform.idnumber = response[0].idnumber;
                                 } else if ($routeParams.type == 'foreign') {
+                                    $scope.newform.idnumber = parseFloat(response[0].idnumber,10);
+                                    $scope.newform.postcode = parseFloat(response[0].postcode,10);
+                                    $scope.newform.county = response[0].county;
                                     $scope.newform.address1 = response[0].address1;
                                     $scope.newform.address2 = response[0].address2;
                                     $scope.newform.city = response[0].city;
@@ -62,35 +75,76 @@
                                     $scope.newform.twitter = response[0].twitter;
                                     $scope.newform.linkedin = response[0].linkedin;
                                     $scope.newform.google = response[0].google;
-                                    $scope.newform.photoids = response[0].photoids;
+                                    $scope.newform.photoids = response[0].photoids;  //comma separated string of images attached to client
+                                    $scope.newform.profile_image = response[0].profile_image; 
+
+
+                                    var profile_url = path + '/public/upload_images/id_images/' + $scope.newform.profile_image;
+                                    $http.get(profile_url,{responseType: "blob"}).success(function(data, status, headers, config) {
+                                        var mimetype = data.type;
+                                        var file = new File([data], $scope.newform.profile_image,{type:mimetype});
+                                        var dummy = new FileUploader.FileItem(profile_uploader, {});
+                                        dummy._file = file;
+                                        dummy.file = dummy._file;
+                                        dummy.progress = 100;
+                                        dummy.isUploaded = true;
+                                        dummy.isSuccess = true;
+                                        profile_uploader.queue.push(dummy);
+
+                                    }).error(function(data, status, headers, config) {
+                                        alert("The url could not be loaded...\n (network error? non-valid url? server offline? etc?)");
+                                    });
+
+                                     //display already uploaded image in edit 
+                                        $timeout(function(){
+                                              $('#pr_image').html('<img width="133px" heigh="100px" src="'+ profile_url +'">');
+                                        }, 100); 
+
+
+
+
+
+                                    // var existing_images = $scope.newform.photoids.split(',');
                                     
+                                    //converting string to array
+                                    $scope.existing_images = new Array();
+                                    $scope.existing_images = $scope.newform.photoids.split(',');
+                                    // console.log('exploded images ' + existing_images[1]);
+                                    
+                                    //loop to convert each image in file object and push it to uploader queue so user can see the 
+                                    //uploaded images for editing
+                                   angular.forEach($scope.existing_images, function(value, key) {
                                     //code to auto upload files to uploader
-                                    var url = path + '/public/upload_images/id_images/Desert.jpg';
-//                                    console.log('url' + url);
+                                    var url = path + '/public/upload_images/id_images/' + value;
                                     $http.get(url,{responseType: "blob"}).success(function(data, status, headers, config) {
                                         var mimetype = data.type;
-//                                        console.log('mimetype' + mimetype);
-                                        var file = new File([data], "Desert.jpg",{type:mimetype});
-//                                        console.log('file' +file);
+                                        var file = new File([data], value,{type:mimetype});
                                         var dummy = new FileUploader.FileItem(uploader, {});
                                         dummy._file = file;
                                         dummy.file = dummy._file;
                                         dummy.progress = 100;
                                         dummy.isUploaded = true;
                                         dummy.isSuccess = true;
-//                                        console.log('dummy'+ dummy)
-                                        console.log('this fine' + dummy.file.name);
                                         uploader.queue.push(dummy);
-                                        console.log(uploader.queue);
-                                        
+
                                     }).error(function(data, status, headers, config) {
                                         alert("The url could not be loaded...\n (network error? non-valid url? server offline? etc?)");
                                     });
-                            }
-                        });
-                    }
+                                });
+                                //display already uploaded images in edit 
+                                        $timeout(function(){
+                                              angular.forEach($scope.existing_images, function(val, key) {
+                                                                        console.log('ssss' + '<img src="'+ path + '/public/upload_images/id_images/' + val + '">');
+                                                                            $('#'+$scope.removespaces(val)).html('<img width="133px" heigh="100px" src="'+ path + '/public/upload_images/id_images/' + val +'">');
+                                                                        });
 
-                    $scope.title = "Add Client";
+                                        }, 500); 
+                                 
+                                }
+                        });
+                    }      
+                  
+                    // $scope.title = "Add Client";
 
                     $scope.loaddata = function () {         //load selected client data
                         $http.post(path + '/load_client_data', {idnumber: $('#idnumber').val()}).success(function (response) {

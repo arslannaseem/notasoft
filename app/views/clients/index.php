@@ -81,6 +81,7 @@
 	    <!-- local angularjs file -->
          <?php echo HTML::script('public/js/app.js') ?>
 
+
 	    <!-- Angularjs controllers -->
         <?php echo HTML::script('public/js/controllers/addclientController.js') ?>
         <?php echo HTML::script('public/js/controllers/clientController.js') ?>
@@ -105,6 +106,9 @@
         <?php echo HTML::script('public/js/lib/angular-1.3.12/angular-touch.min.js') ?>       
         <?php echo HTML::script('public/js/lib/angular-1.3.12/angular-cookies.js') ?>       
         <?php echo HTML::script('public/js/lib/angular-1.3.12/angularjs-geolocation.min.js') ?>  
+
+        <!--Library for localization -->
+        <?php echo HTML::script('public/js/lib/angular-translate.js') ?>  
 </body>
 
 </html>

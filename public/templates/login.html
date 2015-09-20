@@ -19,7 +19,7 @@
                 <div ng-controller="loginController">
                     <form name="form" role="form" method="POST" ng-submit="login(newuser, form.$valid)" novalidate>
                         <div class="form-group" ng-class="error('email')">
-                            <label for="email">Email</label>
+                            <label for="email" translate="EMAIL" class="ng-scope"></label>
                             <div class="controls">
                                 <input id="email" name="email" type="email" class="form-control" ng-model="newuser.email" placeholder="yourname@domain.com" required/>
                                 <span class="help-block text-danger" ng-show="form.email.$invalid && submitted">Email address is required
@@ -27,20 +27,20 @@
                             </div>
                         </div>
                         <div class="form-group" ng-class="error('password')">
-                            <label for="password">Password</label>
+                            <label for="password" translate="PASSWORD" class="ng-scope"></label>
                             <div class="controls">
                                 <input id="password" name="password" type="password" class="form-control" ng-model="newuser.password" placeholder="Password" ng-minlength="6" required/>
                                 <span class="help-block text-danger" ng-show="form.password.$invalid && submitted">Password should contain at least 6 characters 
                                                             </span>
                             </div>
                         </div>
-                        <p class="pull-right"><a href="#forgot">Forgot Password?</a></p>
+                        <p class="pull-right"><a href="#forgot" translate="FORGET_PASSWORD" class="ng-scope"></a></p>
                         <br>
                         <br>
                         <br>
                         <div class="control-group">
                             <div class="controls text-center">
-                                <button ng-click="submitted=true" class="btn btn-xl">Sign in</button>
+                                <button ng-click="submitted=true" class="btn btn-xl ng-scope" translate="SIGN_IN"></button>
                             </div>
                         </div>
                     </form>
@@ -51,7 +51,7 @@
 </div>
 <!-- Nav -->
 <nav class="text-center">
-    <h5>
+    <h5 translate="NEW_TO_CASE" class=" ng-scope">
         New to case?
     </h5>
 </nav>
