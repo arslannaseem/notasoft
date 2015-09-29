@@ -31,6 +31,14 @@ Route::post('/forgotpassword', 'UserController@forgotpassword');
 Route::post('/activateUser', 'UserController@activate_user');
 Route::get('/login', 'UserController@index');
 
+// Categories For image
+ Route::post('/category_list','ClientsController@image_categories');
+ 
+// Add Corporation
+ Route::post('/add_corporation','CorporationController@add_corporation');
+ // list of all corporations
+ Route::post('/load_corporations','CorporationController@load_corporation');
+
 
 
 

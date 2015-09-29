@@ -1,16 +1,216 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="row">
+    <div class="col-md-6 col-lg-7 col-center">
+        <div class="panel">
+            <header class="panel-heading">
+                <h1>{{title}}</h1>
+            </header>
+            <div class="panel-body">
+                <div>
+                    <form name="form" role="form" method="POST" ng-submit="addcorporation(newform, form.$valid)" novalidate nv-file-drop=""  filters="queueLimit, customFilter">
+                        <div class="form-group" ng-class="error('typeId')">
+                            <label for="typeId">Corporation Name</label>
+                            <div class="controls">
+                                <select ng-change="reset()" name="corporation_name" id="corporation_name" class="form-control" ng-model="newform.corporation_name" required>
+                                    <option value="" class="">Select your Name</option>
+                                    <option value="commercial" label="commercial">commercial</option>
+                                    <option value="Non Commercial" label="foreign ">Non Commercial</option>
+                                </select>
+                                <span class="help-block text-danger" ng-show="form.corporation_name.$invalid && submitted">Corporation Name is required</span>
+                            </div>
+                        </div>
+                        <!-- <p translate="FOO" class="ng-scope"></p> -->
+
+                        <div class="form-group" ng-class="error('title')" >
+                            <label for="title ">ID Number </label>
+                            <div class="controls">
+                                <input id="idnumber" ng-minlength="9" ng-maxlength="9" name="idnumber" type="number"  class="form-control" ng-model="newform.idnumber" />
+                                <span class="help-block text-danger" ng-show="form.idnumber.$invalid && submitted">Please Enter valid 9 digit ID!</span>
+                                <span><button ng-click="loaddata()" class="btn btn-xl">Load</button><span>
+                                        <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
+                                        </div>
+                                        </div>
+                                     
+                                        <div class="form-group" ng-class="error('title')">
+                                            <label for="title ">Registration book</label>
+                                            <div class="controls">
+                                                <input id="registration_book" name="registration_book" type="text" class="form-control" ng-model="newform.registration_book" required/>
+                                                <span class="help-block text-danger" ng-show="form.registration_book.$invalid && submitted">Registration Book is required!</span>
+                                                <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
+                                            </div>
+                                        </div>
+                                        <hr>
+                                     
+                                        
+
+
+                                        <div class="row" >
+                                            <div id="ced_address" >
+                                                <div class="form-group col-sm-4 col-md-4">
+                                                    <div class="controls">
+                                                        <label for="title ">Province</label>
+                                                        <select name="province" id="province" class="form-control" ng-model="newform.province" required>
+                                                            <option value="" class="">Select your province</option>
+                                                            <option value="0" label="San José">San José</option>
+                                                        </select>
+                                                        <span class="help-block text-danger" ng-show="form.province.$invalid && submitted">Province is required</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4 col-md-4" >
+                                                    <div class="controls">
+                                                        <label for="country">County</label>
+                                                        <select name="country" id="country" class="form-control" ng-model="newform.country" required>
+                                                            <option value="" class="">Select your county</option>
+                                                            <option value="0" label="Desamparados">Desamparados</option>
+                                                            <option value="1" label="Dota">Dota</option>
+                                                            <option value="2" label="Escazú">Escazú</option>
+                                                            <option value="3" label="Goicoechea">Goicoechea</option>
+                                                        </select>
+                                                        <span class="help-block text-danger" ng-show="form.country.$invalid && submitted">County is required</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4 col-md-4" >
+                                                    <div class="controls">
+                                                        <label for="district">District</label>
+                                                        <select name="district" id="district" class="form-control" ng-model="newform.district" required>
+                                                            <option value="" class="">Select your District</option>
+                                                            <option value="0" label="Cangrejal">Cangrejal</option>
+                                                            <option value="1" label="Guaitil">Guaitil</option>
+                                                            <option value="2" label="Palmichal">Palmichal</option>
+                                                            <option value="3" label="Sabanillas">Sabanillas</option>
+                                                        </select>
+                                                        <span class="help-block text-danger" ng-show="form.district.$invalid && submitted">District is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="foreign_address" >
+                                                <div class="form-group col-sm-4 col-md-4" >
+                                                    <div class="controls">
+                                                        <label for="capital">Capital</label>
+                                                        <select name="capital" id="capital" class="form-control" ng-model="newform.capital" required>
+                                                            <option value="" class="">Select your Capital</option>
+                                                            <option value="1" label="Capital 1">Capital 1</option>
+                                                            <option value="2" label="Capital 2">Capital 2</option>
+                                                        </select>
+                                                        <span class="help-block text-danger" ng-show="form.capital.$invalid && submitted">Capital is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="addresses" >
+                                            <div class="form-group  col-sm-6 col-md-6" ng-class="error('title')">
+                                                <label for="address1">Address1</label>
+                                                <div class="controls">
+                                                    <input id="address1" name="address1" type="text" class="form-control" ng-model="newform.address1" required/>
+                                                    <span class="help-block text-danger" ng-show="form.address1.$invalid && submitted">Address1 is required!</span>
+                                                    <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
+                                                </div>
+                                            </div>
+                                            <div class="form-group  col-sm-6 col-md-6" ng-class="error('company')">
+                                                <label for="address2">Address2 (optional)</label>
+                                                <div class="controls">
+                                                    <input id="address2" name="address2" type="text" class="form-control" ng-model="newform.address2" />
+                                                    <span class="help-block text-danger" ng-show="form.address2.$invalid && submitted">Address2 is required!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('company')" >
+                                            <label for="share_value">Share Value</label>
+                                            <div class="controls">
+                                                <input id="share_value" name="share_value" type="text" class="form-control" ng-model="newform.share_value" required/>
+                                                <span class="help-block text-danger" ng-show="form.share_value.$invalid && submitted">Share Value is required!</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                           
+                                           
+                                            <!--                                            <div class="form-group col-sm-6 col-md-6" ng-class="error('suburb')">
+                                                                                            <label for="suburb">Dead</label>
+                                                                                                                                        <select name="death" id="death" class="form-control" ng-model="newform.death" required>
+                                                                                                                                            <option value="0" label="No">No</option>
+                                                                                                <option value="1" label="Yes">Yes</option>
+                                                                                            </select>
+                                                                                            <span class="help-block text-danger" ng-show="form.death.$invalid && submitted">Death Value is required!</span>
+                                                                                        </div>-->
+                                        </div>
+                                        
+
+
+
+                                        <h3>Board Of Directors</h3>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                            <label for="president">President</label>
+                                            <div class="controls">
+                                                <input id="president" name="president" type="text" class="form-control" ng-model="newform.president" required/>
+                                                <span class="help-block text-danger" ng-show="form.president.$invalid && submitted">President is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('vice_president')">
+                                            <label for="vice_president">Vice President</label>
+                                            <div class="controls">
+                                                <input id="phone2" name="vice_president" type="text" class="form-control" ng-model="newform.vice_president" required/>
+                                                <span class="help-block text-danger" ng-show="form.vice_president.$invalid && submitted">Vice President is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('secretary')">
+                                            <label for="secretary">Secretary</label>
+                                            <div class="controls">
+                                                <input id="email1" name="secretary" type="text" class="form-control" ng-model="newform.secretary" required/>
+                                                <span class="help-block text-danger" ng-show="form.secretary.$invalid && submitted">Secretary is required!</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('treasurer')">
+                                            <label for="treasurer">Treasurer</label>
+                                            <div class="controls">
+                                                <input id="email2" name="treasurer" type="text" class="form-control" ng-model="newform.treasurer" required/>
+                                                <span class="help-block text-danger" ng-show="form.treasurer.$invalid && submitted">Treasurer is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('comptroller')">
+                                            <label for="comptroller">Comptroller</label>
+                                            <div class="controls">
+                                                <input id="comptroller" name="comptroller" type="text" class="form-control" ng-model="newform.comptroller" required/>
+                                                <span class="help-block text-danger" ng-show="form.comptroller.$invalid && submitted">Comptroller is required!</span>
+                                            </div>
+                                        </div>
+<!--                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('cellphone2')">
+                                            <label for="cellphone2">cellphone2 (optional)</label>
+                                            <div class="controls">
+                                                <input id="cellphone2" name="cellphone2" type="text" class="form-control" ng-model="newform.cellphone2" />
+                                                <span class="help-block text-danger" ng-show="form.cellphone2.$invalid && submitted">cellphone2 is required!</span>
+                                            </div>
+                                        </div>-->
+
+                                        <h3>Managers</h3>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('manager1')">
+                                            <label for="manager1">Manager1</label>
+                                            <div class="controls">
+                                                <input id="twitter" name="manager1" type="text" class="form-control" ng-model="newform.manager1" required/>
+                                                <span class="help-block text-danger" ng-show="form.manager1.$invalid && submitted">Manager1 is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('manager2')">
+                                            <label for="manager2">Manager2</label>
+                                            <div class="controls">
+                                                <input id="linkedin" name="manager2" type="text" class="form-control" ng-model="newform.manager2" required/>
+                                                <span class="help-block text-danger" ng-show="form.manager2.$invalid && submitted">Manager2 is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <button ng-click="submitted = true" class="btn btn-xl">Save</button>
+                                            </div>
+                                        </div>
+                                        </form>
+                                        </div>
+                                        
+                                        <!--</form>-->
+                                        </div>
+            
+                                        </div>
+                                        </div>
+                                        </div>
+
+                                       

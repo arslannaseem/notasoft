@@ -70,6 +70,16 @@
 			templateUrl: 'public/templates/addclient.html',
 			controller: 'addclientController'
 		})
+                .when('/addcorporations',
+		{
+			templateUrl: 'public/templates/corporations.html',
+			controller: 'corporationsController'
+		})
+                .when('/corporations',
+		{
+			templateUrl: 'public/templates/loadCorporations.html',
+			controller: 'allCorporationsController'
+		})
                 .when('/forgot',
                             {
                                 templateUrl: 'public/templates/forgot.html',

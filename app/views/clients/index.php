@@ -90,6 +90,8 @@
         <?php echo HTML::script('public/js/controllers/registersuccessController.js') ?>
         <?php echo HTML::script('public/js/controllers/forgotController.js') ?>
         <?php echo HTML::script('public/js/controllers/verifyController.js') ?>
+        <?php echo HTML::script('public/js/controllers/corporationsController.js') ?>
+        <?php echo HTML::script('public/js/controllers/allCorporationsController.js') ?>
         
         
             

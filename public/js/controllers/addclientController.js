@@ -6,7 +6,10 @@
             .controller('addclientController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', 'FileUploader', '$timeout', function ($scope, $http, newClientFormDataService, $location, $routeParams, FileUploader, $timeout, $translate) {
 
 
-                    
+                      $http.post(path + '/category_list').success(function (response) {
+                                   $scope.image_cat = response;
+                        });
+                            
                     $scope.result2 = '';
                     $scope.newform = {};
                        $scope.title = "Add Client";
@@ -125,6 +128,7 @@
                                         dummy.progress = 100;
                                         dummy.isUploaded = true;
                                         dummy.isSuccess = true;
+                                        dummy.cat_name = 1;
                                         uploader.queue.push(dummy);
 
                                     }).error(function(data, status, headers, config) {
@@ -230,10 +234,6 @@
                                         console.log(data);
                                     });
 
-
-
-
-
                         }
 
                     };
@@ -268,14 +268,23 @@
         
         //function to update comma separated selected file names
         $scope.fileslist = function(){
+
             angular.forEach(uploader.queue, function(value, key) {
-                   if(key == 0)
-                       $scope.newform.photoids = value.file.name;
-                   else
-                       $scope.newform.photoids += ',' + value.file.name;
+                $scope.category = value.file.name + '_category';
+                // console.log('Test ' + document.getElementById($scope.category));
+                console.log('Category Value ' + $("#" + $scope.category).val());
+
+                
+              // $scope.newform.photoids =   array.push(value.file.name +'');
+
+                   // if(key == 0)
+                   //     $scope.newform.photoids = value.file.name;
+                   // else
+                   // $scope.newform.photoids += ',' + value.file.name;
                  });
                  console.log($scope.newform.photoids);
           }
+
         var uploader = $scope.uploader = new FileUploader({
             url: path + '/public/php_libraries/upload.php'
         });
@@ -320,12 +329,16 @@
             console.info('onCancelItem', fileItem, response, status, headers);
         };
         uploader.onCompleteItem = function(fileItem, response, status, headers) {
-            console.info('onCompleteItem', fileItem, response, status, headers);
+
             
             //loading image after upload completion
             $('<img src="'+ path + '/public/upload_images/id_images/' + fileItem.file.name +'">').load(function() {
+                        
                     $(this).width('133px').height('100px').appendTo('#'+$scope.removespaces(fileItem.file.name));
                     $('#'+$scope.removespaces(fileItem.file.name)).append(fileItem.file.name);
+                 //   $('#'+$scope.removespaces(fileItem.file.name)).append(fileItem.file.name);
+                     
+
             }).error(function(){
                     $('#'+$scope.removespaces(fileItem.file.name)).append(fileItem.file.name);
             });

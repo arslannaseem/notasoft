@@ -110,5 +110,9 @@ class ClientsController extends BaseController {
     public function destroy($id) {
         //
     }
+     public function image_categories(){
+          $data['image_categories'] = ImageCategories::get();      // loads all Image Categories from clients database
+          return $data['image_categories'];
+     }
 
 }
