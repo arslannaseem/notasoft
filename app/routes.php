@@ -38,6 +38,8 @@ Route::get('/login', 'UserController@index');
  Route::post('/add_corporation','CorporationController@add_corporation');
  // list of all corporations
  Route::post('/load_corporations','CorporationController@load_corporation');
+// load corporation Data
+ Route::post('/load_corporation_data','CorporationController@corporation_data');
 
 
 
