@@ -1,0 +1,158 @@
+<div class="row">
+    <div class="col-md-6 col-lg-7 col-center">
+        <div class="panel">
+            <header class="panel-heading">
+                <h1>{{title}}</h1>
+            </header>
+            <div class="panel-body">
+                <div>
+                    <form name="form" role="form" method="POST" ng-submit="addcontract(newform, form.$valid)" novalidate nv-file-drop=""  filters="queueLimit, customFilter">
+
+
+                        <div class="form-group" ng-class="error('typeId')">
+                            <label for="typeId" >Contract Type</label>
+                            <div class="controls">
+                                <select name="contract_type" id="contract_type" class="form-control" ng-model="newform.contract_type" required>
+                                    <option value="">Select Contract Type</option>
+                                    <option  ng-repeat="contractType in contractTypes" value="{{contractType.id}}">{{contractType.name}}</option>
+                                </select>
+                                <span class="help-block text-danger" ng-show="form.usertype.$invalid && submitted">Contract Type Is Required</span>
+                            </div>
+                        </div>
+                        <!--Stock Information Block-->
+                        <h3>Buyer Information</h3>
+
+
+                        <div class="form-group" ng-class="error('title')" >
+                            <label for="title ">Buyer ID Number </label>
+                            <div class="controls">
+                                <input id="buyer_idnumber" ng-minlength="9" ng-maxlength="9" name="buyer_idnumber" type="text"  class="form-control" ng-model="newform.buyer_idnumber" required/>
+                                <span class="help-block text-danger" ng-show="form.buyer_idnumber.$invalid && submitted">Please Enter valid 9 digit ID!</span>
+                                <span><button type="button" ng-click="loadBuyerData()" class="btn btn-xl">Load</button><span>
+                                        <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
+                                        </div>
+                                        </div>
+                                        <input type="hidden" name="buyerDetail" ng-model="newform.buyerDetail">
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                            <label for="buyer_firstname">First Name</label>
+                                            <div class="controls">
+                                                <input id="buyer_firstname" name="buyer_firstname" type="text" class="form-control" ng-model="newform.buyer_firstname" required/>
+                                                <span class="help-block text-danger" ng-show="form.buyer_firstname.$invalid && submitted">First Name is required!</span>
+                                            </div>
+                                        </div>  
+
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                            <label for="buyer_Lastname1">Last Name</label>
+                                            <div class="controls">
+                                                <input id="buyer_Lastname1" name="buyer_Lastname1" type="text" class="form-control" ng-model="newform.buyer_Lastname1" required/>
+                                                <span class="help-block text-danger" ng-show="form.buyer_Lastname1.$invalid && submitted">Last Name is required!</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                            <label for="buyer_postcode">Postal Code</label>
+                                            <div class="controls">
+                                                <input id="buyer_postcode" name="buyer_postcode" type="text" class="form-control" ng-model="newform.buyer_postcode" required/>
+                                                <span class="help-block text-danger" ng-show="form.buyer_postcode.$invalid && submitted">Postal Code is required!</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                            <label for="buyer_email1">Email 1</label>
+                                            <div class="controls">
+                                                <input id="buyer_email1" name="buyer_email1" type="text" class="form-control" ng-model="newform.buyer_email1" required/>
+                                                <span class="help-block text-danger" ng-show="form.buyer_email1.$invalid && submitted">Buyer Email is required!</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                            <label for="buyer_address1">Address 1</label>
+                                            <div class="controls">
+                                                <input id="buyer_address1" name="buyer_address1" type="text" class="form-control" ng-model="newform.buyer_address1" required/>
+                                                <span class="help-block text-danger" ng-show="form.buyer_address1.$invalid && submitted">Address is required!</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                            <label for="buyer_phone1">Phone 1</label>
+                                            <div class="controls">
+                                                <input id="buyer_phone1" name="buyer_phone1" type="text" class="form-control" ng-model="newform.buyer_phone1" required/>
+                                                <span class="help-block text-danger" ng-show="form.buyer_phone1.$invalid && submitted">Phone 1 is required!</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>Seller Information</h3>
+                                        <div class="form-group" ng-class="error('title')" >
+                                            <label for="title ">Seller ID Number </label>
+                                            <div class="controls">
+                                                <input id="seller_idnumber" ng-minlength="9" ng-maxlength="9" name="seller_idnumber" type="text"  class="form-control" ng-model="newform.seller_idnumber" required/>
+                                                <span class="help-block text-danger" ng-show="form.seller_idnumber.$invalid && submitted">Please Enter valid 9 digit ID!</span>
+                                                <span><button type="button" ng-click="loadSellererData()" class="btn btn-xl">Load</button><span>
+                                                        <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
+                                                        </div>
+                                                        </div>
+<input type="hidden" name="sellerDetail" ng-model="newform.sellerDetail">
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                                            <label for="seller_firstname">First Name</label>
+                                                            <div class="controls">
+                                                                <input id="seller_firstname" name="seller_firstname" type="text" class="form-control" ng-model="newform.seller_firstname" required/>
+                                                                <span class="help-block text-danger" ng-show="form.seller_firstname.$invalid && submitted">First Name is required!</span>
+                                                            </div>
+                                                        </div>  
+
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                                            <label for="seller_Lastname1">Last Name</label>
+                                                            <div class="controls">
+                                                                <input id="seller_Lastname1" name="seller_Lastname1" type="text" class="form-control" ng-model="newform.seller_Lastname1" required/>
+                                                                <span class="help-block text-danger" ng-show="form.seller_Lastname1.$invalid && submitted">Last Name is required!</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                                            <label for="seller_postcode">Postal Code</label>
+                                                            <div class="controls">
+                                                                <input id="buyer_postcode" name="seller_postcode" type="text" class="form-control" ng-model="newform.seller_postcode" required/>
+                                                                <span class="help-block text-danger" ng-show="form.seller_postcode.$invalid && submitted">Postal Code is required!</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                                            <label for="buyer_email1">Email 1</label>
+                                                            <div class="controls">
+                                                                <input id="seller_email1" name="seller_email1" type="text" class="form-control" ng-model="newform.seller_email1" required/>
+                                                                <span class="help-block text-danger" ng-show="form.seller_email1.$invalid && submitted">Buyer Email is required!</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                                            <label for="seller_address1">Address 1</label>
+                                                            <div class="controls">
+                                                                <input id="seller_address1" name="buyer_address1" type="text" class="form-control" ng-model="newform.seller_address1" required/>
+                                                                <span class="help-block text-danger" ng-show="form.seller_address1.$invalid && submitted">Address is required!</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                                            <label for="seller_phone1">Phone 1</label>
+                                                            <div class="controls">
+                                                                <input id="seller_phone1" name="seller_phone1" type="text" class="form-control" ng-model="newform.seller_phone1" required/>
+                                                                <span class="help-block text-danger" ng-show="form.seller_phone1.$invalid && submitted">Phone 1 is required!</span>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="control-group">
+                                                            <div class="controls">
+                                                                <button ng-click="submitted = true" class="btn btn-xl">Save</button>
+                                                            </div>
+                                                        </div>
+                                                        </form>
+                                                        </div>
+
+                                                        <!--</form>-->
+                                                        </div>
+
+                                                        </div>
+                                                        </div>
+                                                        </div>
+
