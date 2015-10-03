@@ -10,6 +10,7 @@ class Corporations extends Eloquent {
     protected $table = 'corporations';
     protected $primaryKey = 'id';
     protected $fillable = array('corporation_type','corporation_name', 'idnumber', 'registration_book', 'province', 'country', 'district', 'capital',
-        'address1', 'address2', 'share_value', 'president', 'vice_president', 'secretary', 'treasurer','comptroller', 'manager1', 'manager2');
+        'address1', 'address2', 'share_value', 'president', 'vice_president', 'secretary', 'treasurer','comptroller', 'manager1', 'manager2','tomo','asiento',
+        'no_of_shares','shareholder','vice_president_2');
 
 }

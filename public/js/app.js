@@ -79,6 +79,16 @@
                                         templateUrl: 'public/templates/corporations.html',
                                         controller: 'allCorporationsController'
                                     })
+                            .when('/loadcorporation',
+                                    {
+                                        templateUrl: 'public/templates/corporationDetail.html',
+                                        controller: 'allCorporationsController'
+                                    })
+                            .when('/addcontract',
+                                    {
+                                        templateUrl: 'public/templates/addContract.html',
+                                        controller: 'contractController'
+                                    })
                             .when('/forgot',
                                     {
                                         templateUrl: 'public/templates/forgot.html',

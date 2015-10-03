@@ -8,9 +8,12 @@
                     $scope.title = "Add Coporations";
                     $scope.newform = {};
                     $scope.addcorporation = function(newcorporation, validity) {
-                      
-                         $http.post(path + '/add_corporation', {data: newcorporation}).success(function (response) { });
-                        
+                       if (validity) {
+                         $http.post(path + '/add_corporation', {data: newcorporation}).success(function (response) {
+                             // Redirect to the corporation dashboard page
+                          $location.path('/corporations');
+                         });
+                     }
                     }
                       if ($routeParams.idnumber) {
                           $http.post(path + '/load_corporation_data', {idnumber: $routeParams.idnumber}).success(function (response) {
@@ -39,6 +42,7 @@
                                    $scope.newform.manager2 = response[0].manager2;
                               }
                           });
+                           
                       }
                       
                     $scope.loaddata = function() {
@@ -84,6 +88,7 @@
                               }
                         });
                     }
+                    
                     
 //
 //                      $http.post(path + '/category_list').success(function (response) {

@@ -17,9 +17,22 @@ class ClientsController extends BaseController {
      * @return Response 
      */
     public function create_new_client() {
+        $idnumber = Input::get('idnumber');
+        
+        
+        
+                $clientData = Clients::where('idnumber', '=', $idnumber)->first();
+                
+        if($clientData === null){
+               $client = Clients::create(Input::all());  //calling client model statically
+        }else{
+          $client =  Clients::where('idnumber', '=' ,$idnumber)->update(Input::all());
+        }
+        
+        
         
         /* creates new client for both cedula and other */
-        $client = Clients::create(Input::all());  //calling client model statically
+//        $client = Clients::create(Input::all());  //calling client model statically
         if($client) echo 1;
         else echo 0;
     }

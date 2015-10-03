@@ -41,6 +41,19 @@ Route::get('/login', 'UserController@index');
 // load corporation Data
  Route::post('/load_corporation_data','CorporationController@corporation_data');
 
+ // load all contract types
+ Route::post('/contract_types','contractController@contract_types');
+ 
+ // load data of buyer 
+ Route::post('/load_buyer_data','contractController@load_buyer_data');
+ // load data of seller
+ Route::post('/load_seller_data','contractController@load_seller_data');
+ // add new contract
+ Route::post('/add_contract','contractController@add_contract');
+ 
+ 
+
+
 
 
 

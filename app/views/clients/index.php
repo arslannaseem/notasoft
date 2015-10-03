@@ -26,6 +26,9 @@
                                     <a href="#/register"><button class="btn btn-brand btn-md">Register</button></a>
                                     <a href="#/newclient"><button class="btn btn-brand btn-md">Add Client</button></a>
                                     <a href="#/clients"><button class="btn btn-brand btn-md">List Clients</button></a>
+                                    <a href="#/addcorporations"><button class="btn btn-brand btn-md">Add Corporation</button></a>
+                                    <a href="#/corporations"><button class="btn btn-brand btn-md">List Corporations</button></a>
+                                    <a href="#/addcontract"><button class="btn btn-brand btn-md">Add Contract</button></a>
                             </div>
                         </nav>
                  <section class="content-panel">
@@ -92,6 +95,7 @@
         <?php echo HTML::script('public/js/controllers/verifyController.js') ?>
         <?php echo HTML::script('public/js/controllers/corporationsController.js') ?>
         <?php echo HTML::script('public/js/controllers/allCorporationsController.js') ?>
+        <?php echo HTML::script('public/js/controllers/contractController.js') ?>
         
         
             
