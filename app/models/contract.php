@@ -9,6 +9,6 @@ class contract extends Eloquent {
      */
     protected $table = 'contract';
     protected $primaryKey = 'id';
-    protected $fillable = array('seller,buyer,type');
+    protected $fillable = array('seller,buyer,contract_type,contract_item_type');
 
 }

@@ -42,8 +42,10 @@ class contractController extends BaseController {
 
     public function add_contract() {
         
-        
         $data = Input::get();
+//        echo '<pre>';
+//        print_r(@$data['data']['property_area']);exit;
+        $contractItemType = $data['data']['contract_item_type'];
         $sellerId = $data['data']['seller_idnumber'];
         $buyerId = $data['data']['buyer_idnumber'];
         $oldBuyer = $data['data']['buyerDetail'];
@@ -86,7 +88,7 @@ class contractController extends BaseController {
             'google' => $data['data']['buyer_google'],
             'active' => 0,
         );
-        print_r($buyerData);exit;
+//        print_r($buyerData);exit;
         $sellerData = array(
             'usertype' =>  $data['data']['seller_usertype'],
             'idnumber' => $data['data']['seller_idnumber'],
@@ -123,30 +125,32 @@ class contractController extends BaseController {
             'google' => $data['data']['seller_google'],
             'active' => 0,
         );
+        $contractItem = array(
+            'contract_item_type' => @$data['data']['contract_item_type'],
+            'vehicle_no' => @$data['data']['vehicle_no'],
+            'vehicle_price' => @$data['data']['vehicle_price'],
+            'engine_no' => @$data['data']['engine_no'],
+            'vehicle_model' => @$data['data']['vehicle_model'],
+            'property_no' => @$data['data']['property_no'],
+            'property_price' => @$data['data']['property_price'],
+            'property_area' => @$data['data']['property_area'],
+            'propert_location' => @$data['data']['propert_location'],
+            'other_name' => @$data['data']['other_name'],
+            'other_amount' => @$data['data']['other_amount'],
+            
+        );
+        DB::table('contract_detail')->insert($contractItem);
         if($oldBuyer == 0){
             DB::table('clients')->insert($buyerData);
         }
         if($oldseller == 0){
             DB::table('clients')->insert($sellerData);
         }
-            DB::table('contract')->insert(array('seller' => $sellerId,'buyer' => $buyerId,'type' => $contractType));
+            DB::table('contract')->insert(array('seller' => $sellerId,'buyer' => $buyerId,'contract_type' => $contractType,'contract_item_type' => $contractItemType));
+    }
+    public function contract_item_types(){
+        $contractItemTypes = DB::table('contract_item_types')->get();
+        return $contractItemTypes;
     }
 
 }
-
-//        $saler = contract::where('saler_id', '=', $idNumber)->first();
-//        if ($saler === null) {
-//            $data['saler'] = 1;
-//        } else {
-//            $data['saler'] = 0;
-//        }
-//        $buyer = contract::where('buyer_id', '=', $idNumber)->first();
-//        if ($buyer === null) {
-//            $data['buyer'] = 1;
-//        } else {
-//            $data['buyer'] = 0;
-//        }
-//        $data['salerBuyer'] = Citizens::where('Número_de_Cédula', '=', $idNumber);
-//
-//        print_r($data['salerBuyer']);
-//        exit;

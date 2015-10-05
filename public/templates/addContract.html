@@ -140,7 +140,94 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group" ng-class="error('contract')">
+                                                            <label for="contract">Contract Item Type</label>
+                                                            <div class="controls">
+                                                                <select  name="contract_item_type" id="contract_item_type" class="form-control" ng-model="newform.contract_item_type" required>
+                                                                    <option value="" >Select Contract</option>
+                                                                    <option ng-repeat='allContractItemTypes in contractItemTypes' value="{{allContractItemTypes.id}}" label="{{allContractItemTypes.contract_item_type_name}}">{{allContractItemTypes.contract_item_type_name}}</option>
+<!--                                                                    <option value="property" label="property">Property</option>-->
+                                                                </select>
+                                                                <span class="help-block text-danger" ng-show="form.contract_item_type.$invalid && submitted">Contract Item Type Is Required</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('vehicle_no')" ng-show="newform.contract_item_type == '1'">
+                                                            <label for="vehicle_no">Vehicle No</label>
+                                                            <div class="controls">
+                                                                <input id="vehicle_no" name="vehicle_no" type="text" class="form-control" ng-model="newform.vehicle_no" ng-required="newform.contract_item_type == '1'"/>
+                                                                <span class="help-block text-danger" ng-show="form.vehicle_no.$invalid && submitted">Vehicle No is required!</span>
+                                                            </div>
+                                                        </div>
 
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('vehicle_price')" ng-show="newform.contract_item_type == '1'">
+                                                            <label for="seller_phone1">Vehicle Price </label>
+                                                            <div class="controls">
+                                                                <input id="vehicle_price" name="vehicle_price" type="text" class="form-control" ng-model="newform.vehicle_price" ng-required="newform.contract_item_type == '1'"/>
+                                                                <span class="help-block text-danger" ng-show="form.vehicle_price.$invalid && submitted">Vehicle Price is required!</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('engine_no')" ng-show="newform.contract_item_type == '1'">
+                                                            <label for="engine_no">Engine No</label>
+                                                            <div class="controls">
+                                                                <input id="engine_no" name="engine_no" type="text" class="form-control" ng-model="newform.engine_no" ng-required="newform.contract_item_type == '1'"/>
+                                                                <span class="help-block text-danger" ng-show="form.engine_no.$invalid && submitted">Engine No is required!</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('vehicle_model')" ng-show="newform.contract_item_type == '1'">
+                                                            <label for="vehicle_model">Vehicle Model </label>
+                                                            <div class="controls">
+                                                                <input id="vehicle_model" name="vehicle_model" type="text" class="form-control" ng-model="newform.vehicle_model" ng-required="newform.contract_item_type == '1'"/>
+                                                                <span class="help-block text-danger" ng-show="form.vehicle_model.$invalid && submitted">Vehicle Model is required!</span>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')" ng-show="newform.contract_item_type == '2'">
+                                                            <label for="property_no">Property No</label>
+                                                            <div class="controls">
+                                                                <input id="property_no" name="property_no" type="text" class="form-control" ng-model="newform.property_no" ng-required="newform.contract_item_type == '2'"/>
+                                                                <span class="help-block text-danger" ng-show="form.property_no.$invalid && submitted">Property No is required!</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')" ng-show="newform.contract_item_type == '2'">
+                                                            <label for="seller_phone1">Property Price</label>
+                                                            <div class="controls">
+                                                                <input id="property_price" name="property_price" type="text" class="form-control" ng-model="newform.property_price" ng-required="newform.contract_item_type == '2'"/>
+                                                                <span class="help-block text-danger" ng-show="form.property_price.$invalid && submitted">Property Price is required!</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('property_area')" ng-show="newform.contract_item_type == '2'">
+                                                            <label for="property_area">Property Area</label>
+                                                            <div class="controls">
+                                                                <input id="property_area" name="property_area" type="text" class="form-control" ng-model="newform.property_area" ng-required="newform.contract_item_type == '2'"/>
+                                                                <span class="help-block text-danger" ng-show="form.property_area.$invalid && submitted">Property Area is required!</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')" ng-show="newform.contract_item_type == '2'">
+                                                            <label for="propert_location">Location</label>
+                                                            <div class="controls">
+                                                                <input id="propert_location" name="propert_location" type="text" class="form-control" ng-model="newform.propert_location" ng-required="newform.contract_item_type == '2'"/>
+                                                                <span class="help-block text-danger" ng-show="form.propert_location.$invalid && submitted">Location is required!</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('property_area')" ng-show="newform.contract_item_type == '3'">
+                                                            <label for="other_name">Other Name</label>
+                                                            <div class="controls">
+                                                                <input id="other_name" name="other_name" type="text" class="form-control" ng-model="newform.other_name" ng-required="newform.contract_item_type == '3'"/>
+                                                                <span class="help-block text-danger" ng-show="form.other_name.$invalid && submitted">Other Name is required!</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')" ng-show="newform.contract_item_type == '3'">
+                                                            <label for="other_amount">Amount</label>
+                                                            <div class="controls">
+                                                                <input id="other_amount" name="other_amount" type="text" class="form-control" ng-model="newform.other_amount" ng-required="newform.contract_item_type == '3'"/>
+                                                                <span class="help-block text-danger" ng-show="form.other_amount.$invalid && submitted">Amount is required!</span>
+                                                            </div>
+                                                        </div>
                                                         <div class="control-group">
                                                             <div class="controls">
                                                                 <button ng-click="submitted = true" class="btn btn-xl">Save</button>

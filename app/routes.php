@@ -50,6 +50,8 @@ Route::get('/login', 'UserController@index');
  Route::post('/load_seller_data','contractController@load_seller_data');
  // add new contract
  Route::post('/add_contract','contractController@add_contract');
+// get all contract item types
+ Route::post('/contract_item_types','contractController@contract_item_types');
  
  
 
