@@ -41,6 +41,8 @@ class contractController extends BaseController {
     }
 
     public function add_contract() {
+        
+        
         $data = Input::get();
         $sellerId = $data['data']['seller_idnumber'];
         $buyerId = $data['data']['buyer_idnumber'];
@@ -81,8 +83,10 @@ class contractController extends BaseController {
             'facebook' => $data['data']['buyer_facebook'],
             'twitter' => $data['data']['buyer_twitter'],
             'linkedin' => $data['data']['buyer_linkedin'],
-            'google' => $data['data']['buyer_google']
+            'google' => $data['data']['buyer_google'],
+            'active' => 0,
         );
+        print_r($buyerData);exit;
         $sellerData = array(
             'usertype' =>  $data['data']['seller_usertype'],
             'idnumber' => $data['data']['seller_idnumber'],
@@ -116,7 +120,8 @@ class contractController extends BaseController {
             'facebook' => $data['data']['seller_facebook'],
             'twitter' => $data['data']['seller_twitter'],
             'linkedin' => $data['data']['seller_linkedin'],
-            'google' => $data['data']['seller_google']
+            'google' => $data['data']['seller_google'],
+            'active' => 0,
         );
         if($oldBuyer == 0){
             DB::table('clients')->insert($buyerData);

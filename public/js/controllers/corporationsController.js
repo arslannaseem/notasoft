@@ -22,6 +22,13 @@
                               }else{
                                   $scope.title = "Edit Corporation";
 //                                  $scope.newform.edit = true;
+     $scope.newform.tomo = response[0].tomo;
+                                   $scope.newform.asiento = response[0].asiento;
+                                   $scope.newform.page = response[0].page;
+                                   $scope.newform.record = response[0].record;
+                                   $scope.newform.no_of_shares = response[0].no_of_shares;
+                                   $scope.newform.shareholder = response[0].shareholder;
+                                   $scope.newform.vice_president_2 = response[0].vice_president_2;
                                    $scope.newform.corporation_type = response[0].corporation_type;
                                    $scope.newform.corporation_name = response[0].corporation_name;
                                    $scope.newform.idnumber = response[0].idnumber;
@@ -48,6 +55,13 @@
                     $scope.loaddata = function() {
                         $http.post(path + '/load_corporation_data', {idnumber: $('#idnumber').val()}).success(function (response) {
                              if (response == '') {
+                                      $scope.newform.tomo = '';
+                                   $scope.newform.asiento = '';
+                                   $scope.newform.page = '';
+                                   $scope.newform.record = '';
+                                   $scope.newform.no_of_shares = '';
+                                   $scope.newform.shareholder = '';
+                                   $scope.newform.vice_president_2 = '';
                                    $scope.newform.corporation_type = '';
                                    $scope.newform.corporation_name = '';
                                    $scope.newform.idnumber = '';
@@ -67,6 +81,17 @@
                                    $scope.newform.manager1 = '';
                                    $scope.newform.manager2 = '';
                               }else{
+                                   $scope.newform.tomo = response[0].tomo;
+                                   $scope.newform.asiento = response[0].asiento;
+                                   $scope.newform.page = response[0].page;
+                                   $scope.newform.record = response[0].record;
+                                   $scope.newform.no_of_shares = response[0].no_of_shares;
+                                   $scope.newform.shareholder = response[0].shareholder;
+                                   $scope.newform.vice_president_2 = response[0].vice_president_2;
+                                   
+                                   
+                                   
+                                   
                                    $scope.newform.corporation_type = response[0].corporation_type;
                                    $scope.newform.corporation_name = response[0].corporation_name;
                                    $scope.newform.idnumber = response[0].idnumber;

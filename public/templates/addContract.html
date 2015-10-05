@@ -16,7 +16,7 @@
                                     <option value="">Select Contract Type</option>
                                     <option  ng-repeat="contractType in contractTypes" value="{{contractType.id}}">{{contractType.name}}</option>
                                 </select>
-                                <span class="help-block text-danger" ng-show="form.usertype.$invalid && submitted">Contract Type Is Required</span>
+                                <span class="help-block text-danger" ng-show="form.contract_type.$invalid && submitted">Contract Type Is Required</span>
                             </div>
                         </div>
                         <!--Stock Information Block-->
@@ -91,7 +91,7 @@
                                                         <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
                                                         </div>
                                                         </div>
-<input type="hidden" name="sellerDetail" ng-model="newform.sellerDetail">
+                                                        <input type="hidden" name="seller_usertype"  ng-model="newform.seller_usertype">
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
                                                             <label for="seller_firstname">First Name</label>
                                                             <div class="controls">
