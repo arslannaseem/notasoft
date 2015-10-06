@@ -50,37 +50,42 @@
                                         </div>
 
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                            <label for="buyer_postcode">Postal Code</label>
+                                            <label for="buyer_Lastname2">Last Name 2</label>
                                             <div class="controls">
-                                                <input id="buyer_postcode" name="buyer_postcode" type="text" class="form-control" ng-model="newform.buyer_postcode" required/>
-                                                <span class="help-block text-danger" ng-show="form.buyer_postcode.$invalid && submitted">Postal Code is required!</span>
+                                                <input id="buyer_Lastname2" name="buyer_Lastname2" type="text" class="form-control" ng-model="newform.buyer_Lastname2" required/>
+                                                <span class="help-block text-danger" ng-show="form.buyer_Lastname2.$invalid && submitted">Last Name 2 is required!</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                            <label for="buyer_nationality">Nationality</label>
+                                            <div class="controls">
+                                                <input id="buyer_nationality" name="buyer_nationality" type="text" class="form-control" ng-model="newform.buyer_nationality" required/>
+                                                <span class="help-block text-danger" ng-show="form.buyer_nationality.$invalid && submitted">Nationality is required!</span>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                            <label for="buyer_gender">Gender</label>
+                                            <div class="controls">
+                                                <select name="buyer_gender" id="buyer_gender" class="form-control" ng-model="newform.buyer_gender" required>
+                                                    <option value="1" label="Male" >Male</option>
+                                                    <option value="2" label="Female" >Female</option>
+                                                </select>
+                                                <!--<input id="buyer_gender" name="buyer_gender" type="text" class="form-control" ng-model="newform.buyer_gender" required/>-->
+                                                <span class="help-block text-danger" ng-show="form.buyer_gender.$invalid && submitted">Gender is required!</span>
                                             </div>
                                         </div>
 
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                            <label for="buyer_email1">Email 1</label>
+                                            <label for="buyer_dob">Date Of Birth</label>
                                             <div class="controls">
-                                                <input id="buyer_email1" name="buyer_email1" type="text" class="form-control" ng-model="newform.buyer_email1" required/>
-                                                <span class="help-block text-danger" ng-show="form.buyer_email1.$invalid && submitted">Buyer Email is required!</span>
+                                                <input id="buyer_dob" name="buyer_dob" ng-minlength="8" ng-maxlength="8" placeholder="YYYYMMDD" min="1950-01-01" type="text" class="form-control" ng-model="newform.buyer_dob" required/>
+                                                <!--<span class="help-block text-danger" ng-show="form.buyer_dob.$invalid && submitted">Date Of Birth is required!</span>-->
+                                                <span class="help-block text-danger" ng-show="form.buyer_dob.$invalid && submitted" translate="DATE_OF_BIRTH_VALIDATION" class="ng-scope"></span>
                                             </div>
                                         </div>
-
-                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                            <label for="buyer_address1">Address 1</label>
-                                            <div class="controls">
-                                                <input id="buyer_address1" name="buyer_address1" type="text" class="form-control" ng-model="newform.buyer_address1" required/>
-                                                <span class="help-block text-danger" ng-show="form.buyer_address1.$invalid && submitted">Address is required!</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                            <label for="buyer_phone1">Phone 1</label>
-                                            <div class="controls">
-                                                <input id="buyer_phone1" name="buyer_phone1" type="text" class="form-control" ng-model="newform.buyer_phone1" required/>
-                                                <span class="help-block text-danger" ng-show="form.buyer_phone1.$invalid && submitted">Phone 1 is required!</span>
-                                            </div>
-                                        </div>
-
                                         <h3>Seller Information</h3>
                                         <div class="form-group" ng-class="error('title')" >
                                             <label for="title ">Seller ID Number </label>
@@ -107,37 +112,44 @@
                                                                 <span class="help-block text-danger" ng-show="form.seller_Lastname1.$invalid && submitted">Last Name is required!</span>
                                                             </div>
                                                         </div>
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                                            <label for="seller_Lastname2">Last Name 2</label>
+                                                            <div class="controls">
+                                                                <input id="seller_Lastname2" name="seller_Lastname2" type="text" class="form-control" ng-model="newform.seller_Lastname2" required/>
+                                                                <span class="help-block text-danger" ng-show="form.seller_Lastname2.$invalid && submitted">Last Name 2 is required!</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
+                                                            <label for="seller_nationality">Nationality</label>
+                                                            <div class="controls">
+                                                                <input id="seller_nationality" name="seller_nationality" type="text" class="form-control" ng-model="newform.seller_nationality" required/>
+                                                                <span class="help-block text-danger" ng-show="form.seller_nationality.$invalid && submitted">Nationality is required!</span>
+                                                            </div>
+                                                        </div>
+
+
 
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                                            <label for="seller_postcode">Postal Code</label>
+                                                            <label for="seller_gender">Gender</label>
                                                             <div class="controls">
-                                                                <input id="buyer_postcode" name="seller_postcode" type="text" class="form-control" ng-model="newform.seller_postcode" required/>
-                                                                <span class="help-block text-danger" ng-show="form.seller_postcode.$invalid && submitted">Postal Code is required!</span>
+                                                                <select name="seller_gender" id="seller_gender" class="form-control" ng-model="newform.seller_gender" required>
+                                                                    <option value="1" label="Male" >Male</option>
+                                                                    <option value="2" label="Female" >Female</option>
+                                                                </select>
+                                                                <!--<input id="" name="seller_gender" type="text" class="form-control" ng-model="newform.seller_gender" required/>-->
+                                                                <!--<span class="help-block text-danger" ng-show="form.seller_gender.$invalid && submitted">Gender is required!</span>-->
+                                                                 
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                                            <label for="buyer_email1">Email 1</label>
+                                                            <label for="seller_dob">Date Of Birth</label>
                                                             <div class="controls">
-                                                                <input id="seller_email1" name="seller_email1" type="text" class="form-control" ng-model="newform.seller_email1" required/>
-                                                                <span class="help-block text-danger" ng-show="form.seller_email1.$invalid && submitted">Buyer Email is required!</span>
+                                                                <input id="seller_dob" ng-minlength="8" ng-maxlength="8" placeholder="YYYYMMDD" min="1950-01-01" name="seller_dob" type="text" class="form-control" ng-model="newform.seller_dob" required/>
+                                                                <!--<span class="help-block text-danger" ng-show="form.buyer_dob.$invalid && submitted">Date Of Birth is required!</span>-->
+                                                           <span class="help-block text-danger" ng-show="form.seller_dob.$invalid && submitted" translate="DATE_OF_BIRTH_VALIDATION" class="ng-scope"></span>
                                                             </div>
-                                                        </div>
-
-                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                                            <label for="seller_address1">Address 1</label>
-                                                            <div class="controls">
-                                                                <input id="seller_address1" name="buyer_address1" type="text" class="form-control" ng-model="newform.seller_address1" required/>
-                                                                <span class="help-block text-danger" ng-show="form.seller_address1.$invalid && submitted">Address is required!</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                                            <label for="seller_phone1">Phone 1</label>
-                                                            <div class="controls">
-                                                                <input id="seller_phone1" name="seller_phone1" type="text" class="form-control" ng-model="newform.seller_phone1" required/>
-                                                                <span class="help-block text-danger" ng-show="form.seller_phone1.$invalid && submitted">Phone 1 is required!</span>
-                                                            </div>
+                                                             
                                                         </div>
 
                                                         <div class="form-group" ng-class="error('contract')">
@@ -146,7 +158,7 @@
                                                                 <select  name="contract_item_type" id="contract_item_type" class="form-control" ng-model="newform.contract_item_type" required>
                                                                     <option value="" >Select Contract</option>
                                                                     <option ng-repeat='allContractItemTypes in contractItemTypes' value="{{allContractItemTypes.id}}" label="{{allContractItemTypes.contract_item_type_name}}">{{allContractItemTypes.contract_item_type_name}}</option>
-<!--                                                                    <option value="property" label="property">Property</option>-->
+                                                                    <!--                                                                    <option value="property" label="property">Property</option>-->
                                                                 </select>
                                                                 <span class="help-block text-danger" ng-show="form.contract_item_type.$invalid && submitted">Contract Item Type Is Required</span>
                                                             </div>
