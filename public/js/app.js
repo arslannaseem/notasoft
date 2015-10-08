@@ -89,6 +89,16 @@
                                         templateUrl: 'public/templates/addContract.html',
                                         controller: 'contractController'
                                     })
+                            .when('/contracts',
+                                    {
+                                        templateUrl: 'public/templates/contracts.html',
+                                        controller: 'allContractsController'
+                                    })
+                            .when('/addcontract/:contract_id',
+                                    {
+                                        templateUrl: 'public/templates/addContract.html',
+                                        controller: 'contractController'
+                                    })
                             .when('/forgot',
                                     {
                                         templateUrl: 'public/templates/forgot.html',

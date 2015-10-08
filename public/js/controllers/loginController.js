@@ -1,5 +1,4 @@
 "use strict";
-
 (function () {
     angular.module("JobbaApp")
             .controller("loginController", ['$scope', '$location', 'userAuthService','$cookies',
@@ -11,6 +10,7 @@
                                         $('#errorme').addClass('hidden');
                             userAuthService.login(newuser)
                                     .success(function (data, status, headers, config) {
+//                                        alert(data);
                                         $('#verifyerr').addClass('hidden');
                                         $('#errorme').addClass('hidden');
                                         $('#navicon').removeClass('hidden');
@@ -18,6 +18,7 @@
                                         $('#uname').html(data.str);
 
                                             $cookies.user_login = 0;
+                                            
                                             $location.path('/newclient');
 
                                     }).

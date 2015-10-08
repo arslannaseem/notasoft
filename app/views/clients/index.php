@@ -29,6 +29,7 @@
                                     <a href="#/addcorporations"><button class="btn btn-brand btn-md">Add Corporation</button></a>
                                     <a href="#/corporations"><button class="btn btn-brand btn-md">List Corporations</button></a>
                                     <a href="#/addcontract"><button class="btn btn-brand btn-md">Add Contract</button></a>
+                                    <a href="#/contracts"><button class="btn btn-brand btn-md">List Contracts</button></a>
                             </div>
                         </nav>
                  <section class="content-panel">
@@ -96,6 +97,7 @@
         <?php echo HTML::script('public/js/controllers/corporationsController.js') ?>
         <?php echo HTML::script('public/js/controllers/allCorporationsController.js') ?>
         <?php echo HTML::script('public/js/controllers/contractController.js') ?>
+        <?php echo HTML::script('public/js/controllers/allContractsController.js') ?>
         
         
             

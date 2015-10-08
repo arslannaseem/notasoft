@@ -8,9 +8,10 @@ class CorporationController extends BaseController {
      * @return Response 
      */
     public function add_corporation() {
+        $userId = Session::get('userId');
         $data = Input::all();
+        $data['data'] += array('user_id' => $userId);
         $idNumber = $data['data']['idnumber'];
-
         $corporationData = Corporations::where('idnumber', '=', $idNumber)->first();
         if ($corporationData === null) {
             $corporation = Corporations::create($data['data']);  //calling client model statically
@@ -21,7 +22,11 @@ class CorporationController extends BaseController {
 
     // list of all corporaions
     public function load_corporation() {
-        $data['Corporations'] = Corporations::get();      // loads all clients from clients database
+        $userId = Session::get('userId');
+        print_r($userId);exit;
+        $data['Corporations'] = Corporations::where('user_id','=',$userId)->get();      // loads all clients from clients database
+        print_r($data['Corporations']);exit;
+        print_r($data['Corporations']);
         return $data['Corporations'];
     }
 

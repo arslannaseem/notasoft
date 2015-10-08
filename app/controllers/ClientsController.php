@@ -18,15 +18,15 @@ class ClientsController extends BaseController {
      */
     public function create_new_client() {
         $idnumber = Input::get('idnumber');
-
-
-
+        $userId = Session::get('userId');
+        $data = Input::all();
+        $data  += array('user_id' => $userId);
         $clientData = Clients::where('idnumber', '=', $idnumber)->first();
 
         if ($clientData === null) {
-            $client = Clients::create(Input::all());  //calling client model statically
+            $client = Clients::create($data);  //calling client model statically
         } else {
-            $client = Clients::where('idnumber', '=', $idnumber)->update(Input::all());
+            $client = Clients::where('idnumber', '=', $idnumber)->update($data);
         }
 
 
@@ -71,8 +71,8 @@ class ClientsController extends BaseController {
      */
     public function load_clients() {
 
-
-        $data['Clients'] = Clients::get();      // loads all clients from clients database
+        $userId = Session::get('userId');
+        $data['Clients'] = Clients::where('user_id', '=', $userId)->get();      // loads all clients from clients database
         return $data['Clients'];
     }
 
