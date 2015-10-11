@@ -201,5 +201,11 @@ class contractController extends BaseController {
 
 //        print_r($contractId);exit;
     }
+    public function get_citizens(){
+         $citizens = DB::table('citizens')
+                 ->select('Número_de_Cédula')
+                 ->get();
+        return $citizens;
+    }
 
 }

@@ -10,13 +10,13 @@
 
 
                         <div class="form-group" ng-class="error('typeId')">
-                            <label for="typeId" >Contract Type</label>
+                            <label for="typeId" translate="CONTRACT_TYPE"></label>
                             <div class="controls">
                                 <select name="contract_type" id="contract_type" class="form-control" ng-model="newform.contract_type" required>
-                                    <option value="">Select Contract Type</option>
+                                    <option value=""  translate="SELECT_CONTRACT"></option>
                                     <option  ng-repeat="contractType in contractTypes" value="{{contractType.id}}">{{contractType.name}}</option>
                                 </select>
-                                <span class="help-block text-danger" ng-show="form.contract_type.$invalid && submitted">Contract Type Is Required</span>
+                                <span class="help-block text-danger" ng-show="form.contract_type.$invalid && submitted"><span translate="CONTRACT_TYPE"></span> <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <!--Stock Information Block-->
@@ -24,7 +24,7 @@
 
 
                         <div class="form-group" ng-class="error('title')" >
-                            <label for="title ">Buyer ID Number </label>
+                            <label for="title " translate="BUYER_ID"></label>
                             <div class="controls">
                                 <input id="buyer_idnumber" ng-minlength="9" ng-maxlength="9" name="buyer_idnumber" type="text"  class="form-control" ng-model="newform.buyer_idnumber" required/>
                                 <span class="help-block text-danger" ng-show="form.buyer_idnumber.$invalid && submitted">Please Enter valid 9 digit ID!</span>
@@ -32,63 +32,64 @@
                                         <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
                                         </div>
                                         </div>
+                        
                                         <input type="hidden" name="buyerDetail" ng-model="newform.buyerDetail">
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                            <label for="buyer_firstname">First Name</label>
+                                            <label for="buyer_firstname"  translate="FIRST_NAME"></label>
                                             <div class="controls">
                                                 <input id="buyer_firstname" name="buyer_firstname" type="text" class="form-control" ng-model="newform.buyer_firstname" required/>
-                                                <span class="help-block text-danger" ng-show="form.buyer_firstname.$invalid && submitted">First Name is required!</span>
+                                                <span class="help-block text-danger" ng-show="form.buyer_firstname.$invalid && submitted"><span translate="FIRST_NAME"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>  
 
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                            <label for="buyer_Lastname1">Last Name</label>
+                                            <label for="buyer_Lastname1"  translate="LAST_NAME_1"></label>
                                             <div class="controls">
                                                 <input id="buyer_Lastname1" name="buyer_Lastname1" type="text" class="form-control" ng-model="newform.buyer_Lastname1" required/>
-                                                <span class="help-block text-danger" ng-show="form.buyer_Lastname1.$invalid && submitted">Last Name is required!</span>
+                                                <span class="help-block text-danger" ng-show="form.buyer_Lastname1.$invalid && submitted"><span translate="LAST_NAME_1"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
 
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                            <label for="buyer_Lastname2">Last Name 2</label>
+                                            <label for="buyer_Lastname2"  translate="LAST_NAME_2"></label>
                                             <div class="controls">
                                                 <input id="buyer_Lastname2" name="buyer_Lastname2" type="text" class="form-control" ng-model="newform.buyer_Lastname2" required/>
-                                                <span class="help-block text-danger" ng-show="form.buyer_Lastname2.$invalid && submitted">Last Name 2 is required!</span>
+                                                <span class="help-block text-danger" ng-show="form.buyer_Lastname2.$invalid && submitted"><span translate="LAST_NAME_2"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                            <label for="buyer_nationality">Nationality</label>
+                                            <label for="buyer_nationality"  translate="NATIONALITY"></label>
                                             <div class="controls">
                                                 <input id="buyer_nationality" name="buyer_nationality" type="text" class="form-control" ng-model="newform.buyer_nationality" required/>
-                                                <span class="help-block text-danger" ng-show="form.buyer_nationality.$invalid && submitted">Nationality is required!</span>
+                                                <span class="help-block text-danger" ng-show="form.buyer_nationality.$invalid && submitted"><span translate="NATIONALITY"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
 
 
 
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                            <label for="buyer_gender">Gender</label>
+                                            <label for="buyer_gender"  translate="GENDER"></label>
                                             <div class="controls">
                                                 <select name="buyer_gender" id="buyer_gender" class="form-control" ng-model="newform.buyer_gender" required>
-                                                    <option value="1" label="Male" >Male</option>
-                                                    <option value="2" label="Female" >Female</option>
+                                                    <option value="1" label="Male"  translate="BUYER_ID">Male</option>
+                                                    <option value="2" label="Female"  translate="BUYER_ID">Female</option>
                                                 </select>
                                                 <!--<input id="buyer_gender" name="buyer_gender" type="text" class="form-control" ng-model="newform.buyer_gender" required/>-->
-                                                <span class="help-block text-danger" ng-show="form.buyer_gender.$invalid && submitted">Gender is required!</span>
+                                                <span class="help-block text-danger" ng-show="form.buyer_gender.$invalid && submitted"><span translate="GENDER"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
 
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                            <label for="buyer_dob">Date Of Birth</label>
+                                            <label for="buyer_dob"  translate="DATE_OF_BIRTH"></label>
                                             <div class="controls">
                                                 <input id="buyer_dob" name="buyer_dob" ng-minlength="8" ng-maxlength="8" placeholder="YYYYMMDD" min="1950-01-01" type="text" class="form-control" ng-model="newform.buyer_dob" required/>
                                                 <!--<span class="help-block text-danger" ng-show="form.buyer_dob.$invalid && submitted">Date Of Birth is required!</span>-->
                                                 <span class="help-block text-danger" ng-show="form.buyer_dob.$invalid && submitted" translate="DATE_OF_BIRTH_VALIDATION" class="ng-scope"></span>
                                             </div>
                                         </div>
-                                        <h3>Seller Information</h3>
+                                        <h3 translate="SELLER_INFORMATION"></h3>
                                         <div class="form-group" ng-class="error('title')" >
-                                            <label for="title ">Seller ID Number </label>
+                                            <label for="title " translate="SELLER_ID"> </label>
                                             <div class="controls">
                                                 <input id="seller_idnumber" ng-minlength="9" ng-maxlength="9" name="seller_idnumber" type="text"  class="form-control" ng-model="newform.seller_idnumber" required/>
                                                 <span class="help-block text-danger" ng-show="form.seller_idnumber.$invalid && submitted">Please Enter valid 9 digit ID!</span>
@@ -98,52 +99,52 @@
                                                         </div>
                                                         <input type="hidden" name="seller_usertype"  ng-model="newform.seller_usertype">
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                                            <label for="seller_firstname">First Name</label>
+                                                            <label for="seller_firstname" translate="FIRST_NAME"></label>
                                                             <div class="controls">
                                                                 <input id="seller_firstname" name="seller_firstname" type="text" class="form-control" ng-model="newform.seller_firstname" required/>
-                                                                <span class="help-block text-danger" ng-show="form.seller_firstname.$invalid && submitted">First Name is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.seller_firstname.$invalid && submitted"><span translate="FIRST_NAME"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>  
 
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                                            <label for="seller_Lastname1">Last Name</label>
+                                                            <label for="seller_Lastname1" translate="LAST_NAME_1"></label>
                                                             <div class="controls">
                                                                 <input id="seller_Lastname1" name="seller_Lastname1" type="text" class="form-control" ng-model="newform.seller_Lastname1" required/>
-                                                                <span class="help-block text-danger" ng-show="form.seller_Lastname1.$invalid && submitted">Last Name is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.seller_Lastname1.$invalid && submitted"><span translate="LAST_NAME_1"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                                            <label for="seller_Lastname2">Last Name 2</label>
+                                                            <label for="seller_Lastname2" translate="LAST_NAME_2"></label>
                                                             <div class="controls">
                                                                 <input id="seller_Lastname2" name="seller_Lastname2" type="text" class="form-control" ng-model="newform.seller_Lastname2" required/>
-                                                                <span class="help-block text-danger" ng-show="form.seller_Lastname2.$invalid && submitted">Last Name 2 is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.seller_Lastname2.$invalid && submitted"><span translate="LAST_NAME_2"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                                            <label for="seller_nationality">Nationality</label>
+                                                            <label for="seller_nationality" translate="NATIONALITY">Nationality</label>
                                                             <div class="controls">
                                                                 <input id="seller_nationality" name="seller_nationality" type="text" class="form-control" ng-model="newform.seller_nationality" required/>
-                                                                <span class="help-block text-danger" ng-show="form.seller_nationality.$invalid && submitted">Nationality is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.seller_nationality.$invalid && submitted"><span translate="NATIONALITY"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
 
 
 
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                                            <label for="seller_gender">Gender</label>
+                                                            <label for="seller_gender" translate="GENER"></label>
                                                             <div class="controls">
                                                                 <select name="seller_gender" id="seller_gender" class="form-control" ng-model="newform.seller_gender" required>
                                                                     <option value="1" label="Male" >Male</option>
                                                                     <option value="2" label="Female" >Female</option>
                                                                 </select>
                                                                 <!--<input id="" name="seller_gender" type="text" class="form-control" ng-model="newform.seller_gender" required/>-->
-                                                                <!--<span class="help-block text-danger" ng-show="form.seller_gender.$invalid && submitted">Gender is required!</span>-->
+                                                                <span class="help-block text-danger" ng-show="form.seller_gender.$invalid && submitted"><span translate="GENDER"></span> <span translate="IS_REQUIRED"></span></span>
                                                                  
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
-                                                            <label for="seller_dob">Date Of Birth</label>
+                                                            <label for="seller_dob" translate="DATE_OF_BIRTH"></label>
                                                             <div class="controls">
                                                                 <input id="seller_dob" ng-minlength="8" ng-maxlength="8" placeholder="YYYYMMDD" min="1950-01-01" name="seller_dob" type="text" class="form-control" ng-model="newform.seller_dob" required/>
                                                                 <!--<span class="help-block text-danger" ng-show="form.buyer_dob.$invalid && submitted">Date Of Birth is required!</span>-->
@@ -153,91 +154,91 @@
                                                         </div>
 
                                                         <div class="form-group" ng-class="error('contract')">
-                                                            <label for="contract">Contract Item Type</label>
+                                                            <label for="contract" translate="CONTRACT_ITEM_TYPE"></label>
                                                             <div class="controls">
                                                                 <select  name="contract_item_type" id="contract_item_type" class="form-control" ng-model="newform.contract_item_type" required>
-                                                                    <option value="" >Select Contract</option>
+                                                                    <option value="" translate="SELECT_CONTRACT_ITEM_TYPE"></option>
                                                                     <option ng-repeat='allContractItemTypes in contractItemTypes' value="{{allContractItemTypes.id}}" label="{{allContractItemTypes.contract_item_type_name}}">{{allContractItemTypes.contract_item_type_name}}</option>
                                                                     <!--                                                                    <option value="property" label="property">Property</option>-->
                                                                 </select>
-                                                                <span class="help-block text-danger" ng-show="form.contract_item_type.$invalid && submitted">Contract Item Type Is Required</span>
+                                                                <span class="help-block text-danger" ng-show="form.contract_item_type.$invalid && submitted"><span translate="CONTRACT_ITEM_TYPE"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('vehicle_no')" ng-show="newform.contract_item_type == '1'">
-                                                            <label for="vehicle_no">Vehicle No</label>
+                                                            <label for="vehicle_no" translate="VEHICLE_NO"></label>
                                                             <div class="controls">
                                                                 <input id="vehicle_no" name="vehicle_no" type="text" class="form-control" ng-model="newform.vehicle_no" ng-required="newform.contract_item_type == '1'"/>
-                                                                <span class="help-block text-danger" ng-show="form.vehicle_no.$invalid && submitted">Vehicle No is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.vehicle_no.$invalid && submitted"><span translate="VEHICLE_NO"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('vehicle_price')" ng-show="newform.contract_item_type == '1'">
-                                                            <label for="seller_phone1">Vehicle Price </label>
+                                                            <label for="seller_phone1" translate="VEHICLE_PRICE"></label>
                                                             <div class="controls">
                                                                 <input id="vehicle_price" name="vehicle_price" type="text" class="form-control" ng-model="newform.vehicle_price" ng-required="newform.contract_item_type == '1'"/>
-                                                                <span class="help-block text-danger" ng-show="form.vehicle_price.$invalid && submitted">Vehicle Price is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.vehicle_price.$invalid && submitted"><span translate="VEHICLE_PRICE"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('engine_no')" ng-show="newform.contract_item_type == '1'">
-                                                            <label for="engine_no">Engine No</label>
+                                                            <label for="engine_no"translate="ENGINE_NO"></label>
                                                             <div class="controls">
                                                                 <input id="engine_no" name="engine_no" type="text" class="form-control" ng-model="newform.engine_no" ng-required="newform.contract_item_type == '1'"/>
-                                                                <span class="help-block text-danger" ng-show="form.engine_no.$invalid && submitted">Engine No is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.engine_no.$invalid && submitted"><span translate="ENGINE_NO"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('vehicle_model')" ng-show="newform.contract_item_type == '1'">
-                                                            <label for="vehicle_model">Vehicle Model </label>
+                                                            <label for="vehicle_model" translate="VEHICLE_MODEL"> </label>
                                                             <div class="controls">
                                                                 <input id="vehicle_model" name="vehicle_model" type="text" class="form-control" ng-model="newform.vehicle_model" ng-required="newform.contract_item_type == '1'"/>
-                                                                <span class="help-block text-danger" ng-show="form.vehicle_model.$invalid && submitted">Vehicle Model is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.vehicle_model.$invalid && submitted"><span translate="VEHICLE_MODEL"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
 
 
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')" ng-show="newform.contract_item_type == '2'">
-                                                            <label for="property_no">Property No</label>
+                                                            <label for="property_no" translate="PROPERTY_NO"></label>
                                                             <div class="controls">
                                                                 <input id="property_no" name="property_no" type="text" class="form-control" ng-model="newform.property_no" ng-required="newform.contract_item_type == '2'"/>
-                                                                <span class="help-block text-danger" ng-show="form.property_no.$invalid && submitted">Property No is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.property_no.$invalid && submitted"><span translate="PROPERTY_NO"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')" ng-show="newform.contract_item_type == '2'">
-                                                            <label for="seller_phone1">Property Price</label>
+                                                            <label for="seller_phone1"translate="PROPERTY_PRICE"></label>
                                                             <div class="controls">
                                                                 <input id="property_price" name="property_price" type="text" class="form-control" ng-model="newform.property_price" ng-required="newform.contract_item_type == '2'"/>
-                                                                <span class="help-block text-danger" ng-show="form.property_price.$invalid && submitted">Property Price is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.property_price.$invalid && submitted"><span translate="PROPERTY_PRICE"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('property_area')" ng-show="newform.contract_item_type == '2'">
-                                                            <label for="property_area">Property Area</label>
+                                                            <label for="property_area"translate="PROPERTY_AREA"></label>
                                                             <div class="controls">
                                                                 <input id="property_area" name="property_area" type="text" class="form-control" ng-model="newform.property_area" ng-required="newform.contract_item_type == '2'"/>
-                                                                <span class="help-block text-danger" ng-show="form.property_area.$invalid && submitted">Property Area is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.property_area.$invalid && submitted"><span translate="PROPERTY_AREA"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')" ng-show="newform.contract_item_type == '2'">
-                                                            <label for="propert_location">Location</label>
+                                                            <label for="propert_location" translate="LOCATION"></label>
                                                             <div class="controls">
                                                                 <input id="propert_location" name="propert_location" type="text" class="form-control" ng-model="newform.propert_location" ng-required="newform.contract_item_type == '2'"/>
-                                                                <span class="help-block text-danger" ng-show="form.propert_location.$invalid && submitted">Location is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.propert_location.$invalid && submitted"><span translate="LOCATION"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('property_area')" ng-show="newform.contract_item_type == '3'">
-                                                            <label for="other_name">Other Name</label>
+                                                            <label for="other_name" translate="OTHER_NMAE"></label>
                                                             <div class="controls">
                                                                 <input id="other_name" name="other_name" type="text" class="form-control" ng-model="newform.other_name" ng-required="newform.contract_item_type == '3'"/>
-                                                                <span class="help-block text-danger" ng-show="form.other_name.$invalid && submitted">Other Name is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.other_name.$invalid && submitted"><span translate="OTHER_NMAE"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')" ng-show="newform.contract_item_type == '3'">
-                                                            <label for="other_amount">Amount</label>
+                                                            <label for="other_amount" translate="AMOUNT"></label>
                                                             <div class="controls">
                                                                 <input id="other_amount" name="other_amount" type="text" class="form-control" ng-model="newform.other_amount" ng-required="newform.contract_item_type == '3'"/>
-                                                                <span class="help-block text-danger" ng-show="form.other_amount.$invalid && submitted">Amount is required!</span>
+                                                                <span class="help-block text-danger" ng-show="form.other_amount.$invalid && submitted"><span translate="AMOUNT"></span> <span translate="IS_REQUIRED"></span></span>
                                                             </div>
                                                         </div>
                                                         <div class="control-group">

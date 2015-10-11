@@ -167,7 +167,7 @@
                     OTHER: 'Other',
                     PASSPORT_NUMBER: 'Passport Number',
                     FIRST_NAME: 'First Name',
-                            LAST_NAME_1: 'Lastname1 (optional)',
+                    LAST_NAME_1: 'Lastname1 (optional)',
                     LAST_NAME_2: 'Lastname2 (optional)',
                     NATIONALITY: 'Nationality',
                     SELECT_NATIONALITY: 'Select your Nationality',
@@ -215,7 +215,7 @@
                     CANCEL: 'Cancel',
                     REMOVE: 'Remove',
                     CANCEL: 'Cancel',
-                            UPLOAD_ALL: 'Upload All',
+                    UPLOAD_ALL: 'Upload All',
                     CANCELL_ALL: 'Cancel All',
                     REMOVE_ALL: 'Remove All',
                     SAVE: 'Save',
@@ -240,10 +240,57 @@
                     ADRESS2_VALIDATION: 'Adress 2 Is Required',
                     POSTAL_CODE_VALIDATION: 'Postal Code Is Required',
                     DATE_OF_BIRTH_VALIDATION: 'Please Enter Valid Date OF Birth',
-                    // PHONE1_VALIDATION:'Phone 1 Is Required',    
-                    // PHONE2_VALIDATION;'Phone 2 Is Required',
-
-
+                    
+                    // Add Corporation Validation
+                    
+                     TOMO:'Tomo (Book Number)',    
+                     ASIENTO:'Asiento (Record Number)',
+                     REGISTRATION_BOOK:'Registration book',
+                     PAGE:'Page',    
+                     RECORD:'Record',    
+                     STOCK_INFORMATION:'Stock Information',    
+                     CORPORATION_TYPE:'Corporation Type',    
+                     SELECT_NAME:'Select your Name',    
+                     COMMERCIAL:'commercial',    
+                     NON_COMMERCIAL:'Non Commercial',    
+                     NO_OF_SHARES:'No Of Shares',    
+                     SHAREHOLDERS:'ShareHolders',    
+                     SHARE_VALUES:'Share Value',    
+                     CAPITAL:'Capital',    
+                     SELECT_CAPITAL:'Select your Capital',    
+                     PRESIDENT:'President',    
+                     VICE_PRESIDENT:'Vice President',    
+                     VICE_PRESIDENT_2:'Vice President 2',    
+                     TREASURER:'Treasurer',    
+                     Comptroller:'Comptroller',    
+                     SECRETARY:'Secretary',    
+                     MANAGERS:'Managers',    
+                     MANAGERS1:'Managers 1',    
+                     MANAGERS2:'Managers 2',  
+                     CORPORATIONS:'Corporations',  
+                     
+                     // Add contract 
+                     
+                     CONTRACTS:'Contracts',    
+                     CONTRACT_TYPE:'Contract Type',    
+                     SELECT_CONTRACT:'Select Contract Type',    
+                     BUYER_ID:'Buyer ID Number ',    
+                     SELLER_INFORMATION:'Seller Information',    
+                     SELLER_ID:'Seller ID Number',
+                     
+                     CONTRACT_ITEM_TYPE:'Contract Item Type',    
+                     SELECT_CONTRACT_ITEM_TYPE:'Select Contract',    
+                     VEHICLE_NO:'Vehicle No',    
+                     VEHICLE_PRICE:'Vehicle Price ',    
+                     ENGINE_NO:'Engine No',    
+                     VEHICLE_MODEL:'Vehicle Model',    
+                     PROPERTY_NO:'Property No',    
+                     SELLER_ID:'Property Price',    
+                     SELLER_ID:'Seller ID Number',    
+                     SELLER_ID:'Seller ID Number',    
+                     SELLER_ID:'Seller ID Number',    
+                     SELLER_ID:'Seller ID Number',    
+                     
 
 
 

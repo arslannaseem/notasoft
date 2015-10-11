@@ -4,9 +4,10 @@
 
     angular.module("JobbaApp")
             .controller('contractController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', '$timeout', function($scope, $http, newClientFormDataService, $location, $routeParams, $timeout, $translate) {
+//Quick Seacrh
 
 
-
+//Quick Seacrh End
 
 
 
@@ -169,7 +170,7 @@
                                     $scope.newform.seller_linkedin = response.seller[0].linkedin;
                                     $scope.newform.seller_google = response.seller[0].google;
                                 });
-                                
+
                                 $scope.newform.contract_id = response[0].contract_id;
 //                                $scope.newform.contract_item_type_name = response[0].contract_item_type_name;
                                 $scope.newform.contract_item_type = response[0].contract_item_type;

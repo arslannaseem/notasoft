@@ -54,9 +54,10 @@ Route::get('/login', 'UserController@index');
  Route::post('/contract_item_types','contractController@contract_item_types');
 // get all contracts
  Route::post('/load_contracts','contractController@load_contracts');
- 
 // Load Contract Data
  Route::post('/load_contract_data','contractController@load_contract_data');
+ // Load All Citizens
+ Route::post('/get_citizens','contractController@get_citizens');
  
  
 

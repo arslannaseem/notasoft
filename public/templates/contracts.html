@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-6 col-lg-7 col-center">
+        <div class="panel">
+            <header class="panel-heading">
+                <h1 translate="CONTRACTS"></h1>
+<!--    <div><span class="cursor" ng-click="album = true">Album</span> 
+    <span  class="cursor padding1" ng-click="album = false" >List Display</span>-->
+     </div>
+                   
+            </header>
+            <div class="panel-body">
+                <div data-ng-controller='allCorporationsController'>
+                </div>
+            </div>
+            <div ng-repeat="contract in contracts  ">
+            <a href="#/addcontract/{{contract.contract_id}}" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    <!--<span >{{corporation.idnumber}}</span></br>-->
+                    <span >  {{contract.contract_item_type_name}}</span>
+                </h4>
+                <!--<p class="list-group-item-text">{{client.firstname}} {{client.Lastname1}}</p>-->
+            </a>
+</div>
+        </div>
+    </div>
+</div>
+
