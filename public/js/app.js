@@ -285,10 +285,11 @@
                      ENGINE_NO:'Engine No',    
                      VEHICLE_MODEL:'Vehicle Model',    
                      PROPERTY_NO:'Property No',    
-                     SELLER_ID:'Property Price',    
-                     SELLER_ID:'Seller ID Number',    
-                     SELLER_ID:'Seller ID Number',    
-                     SELLER_ID:'Seller ID Number',    
+                     PROPERTY_PRICE:'Property Price',    
+                     PROPERTY_AREA:'Property Area',    
+                     LOCATION:'Location',    
+                     OTHER_NMAE:'Other Name',    
+                     AMOUNT:'Amount',    
                      SELLER_ID:'Seller ID Number',    
                      
 
