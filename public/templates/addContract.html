@@ -1,3 +1,64 @@
+ <head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.1.js"></script>
+    <!--<script src="example.js"></script>-->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+<style>
+  .typeahead-demo .custom-popup-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background-color: #f9f9f9;
+  }
+
+  .typeahead-demo .custom-popup-wrapper > .message {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    color: #868686;
+  }
+
+  .typeahead-demo .custom-popup-wrapper > .dropdown-menu {
+    position: static;
+    float: none;
+    display: block;
+    min-width: 160px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+</style>
+
+<script type="text/ng-template" id="customTemplate.html">
+  <a>
+      <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
+      <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+  </a>
+</script>
+
+<script type="text/ng-template" id="customPopupTemplate.html">
+  <div class="custom-popup-wrapper"
+     ng-style="{top: position().top+'px', left: position().left+'px'}"
+     style="display: block;"
+     ng-show="isOpen() && !moveInProgress"
+     aria-hidden="{{!isOpen()}}">
+    <p class="message">select location from drop down.</p>
+
+    <ul class="dropdown-menu" role="listbox">
+        <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+            ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+            <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+        </li>
+    </ul>
+  </div>
+</script>
+
 <div class="row">
     <div class="col-md-6 col-lg-7 col-center">
         <div class="panel">
@@ -7,7 +68,6 @@
             <div class="panel-body">
                 <div>
                     <form name="form" role="form" method="POST" ng-submit="addcontract(newform, form.$valid)" novalidate nv-file-drop=""  filters="queueLimit, customFilter">
-
 
                         <div class="form-group" ng-class="error('typeId')">
                             <label for="typeId" translate="CONTRACT_TYPE"></label>
@@ -21,8 +81,12 @@
                         </div>
                         <!--Stock Information Block-->
                         <h3>Buyer Information</h3>
-
-
+                        <div class='container-fluid typeahead-demo'>
+                        <h4>Static arrays</h4>
+                        <input type="text" ng-model="selected" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
+                         <input type="text" ng-model="customPopupSelected" placeholder="Custom popup template" uib-typeahead="state as state.name for state in statesWithFlags | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">
+                        
+                        </div>
                         <div class="form-group" ng-class="error('title')" >
                             <label for="title " translate="BUYER_ID"></label>
                             <div class="controls">
@@ -32,7 +96,7 @@
                                         <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
                                         </div>
                                         </div>
-                        
+
                                         <input type="hidden" name="buyerDetail" ng-model="newform.buyerDetail">
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
                                             <label for="buyer_firstname"  translate="FIRST_NAME"></label>
@@ -139,7 +203,7 @@
                                                                 </select>
                                                                 <!--<input id="" name="seller_gender" type="text" class="form-control" ng-model="newform.seller_gender" required/>-->
                                                                 <span class="help-block text-danger" ng-show="form.seller_gender.$invalid && submitted"><span translate="GENDER"></span> <span translate="IS_REQUIRED"></span></span>
-                                                                 
+
                                                             </div>
                                                         </div>
 
@@ -148,9 +212,9 @@
                                                             <div class="controls">
                                                                 <input id="seller_dob" ng-minlength="8" ng-maxlength="8" placeholder="YYYYMMDD" min="1950-01-01" name="seller_dob" type="text" class="form-control" ng-model="newform.seller_dob" required/>
                                                                 <!--<span class="help-block text-danger" ng-show="form.buyer_dob.$invalid && submitted">Date Of Birth is required!</span>-->
-                                                           <span class="help-block text-danger" ng-show="form.seller_dob.$invalid && submitted" translate="DATE_OF_BIRTH_VALIDATION" class="ng-scope"></span>
+                                                                <span class="help-block text-danger" ng-show="form.seller_dob.$invalid && submitted" translate="DATE_OF_BIRTH_VALIDATION" class="ng-scope"></span>
                                                             </div>
-                                                             
+
                                                         </div>
 
                                                         <div class="form-group" ng-class="error('contract')">
