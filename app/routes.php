@@ -58,6 +58,8 @@ Route::get('/login', 'UserController@index');
  Route::post('/load_contract_data','contractController@load_contract_data');
  // Load All Citizens
  Route::post('/get_citizens','contractController@get_citizens');
+ // Load All corporation Ids
+ Route::post('/get_corporation_ids','CorporationController@get_corporation_ids');
  
  
 

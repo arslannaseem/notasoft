@@ -54,20 +54,20 @@ class contractController extends BaseController {
         $oldseller = $data['data']['sellerDetail'];
         $contractType = $data['data']['contract_type'];
         $userId = Session::get('userId');
-        
+
         $contractData = DB::table('contract')->where('id', '=', $contractId)
                 ->select('id')
                 ->first();
 //        print_r($contractData);exit;
-        if($contractData){
-             DB::table('contract')->update(array('user_id' => $userId, 'seller' => $sellerId, 'buyer' => $buyerId, 'contract_type' => $contractType, 'contract_item_type' => $contractItemType));
-           $contractId = $contractData->id;
-        }else{
-             $contractId = DB::table('contract')->insertGetId(array('user_id' => $userId, 'seller' => $sellerId, 'buyer' => $buyerId, 'contract_type' => $contractType, 'contract_item_type' => $contractItemType));
+        if ($contractData) {
+            DB::table('contract')->update(array('user_id' => $userId, 'seller' => $sellerId, 'buyer' => $buyerId, 'contract_type' => $contractType, 'contract_item_type' => $contractItemType));
+            $contractId = $contractData->id;
+        } else {
+            $contractId = DB::table('contract')->insertGetId(array('user_id' => $userId, 'seller' => $sellerId, 'buyer' => $buyerId, 'contract_type' => $contractType, 'contract_item_type' => $contractItemType));
         }
-        
-        
-       
+
+
+
 //         
         $buyerData = array(
             'usertype' => $data['data']['buyer_usertype'],
@@ -159,11 +159,11 @@ class contractController extends BaseController {
             'other_amount' => @$data['data']['other_amount'],
             'user_id' => $userId,
         );
-          if($contractData){
-              DB::table('contract_detail')->update($contractItem);
-          }else{
-              DB::table('contract_detail')->insert($contractItem);
-          }
+        if ($contractData) {
+            DB::table('contract_detail')->update($contractItem);
+        } else {
+            DB::table('contract_detail')->insert($contractItem);
+        }
         if ($oldBuyer == 0) {
             DB::table('clients')->insert($buyerData);
         }
@@ -201,11 +201,20 @@ class contractController extends BaseController {
 
 //        print_r($contractId);exit;
     }
-    public function get_citizens(){
-         $citizens = DB::table('citizens')
-                 ->select('Número_de_Cédula')
-                 ->get();
-        return $citizens;
+
+    public function get_citizens() {
+        $citizens = DB::table('citizens')
+                ->select('Número_de_Cédula')
+                ->get();
+        $data = NULL;
+        foreach ($citizens as $allCitizens) {
+            $data .= $allCitizens->Número_de_Cédula;
+            $data .= ',';
+        }
+        
+        $result = substr($data, 0 , -1);
+        $finalReault = "[".$result."]";
+        return $finalReault;
     }
 
 }

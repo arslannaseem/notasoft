@@ -8,7 +8,7 @@
              -----------------------------------------------------------------------------*/
             var jobbaLandingApplication = angular.module("JobbaLandingApp", ['ngSanitize']);
 
-            var jobbaApplication = angular.module("JobbaApp", ['ngRoute', 'ngSanitize', 'angular-loading-bar', 'ngAnimate', 'ui.date', 'ngAutocomplete', 'ngCookies', 'angularFileUpload', 'pascalprecht.translate']);
+            var jobbaApplication = angular.module("JobbaApp", ['ngRoute', 'ngSanitize', 'angular-loading-bar', 'ngAnimate','ui.bootstrap', 'ui.date', 'ngAutocomplete', 'ngCookies', 'angularFileUpload', 'pascalprecht.translate']);
             jobbaApplication.filter('nospace', function() {
                 return function(value) {
                     return (!value) ? '' : value.replace(/ /g, '');
@@ -275,6 +275,7 @@
                      CONTRACT_TYPE:'Contract Type',    
                      SELECT_CONTRACT:'Select Contract Type',    
                      BUYER_ID:'Buyer ID Number ',    
+                     BUYER_INFORMATION:'Buyer Information ',    
                      SELLER_INFORMATION:'Seller Information',    
                      SELLER_ID:'Seller ID Number',
                      

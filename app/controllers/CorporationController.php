@@ -35,5 +35,20 @@ class CorporationController extends BaseController {
         $data['Corporations'] = DB::table('available_corporations')->where('idnumber', '=', $idNumber)->get();
         return $data['Corporations'];
     }
+     public function get_corporation_ids() {
+        $corporationsIds = DB::table('available_corporations')
+                ->select('idnumber')
+                ->get();
+        $data = NULL;
+        foreach ($corporationsIds as $allCorporationsIds) {
+            $data .= $allCorporationsIds->idnumber;
+            $data .= ',';
+        }
+        
+        $result = substr($data, 0 , -1);
+        $finalReault = "[".$result."]";
+        return $finalReault;
+    }
+    
 
 }

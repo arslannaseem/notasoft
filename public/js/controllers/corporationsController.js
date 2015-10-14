@@ -6,6 +6,11 @@
             .controller('corporationsController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', '$timeout', function($scope, $http, newClientFormDataService, $location, $routeParams, $timeout, $translate) {
 
                     $scope.title = "Add Coporations";
+//            Quick Search Request To Get all Citizens
+              $http.post(path + '/get_corporation_ids').success(function(response) {
+                        $scope.states = response;
+                    });
+                    
                     $scope.newform = {};
                     $scope.addcorporation = function(newcorporation, validity) {
                         if (validity) {
