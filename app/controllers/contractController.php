@@ -193,7 +193,7 @@ class contractController extends BaseController {
         $contractDetail = DB::table('contract_detail')->where('contract_id', '=', $contractId)
                 ->join('contract', 'contract_detail.contract_id', '=', 'contract.id')
                 ->join('contract_item_types', 'contract_detail.contract_item_type', '=', 'contract_item_types.id')
-                ->select('contract_detail.*', 'contract_item_types.contract_item_type_name', 'contract.seller', 'contract.buyer')
+                ->select('contract_detail.*', 'contract_item_types.contract_item_type_name', 'contract.seller', 'contract.buyer','contract.contract_type')
                 ->get();
 //             print_r($contractDetail);exit;
         return $contractDetail;

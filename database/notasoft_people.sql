@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2015 at 07:49 PM
+-- Generation Time: Oct 15, 2015 at 08:51 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -1658,7 +1658,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
   PRIMARY KEY (`cid`),
   KEY `idnumber` (`idnumber`),
   KEY `passport` (`passport`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
 
 --
 -- Dumping data for table `clients`
@@ -1670,7 +1670,12 @@ INSERT INTO `clients` (`cid`, `user_id`, `usertype`, `idnumber`, `passport`, `fi
 (49, '2', 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, '2015-10-06 18:21:10', '2015-10-06 18:21:10', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Koala.jpg', NULL),
 (50, '2', '', '111970301', '', 'PAMELA DE LOS ANGELES', 'CAMACHO', 'FREER', 0, 2, '', '', '', '', '', '', '', '', '', '', '', '20151122', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
 (51, '2', '', '111970301', '', 'PAMELA DE LOS ANGELES', 'CAMACHO', 'FREER', 0, 2, '', '', '', '', '', '', '', '', '', '', '', '20151122', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
-(52, '2', '', '111970301', '', 'PAMELA DE LOS ANGELES', 'CAMACHO', 'FREER', 0, 2, '', '', '', '', '', '', '', '', '', '', '', '20151122', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0);
+(52, '2', '', '111970301', '', 'PAMELA DE LOS ANGELES', 'CAMACHO', 'FREER', 0, 2, '', '', '', '', '', '', '', '', '', '', '', '20151122', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
+(53, NULL, 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
+(54, NULL, 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
+(55, NULL, 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
+(56, NULL, 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
+(57, NULL, 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1700,15 +1705,7 @@ CREATE TABLE IF NOT EXISTS `contract` (
   `contract_type` varchar(50) DEFAULT NULL,
   `contract_item_type` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `contract`
---
-
-INSERT INTO `contract` (`id`, `user_id`, `seller`, `buyer`, `contract_type`, `contract_item_type`) VALUES
-(4, '2', '111970301', '111970301', '1', '3'),
-(5, NULL, '111970302', '111970301', '1', '3');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1734,15 +1731,7 @@ CREATE TABLE IF NOT EXISTS `contract_detail` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `contract_detail`
---
-
-INSERT INTO `contract_detail` (`id`, `contract_id`, `user_id`, `contract_item_type`, `vehicle_no`, `vehicle_price`, `engine_no`, `vehicle_model`, `property_no`, `property_price`, `property_area`, `propert_location`, `other_name`, `other_amount`, `created_at`, `updated_at`) VALUES
-(2, '4', '2', '3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'xzfc', 'sdmsads', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, '5', NULL, '3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'haah', '12', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
