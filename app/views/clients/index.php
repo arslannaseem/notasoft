@@ -12,14 +12,6 @@
         <?php echo HTML::script('public/js/lib/modernizr.custom.js') ?>
 
 
-        <!--Quick search links start-->
-
-        <?php // echo HTML::style('netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css') ?>
-        <?php // echo HTML::script('ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js') ?>
-       
-       
-        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <!--Quick search links End-->
     </head>
 
     <body>
@@ -125,13 +117,7 @@
         <!--Library for localization -->
         <?php echo HTML::script('public/js/lib/angular-translate.js') ?>  
 
-        
         <!--Quick Search Link-->
-        <?php // echo HTML::script('ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js') ?>
-        <?php // echo HTML::script('angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.1.js') ?>
-        
-         <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>-->
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
         <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.1.js"></script>
     </body>
 
