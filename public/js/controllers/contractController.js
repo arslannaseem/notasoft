@@ -23,78 +23,15 @@
                     $http.post(path + '/contract_types').success(function(response) {
 //                             console.log('conract ' + response[0].id);
                         $scope.contractTypes = response;
-                        $scope.newform.buyerDetail = 0;
-                        $scope.newform.contract_id = 0;
-                        $scope.newform.sellerDetail = 0;
-                        $scope.newform.buyerDetail = 0;
-//                 buyer detail
-                        $scope.newform.buyer_usertype = '';
-                        $scope.newform.buyer_passport = '';
-                        $scope.newform.buyer_firstname = '';
-                        $scope.newform.buyer_Lastname1 = '';
-                        $scope.newform.buyer_Lastname2 = '';
-                        $scope.newform.buyer_nationality = '';
-                        $scope.newform.buyer_gender = '';
-                        $scope.newform.buyer_province = '';
-                        $scope.newform.buyer_county = '';
-                        $scope.newform.buyer_district = '';
-                        $scope.newform.buyer_country = '';
-                        $scope.newform.buyer_fprovince = '';
-                        $scope.newform.buyer_state = '';
-                        $scope.newform.buyer_city = '';
-                        $scope.newform.buyer_zip = '';
-                        $scope.newform.buyer_address1 = '';
-                        $scope.newform.buyer_address2 = '';
-                        $scope.newform.buyer_postcode = '';
-                        $scope.newform.buyer_dob = '';
-                        $scope.newform.buyer_death = '';
-                        $scope.newform.buyer_phone1 = '';
-                        $scope.newform.buyer_email1 = '';
-                        $scope.newform.buyer_phone2 = '';
-                        $scope.newform.buyer_email2 = '';
-                        $scope.newform.buyer_cellphone = '';
-                        $scope.newform.buyer_homephone = '';
-                        $scope.newform.buyer_cellphone2 = '';
-                        $scope.newform.buyer_fax = '';
-                        $scope.newform.buyer_facebook = '';
-                        $scope.newform.buyer_twitter = '';
-                        $scope.newform.buyer_linkedin = '';
-                        $scope.newform.buyer_google = '';
-//                                Seller detail
-
-                        $scope.newform.sellerDetail = 0;
-                        $scope.newform.seller_usertype = '';
-                        $scope.newform.seller_passport = '';
-                        $scope.newform.seller_firstname = '';
-                        $scope.newform.seller_Lastname1 = '';
-                        $scope.newform.seller_Lastname2 = '';
-                        $scope.newform.seller_nationality = '';
-                        $scope.newform.seller_gender = '';
-                        $scope.newform.seller_province = '';
-                        $scope.newform.seller_county = '';
-                        $scope.newform.seller_district = '';
-                        $scope.newform.seller_country = '';
-                        $scope.newform.seller_fprovince = '';
-                        $scope.newform.seller_state = '';
-                        $scope.newform.seller_city = '';
-                        $scope.newform.seller_zip = '';
-                        $scope.newform.seller_address1 = '';
-                        $scope.newform.seller_address2 = '';
-                        $scope.newform.seller_postcode = '';
-                        $scope.newform.seller_dob = '';
-                        $scope.newform.seller_death = '';
-                        $scope.newform.seller_phone1 = '';
-                        $scope.newform.seller_email1 = '';
-                        $scope.newform.seller_phone2 = '';
-                        $scope.newform.seller_email2 = '';
-                        $scope.newform.seller_cellphone = '';
-                        $scope.newform.seller_homephone = '';
-                        $scope.newform.seller_cellphone2 = '';
-                        $scope.newform.seller_fax = '';
-                        $scope.newform.seller_facebook = '';
-                        $scope.newform.seller_twitter = '';
-                        $scope.newform.seller_linkedin = '';
-                        $scope.newform.seller_google = '';
+//                        $scope.newform.contract_id = $routeParams.contract_id;
+                                if($routeParams.contract_id){
+                                      $scope.newform.contract_id = $routeParams.contract_id;
+                                }else{
+                                     $scope.newform.contract_id = 0;
+                                }
+                        $scope.resetSellerData();
+                        $scope.resetBuyerData();
+                      
                     });
 //                    alert($routeParams.contract_id);
                     if ($routeParams.contract_id) {
@@ -140,8 +77,8 @@ $scope.newform.contract_type = response[0].contract_type;
                                     $scope.newform.buyer_linkedin = response.buyer[0].linkedin;
                                     $scope.newform.buyer_google = response.buyer[0].google;
                                 });
-                                $http.post(path + '/load_seller_data', {idnumber: response[0].seller}).success(function(response) {
-// $scope.newform.sellerDetail = 1;
+                                $http.post(path + '/load_seller_data', {idnumber: response[0].seller}).success(function(response) { 
+                                    $scope.newform.sellerDetail = 1;
                                     $scope.newform.seller_usertype = response.seller[0].usertype;
                                     $scope.newform.seller_idnumber = response.seller[0].idnumber;
                                     $scope.newform.seller_passport = response.seller[0].passport;
@@ -176,8 +113,12 @@ $scope.newform.contract_type = response[0].contract_type;
                                     $scope.newform.seller_linkedin = response.seller[0].linkedin;
                                     $scope.newform.seller_google = response.seller[0].google;
                                 });
-
-                                $scope.newform.contract_id = response[0].contract_id;
+                                if($routeParams.contract_id){
+                                      $scope.newform.contract_id = $routeParams.contract_id;
+                                }else{
+                                     $scope.newform.contract_id = 0;
+                                }
+                              
 //                                $scope.newform.contract_item_type_name = response[0].contract_item_type_name;
                                 $scope.newform.contract_item_type = response[0].contract_item_type;
                                 $scope.newform.vehicle_no = response[0].vehicle_no;
@@ -197,49 +138,18 @@ $scope.newform.contract_type = response[0].contract_type;
 
 
                     $scope.loadBuyerData = function() {
+                         var buyerIdnumber = $('#buyer_idnumber').val();
+                          if ((buyerIdnumber).length >= 8 && (buyerIdnumber).length <= 10){
                         $http.post(path + '/load_buyer_data', {idnumber: $('#buyer_idnumber').val()}).success(function(response) {
 //                            alert($scope.buyerDetailData);
                             if (response.buyer == '') {
-                                $scope.newform.buyerDetail = 0;
-                                $scope.newform.buyer_usertype = '';
-//                                $scope.newform.buyer_idnumber = '';
-                                $scope.newform.buyer_passport = '';
-                                $scope.newform.buyer_firstname = '';
-                                $scope.newform.buyer_Lastname1 = '';
-                                $scope.newform.buyer_Lastname2 = '';
-                                $scope.newform.buyer_nationality = '';
-                                $scope.newform.buyer_gender = '';
-                                $scope.newform.buyer_province = '';
-                                $scope.newform.buyer_county = '';
-                                $scope.newform.buyer_district = '';
-                                $scope.newform.buyer_country = '';
-                                $scope.newform.buyer_fprovince = '';
-                                $scope.newform.buyer_state = '';
-                                $scope.newform.buyer_city = '';
-                                $scope.newform.buyer_zip = '';
-                                $scope.newform.buyer_address1 = '';
-                                $scope.newform.buyer_address2 = '';
-                                $scope.newform.buyer_postcode = '';
-                                $scope.newform.buyer_dob = '';
-                                $scope.newform.buyer_death = '';
-                                $scope.newform.buyer_phone1 = '';
-                                $scope.newform.buyer_email1 = '';
-                                $scope.newform.buyer_phone2 = '';
-                                $scope.newform.buyer_email2 = '';
-                                $scope.newform.buyer_cellphone = '';
-                                $scope.newform.buyer_homephone = '';
-                                $scope.newform.buyer_cellphone2 = '';
-                                $scope.newform.buyer_fax = '';
-                                $scope.newform.buyer_facebook = '';
-                                $scope.newform.buyer_twitter = '';
-                                $scope.newform.buyer_linkedin = '';
-                                $scope.newform.buyer_google = '';
+                                $scope.resetBuyerData();
                             } else {
                                 if (response.buyerDetail == 1) {
                                     // Alreday Client
                                     $scope.newform.buyerDetail = 1;
                                     $scope.newform.buyer_usertype = response.buyer[0].usertype;
-                                    $scope.newform.buyer_idnumber = response.buyer[0].idnumber;
+//                                    $scope.newform.buyer_idnumber = response.buyer[0].idnumber;
                                     $scope.newform.buyer_passport = response.buyer[0].passport;
                                     $scope.newform.buyer_firstname = response.buyer[0].firstname;
                                     $scope.newform.buyer_Lastname1 = response.buyer[0].Lastname1;
@@ -311,54 +221,27 @@ $scope.newform.contract_type = response[0].contract_type;
                             }
 
                         });
+                    }else{
+                        $scope.resetBuyerData();
                     }
+                }
+                    
                     //                            loadSellererData
                     $scope.loadSellererData = function() {
+                            var sellerIdnumber = $('#seller_idnumber').val();
+                          if ((sellerIdnumber).length >= 8 && (sellerIdnumber).length <= 10){
                         $http.post(path + '/load_seller_data', {idnumber: $('#seller_idnumber').val()}).success(function(response) {
 //                            alert($scope.buyerDetailData);
                             if (response.seller == '') {
-                                $scope.newform.sellerDetail = 0;
-                                $scope.newform.seller_usertype = '';
-//                                $scope.newform.seller_idnumber = '';
-                                $scope.newform.seller_passport = '';
-                                $scope.newform.seller_firstname = '';
-                                $scope.newform.seller_Lastname1 = '';
-                                $scope.newform.seller_Lastname2 = '';
-                                $scope.newform.seller_nationality = '';
-                                $scope.newform.seller_gender = '';
-                                $scope.newform.seller_province = '';
-                                $scope.newform.seller_county = '';
-                                $scope.newform.seller_district = '';
-                                $scope.newform.seller_country = '';
-                                $scope.newform.seller_fprovince = '';
-                                $scope.newform.seller_state = '';
-                                $scope.newform.seller_city = '';
-                                $scope.newform.seller_zip = '';
-                                $scope.newform.seller_address1 = '';
-                                $scope.newform.seller_address2 = '';
-                                $scope.newform.seller_postcode = '';
-                                $scope.newform.seller_dob = '';
-                                $scope.newform.seller_death = '';
-                                $scope.newform.seller_phone1 = '';
-                                $scope.newform.seller_email1 = '';
-                                $scope.newform.seller_phone2 = '';
-                                $scope.newform.seller_email2 = '';
-                                $scope.newform.seller_cellphone = '';
-                                $scope.newform.seller_homephone = '';
-                                $scope.newform.seller_cellphone2 = '';
-                                $scope.newform.seller_fax = '';
-                                $scope.newform.seller_facebook = '';
-                                $scope.newform.seller_twitter = '';
-                                $scope.newform.seller_linkedin = '';
-                                $scope.newform.seller_google = '';
+                                   $scope.resetSellerData();
                             } else {
-
+                                 
 
                                 if (response.sellerDetail == 1) {
                                     // Alreday Client
                                     $scope.newform.sellerDetail = 1;
                                     $scope.newform.seller_usertype = response.seller[0].usertype;
-                                    $scope.newform.seller_idnumber = response.seller[0].idnumber;
+//                                    $scope.newform.seller_idnumber = response.seller[0].idnumber;
                                     $scope.newform.seller_passport = response.seller[0].passport;
                                     $scope.newform.seller_firstname = response.seller[0].firstname;
                                     $scope.newform.seller_Lastname1 = response.seller[0].Lastname1;
@@ -429,7 +312,83 @@ $scope.newform.contract_type = response[0].contract_type;
                                 }
                             }
                         });
+                    }else{
+                      
+                         $scope.resetSellerData();
                     }
+                }
+                     $scope.resetSellerData = function (){
+                         $scope.newform.sellerDetail = 0;
+                                $scope.newform.seller_usertype = '';
+//                                $scope.newform.seller_idnumber = '';
+                                $scope.newform.seller_passport = '';
+                                $scope.newform.seller_firstname = '';
+                                $scope.newform.seller_Lastname1 = '';
+                                $scope.newform.seller_Lastname2 = '';
+                                $scope.newform.seller_nationality = '';
+                                $scope.newform.seller_gender = '';
+                                $scope.newform.seller_province = '';
+                                $scope.newform.seller_county = '';
+                                $scope.newform.seller_district = '';
+                                $scope.newform.seller_country = '';
+                                $scope.newform.seller_fprovince = '';
+                                $scope.newform.seller_state = '';
+                                $scope.newform.seller_city = '';
+                                $scope.newform.seller_zip = '';
+                                $scope.newform.seller_address1 = '';
+                                $scope.newform.seller_address2 = '';
+                                $scope.newform.seller_postcode = '';
+                                $scope.newform.seller_dob = '';
+                                $scope.newform.seller_death = '';
+                                $scope.newform.seller_phone1 = '';
+                                $scope.newform.seller_email1 = '';
+                                $scope.newform.seller_phone2 = '';
+                                $scope.newform.seller_email2 = '';
+                                $scope.newform.seller_cellphone = '';
+                                $scope.newform.seller_homephone = '';
+                                $scope.newform.seller_cellphone2 = '';
+                                $scope.newform.seller_fax = '';
+                                $scope.newform.seller_facebook = '';
+                                $scope.newform.seller_twitter = '';
+                                $scope.newform.seller_linkedin = '';
+                                $scope.newform.seller_google = '';
+                     }
+                     $scope.resetBuyerData = function (){
+                      $scope.newform.buyerDetail = 0;
+                                $scope.newform.buyer_usertype = '';
+//                                $scope.newform.buyer_idnumber = '';
+                                $scope.newform.buyer_passport = '';
+                                $scope.newform.buyer_firstname = '';
+                                $scope.newform.buyer_Lastname1 = '';
+                                $scope.newform.buyer_Lastname2 = '';
+                                $scope.newform.buyer_nationality = '';
+                                $scope.newform.buyer_gender = '';
+                                $scope.newform.buyer_province = '';
+                                $scope.newform.buyer_county = '';
+                                $scope.newform.buyer_district = '';
+                                $scope.newform.buyer_country = '';
+                                $scope.newform.buyer_fprovince = '';
+                                $scope.newform.buyer_state = '';
+                                $scope.newform.buyer_city = '';
+                                $scope.newform.buyer_zip = '';
+                                $scope.newform.buyer_address1 = '';
+                                $scope.newform.buyer_address2 = '';
+                                $scope.newform.buyer_postcode = '';
+                                $scope.newform.buyer_dob = '';
+                                $scope.newform.buyer_death = '';
+                                $scope.newform.buyer_phone1 = '';
+                                $scope.newform.buyer_email1 = '';
+                                $scope.newform.buyer_phone2 = '';
+                                $scope.newform.buyer_email2 = '';
+                                $scope.newform.buyer_cellphone = '';
+                                $scope.newform.buyer_homephone = '';
+                                $scope.newform.buyer_cellphone2 = '';
+                                $scope.newform.buyer_fax = '';
+                                $scope.newform.buyer_facebook = '';
+                                $scope.newform.buyer_twitter = '';
+                                $scope.newform.buyer_linkedin = '';
+                                $scope.newform.buyer_google = '';
+                }
                     $scope.addcontract = function(newcontract, validity) {
                         if (validity) {
                             $http.post(path + '/add_contract', {data: newcontract}).success(function(response) {

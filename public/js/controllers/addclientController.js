@@ -9,67 +9,24 @@
 // function on change the province
                     $scope.changeDistrict = function() {
                         $scope.districts = [
-                            {
-                                "code": "1",
-                                "name": "Cangrejal"
-                            },
-                            {
-                                "code": "2",
-                                "name": "Guaitil"
-                            },
-                            {
-                                "code": "3",
-                                "name": "Palmichal"
-                            },
-                            {
-                                "code": "4",
-                                "name": "Sabanillas"
-                            },
-                            {
-                                "code": "5",
-                                "name": "Cangrejal 2"
-                            },
-                            {
-                                "code": "6",
-                                "name": "Guaitil 2"
-                            },
-                            {
-                                "code": "7",
-                                "name": "Palmichal 2"
-                            }
+                            { "code": "1", "name": "Cangrejal" },
+                            { "code": "2",  "name": "Guaitil" },
+                            { "code": "3",  "name": "Palmichal"  },
+                            { "code": "4", "name": "Sabanillas" },
+                            { "code": "5", "name": "Cangrejal 2" },
+                            { "code": "6", "name": "Guaitil 2"},
+                            {  "code": "7", "name": "Palmichal 2"}
                         ];
                     };
                     $scope.changeCounty = function() {
                         $scope.countries = [
-                            {
-                                "code": "1",
-                                "name": "Desamparados"
-                            },
-                            {
-                                "code": "2",
-                                "name": "Dota"
-                            },
-                            {
-                                "code": "3",
-                                "name": "Escazú"
-                            },
-                            {
-                                "code": "4",
-                                "name": "Goicoechea"
-                            },
-                            {
-                                "code": "5",
-                                "name": "Goicoechea2"
-                            },
-                            {
-                                "code": "6",
-                                "name": "Goicoechea3"
-                            },
-                            {
-                                "code": "7",
-                                "name": "Goicoechea4",
-                                "value": '12'
-                            }
+                            { "code": "1", "name": "Desamparados"},
+                            { "code": "2", "name": "Dota"},
+                            { "code": "3",  "name": "Escazú"},
+                            { "code": "4", "name": "Goicoechea"},
+                            {"code": "5", "name": "Goicoechea2"},
+                            { "code": "6", "name": "Goicoechea3"},
+                            { "code": "7","name": "Goicoechea4" }
                         ];
                     };
 
@@ -223,6 +180,10 @@
                     // $scope.title = "Add Client";
 
                     $scope.loaddata = function() {         //load selected client data
+                        var idnumber = $('#idnumber').val();
+                        
+                        if((idnumber).length >= 8 && (idnumber).length <= 10){
+                            
                         $http.post(path + '/load_client_data', {idnumber: $('#idnumber').val()}).success(function(response) {
                             if (response == '') {
                                 $scope.newform.Lastname1 = '';
@@ -267,9 +228,12 @@
                                 }
                             }
                         });
+                    }else{
+                        $scope.reset();
                     }
+                } 
                     $scope.reset = function() {    //reset complete form
-                        $scope.newform.idnumber = '';
+//                        $scope.newform.idnumber = '';
                         $scope.newform.passport = '';
                         $scope.newform.Lastname1 = '';
                         $scope.newform.Lastname2 = '';
@@ -282,11 +246,11 @@
                         $scope.newform.address2 = '';
                         $scope.newform.city = '';
                         $scope.newform.country = '';
-                        $scope.newform.county = '';
+//                        $scope.newform.county = '';
                         $scope.newform.postcode = '';
-                        $scope.newform.province = '';
                         $scope.newform.state = '';
-                        $scope.newform.district = '';
+//                        $scope.newform.province = '';
+//                        $scope.newform.district = '';
                         $scope.newform.residence = '';
                     };
 

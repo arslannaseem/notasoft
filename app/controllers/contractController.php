@@ -44,8 +44,6 @@ class contractController extends BaseController {
     public function add_contract() {
 
         $data = Input::get();
-//        echo '<pre>';
-//        print_r($data);exit;
         $contractItemType = $data['data']['contract_item_type'];
         $contractId = $data['data']['contract_id'];
         $sellerId = $data['data']['seller_idnumber'];
@@ -54,6 +52,7 @@ class contractController extends BaseController {
         $oldseller = $data['data']['sellerDetail'];
         $contractType = $data['data']['contract_type'];
         $userId = Session::get('userId');
+       
 
         $contractData = DB::table('contract')->where('id', '=', $contractId)
                 ->select('id')
@@ -160,15 +159,23 @@ class contractController extends BaseController {
             'user_id' => $userId,
         );
         if ($contractData) {
-            DB::table('contract_detail')->update($contractItem);
+            DB::table('contract_detail')->where('contract_id', $contractId)->update($contractItem);
         } else {
             DB::table('contract_detail')->insert($contractItem);
         }
         if ($oldBuyer == 0) {
             DB::table('clients')->insert($buyerData);
+        }else{
+            DB::table('clients')
+            ->where('idnumber', $buyerId)
+            ->update($buyerData);
         }
         if ($oldseller == 0) {
             DB::table('clients')->insert($sellerData);
+        }else{
+             DB::table('clients')
+            ->where('idnumber', $sellerId)
+            ->update($sellerData);
         }
     }
 
