@@ -9,27 +9,28 @@
 // function on change the province
                     $scope.changeDistrict = function() {
                         $scope.districts = [
-                            { "code": "1", "name": "Cangrejal" },
-                            { "code": "2",  "name": "Guaitil" },
-                            { "code": "3",  "name": "Palmichal"  },
-                            { "code": "4", "name": "Sabanillas" },
-                            { "code": "5", "name": "Cangrejal 2" },
-                            { "code": "6", "name": "Guaitil 2"},
-                            {  "code": "7", "name": "Palmichal 2"}
+                            {"code": "1", "name": "Cangrejal"},
+                            {"code": "2", "name": "Guaitil"},
+                            {"code": "3", "name": "Palmichal"},
+                            {"code": "4", "name": "Sabanillas"},
+                            {"code": "5", "name": "Cangrejal 2"},
+                            {"code": "6", "name": "Guaitil 2"},
+                            {"code": "7", "name": "Palmichal 2"}
                         ];
                     };
                     $scope.changeCounty = function() {
                         $scope.countries = [
-                            { "code": "1", "name": "Desamparados"},
-                            { "code": "2", "name": "Dota"},
-                            { "code": "3",  "name": "Escazú"},
-                            { "code": "4", "name": "Goicoechea"},
+                            {"code": "1", "name": "Desamparados"},
+                            {"code": "2", "name": "Dota"},
+                            {"code": "3", "name": "Escazú"},
+                            {"code": "4", "name": "Goicoechea"},
                             {"code": "5", "name": "Goicoechea2"},
-                            { "code": "6", "name": "Goicoechea3"},
-                            { "code": "7","name": "Goicoechea4" }
+                            {"code": "6", "name": "Goicoechea3"},
+                            {"code": "7", "name": "Goicoechea4"}
                         ];
                     };
-
+                    $scope.changeDistrict();
+                    $scope.changeCounty();
 
 //            Quick Search Request To Get all Citizens
                     $http.post(path + '/get_citizens').success(function(response) {
@@ -181,21 +182,43 @@
 
                     $scope.loaddata = function() {         //load selected client data
                         var idnumber = $('#idnumber').val();
-                        
-                        if((idnumber).length >= 8 && (idnumber).length <= 10){
-                            
-                        $http.post(path + '/load_client_data', {idnumber: $('#idnumber').val()}).success(function(response) {
-                            if (response == '') {
-                                $scope.newform.Lastname1 = '';
-                                $scope.newform.Lastname2 = '';
-                                $scope.newform.death = '';
-                                $scope.newform.dob = '';
-                                $scope.newform.firstname = '';
-                                $scope.newform.gender = '';
-                                $scope.newform.nationality = '';
-                            } else {
-                                if (response[0].Indicador_de_Defunción == 1) {
-                                    if (confirm("THIS PERSON IS DEAD. DO YOU WANT TO PROCEED???")) {
+
+                        if ((idnumber).length >= 8 && (idnumber).length <= 10) {
+
+                            $http.post(path + '/load_client_data', {idnumber: $('#idnumber').val()}).success(function(response) {
+                                if (response == '') {
+                                    $scope.newform.Lastname1 = '';
+                                    $scope.newform.Lastname2 = '';
+                                    $scope.newform.death = '';
+                                    $scope.newform.dob = '';
+                                    $scope.newform.firstname = '';
+                                    $scope.newform.gender = '';
+                                    $scope.newform.nationality = '';
+                                } else {
+                                    if (response[0].Indicador_de_Defunción == 1) {
+                                        if (confirm("THIS PERSON IS DEAD. DO YOU WANT TO PROCEED???")) {
+                                            $scope.newform.Lastname1 = response[0].Primer_Apellido;
+                                            $scope.newform.Lastname2 = response[0].Segundo_Apellido;
+                                            $scope.newform.death = response[0].Indicador_de_Defunción;
+                                            $scope.newform.dob = response[0].Fecha_del_Suceso;
+                                            $scope.newform.firstname = response[0].Nombre;
+                                            $scope.newform.nationality = response[0].Nacionalidad_del_Inscrito
+                                            $scope.newform.gender = response[0].Sexo;
+                                            //                                   $scope.newform.address1 = response[0].address1;
+                                            //                                   $scope.newform.address2 = response[0].address2;
+                                            //                                   $scope.newform.city = response[0].city;
+                                            //                                   $scope.newform.country = response[0].country;
+                                            //                                   $scope.newform.county = response[0].county;
+                                            //                                   $scope.newform.fprovince = response[0].fprovince;
+                                            //                                   $scope.newform.idnumber = response[0].idnumber;
+                                            //                                   $scope.newform.firstname = response[0].firstname;
+                                            //                                   $scope.newform.postcode = response[0].postcode;
+                                            //                                   $scope.newform.province = response[0].province;
+                                            //                                   $scope.newform.state = response[0].state;
+                                            //                                   $scope.newform.usertype = response[0].usertype;
+                                            //                                   $scope.newform.district = response[0].district;
+                                        }
+                                    } else {
                                         $scope.newform.Lastname1 = response[0].Primer_Apellido;
                                         $scope.newform.Lastname2 = response[0].Segundo_Apellido;
                                         $scope.newform.death = response[0].Indicador_de_Defunción;
@@ -203,35 +226,13 @@
                                         $scope.newform.firstname = response[0].Nombre;
                                         $scope.newform.nationality = response[0].Nacionalidad_del_Inscrito
                                         $scope.newform.gender = response[0].Sexo;
-                                        //                                   $scope.newform.address1 = response[0].address1;
-                                        //                                   $scope.newform.address2 = response[0].address2;
-                                        //                                   $scope.newform.city = response[0].city;
-                                        //                                   $scope.newform.country = response[0].country;
-                                        //                                   $scope.newform.county = response[0].county;
-                                        //                                   $scope.newform.fprovince = response[0].fprovince;
-                                        //                                   $scope.newform.idnumber = response[0].idnumber;
-                                        //                                   $scope.newform.firstname = response[0].firstname;
-                                        //                                   $scope.newform.postcode = response[0].postcode;
-                                        //                                   $scope.newform.province = response[0].province;
-                                        //                                   $scope.newform.state = response[0].state;
-                                        //                                   $scope.newform.usertype = response[0].usertype;
-                                        //                                   $scope.newform.district = response[0].district;
                                     }
-                                } else {
-                                    $scope.newform.Lastname1 = response[0].Primer_Apellido;
-                                    $scope.newform.Lastname2 = response[0].Segundo_Apellido;
-                                    $scope.newform.death = response[0].Indicador_de_Defunción;
-                                    $scope.newform.dob = response[0].Fecha_del_Suceso;
-                                    $scope.newform.firstname = response[0].Nombre;
-                                    $scope.newform.nationality = response[0].Nacionalidad_del_Inscrito
-                                    $scope.newform.gender = response[0].Sexo;
                                 }
-                            }
-                        });
-                    }else{
-                        $scope.reset();
+                            });
+                        } else {
+                            $scope.reset();
+                        }
                     }
-                } 
                     $scope.reset = function() {    //reset complete form
 //                        $scope.newform.idnumber = '';
                         $scope.newform.passport = '';
@@ -301,22 +302,33 @@
                         }
                         return string.replace(/[\s|.]/g, '');
                     };
+                    
 
                     //function to update comma separated selected file names
+                    //Old Function with categories
+//                    $scope.fileslist = function() {
+//
+//                        angular.forEach(uploader.queue, function(value, key) {
+//                            $scope.category = value.file.name + '_category';
+//                            // console.log('Test ' + document.getElementById($scope.category));
+//                            console.log('Category Value ' + $("#" + $scope.category).val());
+//
+//
+//                             $scope.newform.photoids =   array.push(value.file.name +'');
+//
+//                             if(key == 0)
+//                                 $scope.newform.photoids = value.file.name;
+//                             else
+//                             $scope.newform.photoids += ',' + value.file.name;
+//                        });
+//                        console.log($scope.newform.photoids);
+//                    }
                     $scope.fileslist = function() {
-
                         angular.forEach(uploader.queue, function(value, key) {
-                            $scope.category = value.file.name + '_category';
-                            // console.log('Test ' + document.getElementById($scope.category));
-                            console.log('Category Value ' + $("#" + $scope.category).val());
-
-
-                            // $scope.newform.photoids =   array.push(value.file.name +'');
-
-                            // if(key == 0)
-                            //     $scope.newform.photoids = value.file.name;
-                            // else
-                            // $scope.newform.photoids += ',' + value.file.name;
+                            if (key == 0)
+                                $scope.newform.photoids = value.file.name;
+                            else
+                                $scope.newform.photoids += ',' + value.file.name;
                         });
                         console.log($scope.newform.photoids);
                     }

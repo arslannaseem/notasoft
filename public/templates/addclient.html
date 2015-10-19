@@ -40,7 +40,7 @@
                         <div class="form-group" ng-class="error('title')" ng-show="newform.usertype == 'cedula'">
                             <label for="title " translate="ID_NUMBER" class="ng-scope"></label>
                             <div class="controls">
-                                <input id="idnumber" ng-change="loaddata()" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-minlength="9" ng-maxlength="9" name="idnumber" type="number"  class="form-control" ng-model="newform.idnumber" ng-required="newform.usertype == 'cedula'"/>
+                                <input id="idnumber" ng-change="loaddata()" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-minlength="9" ng-maxlength="9" name="idnumber" type="text"  class="form-control" ng-model="newform.idnumber" ng-required="newform.usertype == 'cedula'"/>
                                 <span class="help-block text-danger" ng-show="form.idnumber.$invalid && submitted" translate="ID_DIGIT" class="ng-scope"></span>
                                 <span><button ng-click="loaddata()" class="btn btn-xl">Load</button><span>
                                         <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
@@ -238,7 +238,7 @@
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('company')" ng-show="newform.usertype == 'cedula'">
                                             <label for="company" translate="POSTAL_CODE" class="ng-scope"></label>
                                             <div class="controls">
-                                                <input id="postcode" name="postcode" type="number" class="form-control" ng-model="newform.postcode" ng-required="newform.usertype == 'cedula'"/>
+                                                <input id="postcode" name="postcode" type="text" class="form-control" ng-model="newform.postcode" ng-required="newform.usertype == 'cedula'"/>
                                                 <span class="help-block text-danger" ng-show="form.postcode.$invalid && submitted" translate="POSTAL_CODE_VALIDATION" class="ng-scope"></span>
                                             </div>
                                         </div>

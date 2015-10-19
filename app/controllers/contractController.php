@@ -53,7 +53,6 @@ class contractController extends BaseController {
         $contractType = $data['data']['contract_type'];
         $userId = Session::get('userId');
        
-
         $contractData = DB::table('contract')->where('id', '=', $contractId)
                 ->select('id')
                 ->first();

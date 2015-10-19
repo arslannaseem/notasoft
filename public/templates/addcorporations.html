@@ -66,8 +66,9 @@
                                          <div class="form-group" ng-class="error('typeId')">
                                             <label for="typeId"  translate="CORPORATION_TYPE" class="ng-scope"></label>
                                             <div class="controls">
-                                                <select ng-change="reset()" name="corporation_type" id="corporation_type" class="form-control" ng-model="newform.corporation_type" required>
-                                                    <option value="" class=""  translate="SELECT_NAME" class="ng-scope"></option>
+                                                <!--<select ng-change="reset()" name="corporation_type" id="corporation_type" class="form-control" ng-model="newform.corporation_type" required>-->
+                                                <select name="corporation_type" id="corporation_type" class="form-control" ng-model="newform.corporation_type" required>
+                                                    <option value="" class="" selected="selected"  translate="SELECT_NAME" class="ng-scope"></option>
                                                     <option value="commercial" label="commercial"  translate="COMMERCIAL" class="ng-scope"></option>
                                                     <option value="Non Commercial" label="foreign "  translate="NON_COMMERCIAL" class="ng-scope"></option>
                                                 </select>
