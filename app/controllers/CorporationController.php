@@ -13,10 +13,11 @@ class CorporationController extends BaseController {
         $data['data'] += array('user_id' => $userId);
         $idNumber = $data['data']['idnumber'];
         $corporationData = Corporations::where('idnumber', '=', $idNumber)->first();
-        if ($corporationData === null) {
+        if ($corporationData == null) {
             $corporation = Corporations::create($data['data']);  //calling client model statically
         } else {
-            Corporations::where('idnumber', '=', $idNumber)->update($data['data']);
+            Corporations::where('idnumber','=', $idNumber)->update($data['data']);
+            
         }
     }
 
@@ -31,8 +32,15 @@ class CorporationController extends BaseController {
     public function corporation_data() {
 
         $idNumber = Input::get('idnumber');
-//        $data['Corporations'] = Corporations::where('idnumber','=',$idnumber)->get();
-        $data['Corporations'] = DB::table('available_corporations')->where('idnumber', '=', $idNumber)->get();
+//         $result = Corporations::where('idnumber','=',$idNumber)->get();
+        $result =  DB::table('corporations')->where('idnumber', '=', $idNumber)->get();
+         
+        if($result){
+            $data['Corporations'] = $result;
+        }else{
+            $data['Corporations'] = DB::table('available_corporations')->where('idnumber', '=', $idNumber)->get();
+           
+        }
         return $data['Corporations'];
     }
      public function get_corporation_ids() {

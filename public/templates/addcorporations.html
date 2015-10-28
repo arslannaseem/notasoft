@@ -15,9 +15,9 @@
                                 <span class="help-block text-danger" ng-show="form.idnumber.$invalid && submitted">Please Enter valid 9 digit ID!</span>
                                 <span><button type="button" ng-click="loaddata()" class="btn btn-xl">Load</button><span>
                                         <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
-                             </div>
-                        </div>
-                      <div class="form-group" ng-class="error('title')">
+                                        </div>
+                                        </div>
+                                        <div class="form-group" ng-class="error('title')">
                                             <label for="title " translate="TOMO" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="tomo" name="tomo" type="text" class="form-control" ng-model="newform.tomo" required/>
@@ -25,7 +25,7 @@
                                                 <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
                                             </div>
                                         </div>
-                         <div class="form-group" ng-class="error('title')">
+                                        <div class="form-group" ng-class="error('title')">
                                             <label for="title " translate="ASIENTO" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="asiento" name="asiento" type="text" class="form-control" ng-model="newform.asiento" required/>
@@ -33,8 +33,8 @@
                                                 <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
                                             </div>
                                         </div>
-                       
-                                        
+
+
                                         <div class="form-group" ng-class="error('title')">
                                             <label for="title " translate="REGISTRATION_BOOK" class="ng-scope"></label>
                                             <div class="controls">
@@ -61,9 +61,9 @@
                                         </div>
                                         <hr>
                                         <!--Stock Information Block-->
-                                         <h3  translate="STOCK_INFORMATION" class="ng-scope"></h3>
-                                         
-                                         <div class="form-group" ng-class="error('typeId')">
+                                        <h3  translate="STOCK_INFORMATION" class="ng-scope"></h3>
+
+                                        <div class="form-group" ng-class="error('typeId')">
                                             <label for="typeId"  translate="CORPORATION_TYPE" class="ng-scope"></label>
                                             <div class="controls">
                                                 <!--<select ng-change="reset()" name="corporation_type" id="corporation_type" class="form-control" ng-model="newform.corporation_type" required>-->
@@ -89,26 +89,27 @@
                                                 <span class="help-block text-danger" ng-show="form.shareholder.$invalid && submitted"><span translate="SHAREHOLDERS"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>  
-                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('company')" >
+                                        <div class="form-group col-sm-6 col-md-6" >
+                                            <div class="controls">
+                                                <label for="capital"  translate="CAPITAL" class="ng-scope"></label>
+                                                <select name="capital" id="capital" class="form-control" ng-model="newform.capital" required>
+                                                    <option value="" class=""  translate="SELECT_CAPITAL" class="ng-scope"></option>
+                                                    <option value="1" label="Capital 1">Capital 1</option>
+                                                    <option value="2" label="Capital 2">Capital 2</option>
+                                                </select>
+                                                <span class="help-block text-danger" ng-show="form.capital.$invalid && submitted"><span translate="CAPITAL"></span> <span translate="IS_REQUIRED"></span></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('company')" >
                                             <label for="share_value"  translate="SHARE_VALUES" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="share_value" name="share_value" type="text" class="form-control" ng-model="newform.share_value" required/>
                                                 <span class="help-block text-danger" ng-show="form.share_value.$invalid && submitted"><span translate="SHARE_VALUES"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
-                                         
-                                                <div class="form-group col-sm-6 col-md-6" >
-                                                    <div class="controls">
-                                                        <label for="capital"  translate="CAPITAL" class="ng-scope"></label>
-                                                        <select name="capital" id="capital" class="form-control" ng-model="newform.capital" required>
-                                                            <option value="" class=""  translate="SELECT_CAPITAL" class="ng-scope"></option>
-                                                            <option value="1" label="Capital 1">Capital 1</option>
-                                                            <option value="2" label="Capital 2">Capital 2</option>
-                                                        </select>
-                                                        <span class="help-block text-danger" ng-show="form.capital.$invalid && submitted"><span translate="CAPITAL"></span> <span translate="IS_REQUIRED"></span></span>
-                                                    </div>
-                                                </div>
-                                            
+
+                                        
+
                                         <h3>Board Of Directors</h3>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
                                             <label for="president"  translate="PRESIDENT" class="ng-scope"></label>
@@ -131,7 +132,7 @@
                                                 <span class="help-block text-danger" ng-show="form.vice_president_2.$invalid && submitted"><span translate="VICE_PRESIDENT_2"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
-                                     
+
 
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('treasurer')">
                                             <label for="treasurer"  translate="TREASURER" class="ng-scope"></label>
@@ -147,7 +148,7 @@
                                                 <span class="help-block text-danger" ng-show="form.comptroller.$invalid && submitted"><span translate="Comptroller"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
-                                           <div class="form-group  col-sm-6 col-md-6" ng-class="error('secretary')">
+                                        <div class="form-group  col-sm-6 col-md-6" ng-class="error('secretary')">
                                             <label for="secretary"  translate="SECRETARY" class="ng-scope"></label>
                                             <div class="controls">
                                                 <input id="email1" name="secretary" type="text" class="form-control" ng-model="newform.secretary" required/>
@@ -177,10 +178,8 @@
                                         </div>
                                         </form>
                                         </div>
-
                                         <!--</form>-->
                                         </div>
-
                                         </div>
                                         </div>
                                         </div>

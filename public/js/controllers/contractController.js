@@ -38,7 +38,8 @@
                         $scope.title = "Edit Contract";
                         $http.post(path + '/load_contract_data', {id: $routeParams.contract_id}).success(function(response) {
 //                            alert(response[0].contract_type);
-$scope.newform.contract_type = response[0].contract_type;
+                                $scope.newform.contract_type = response[0].contract_type;
+//                                alert(response[0].contract_type);
                             if (response == '') {
                             } else {
                                 $http.post(path + '/load_buyer_data', {idnumber: response[0].buyer}).success(function(response) {

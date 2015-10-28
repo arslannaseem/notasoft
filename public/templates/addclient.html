@@ -1,10 +1,9 @@
 <script>
-  $(function() {
-    $( "#dob" ).datepicker({
-  dateFormat: "dd-mm-yy"
-});
-  });
-  </script>
+    $(function() {
+    $("#dob").datepicker({
+    dateFormat: "dd-mm-yy"
+            });
+    });  </script>
 <div class="row">
     <div class="col-md-6 col-lg-7 col-center">
         <div class="panel">
@@ -153,11 +152,11 @@
                                             </div>
 
                                             <div id="foreign_address" ng-show="newform.usertype == 'foreign' && newform.residence != 'costrica'">
-                                                 <div class="form-group col-sm-4 col-md-4">
+                                                <div class="form-group col-sm-4 col-md-4">
                                                     <div class="controls">
                                                         <label for="title "  translate="PROVINCE" class="ng-scope"></label>
                                                         <select name="fprovince" id="fprovince" ng-change="changeCounty()" class="form-control" ng-model="newform.fprovince" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
-                                                             <option value=""  translate="SELECT_PROVINCE" class="ng-scope" disabled="disabled">Select your province</option>
+                                                            <option value=""  translate="SELECT_PROVINCE" class="ng-scope" disabled="disabled">Select your province</option>
                                                             <option value="1" selected="selected" disabled="disabled" label="San José">San José</option>
                                                             <option value="2" label="San José">Alajuela </option>
                                                             <option value="3" label="San José">Cartago</option>
@@ -165,9 +164,9 @@
                                                             <option value="5" label="San José">Guanacaste</option>
                                                             <option value="6" label="San José">Puntarenas</option>
                                                             <option value="7" label="San José">Limon</option>
-<!--                                                            <option value="" translate="SELECT_PROVINCE" class="ng-scope"></option>
-                                                            <option value="1" label="province1">province1</option>
-                                                            <option value="2" label="province2">province2</option>-->
+                                                            <!--                                                            <option value="" translate="SELECT_PROVINCE" class="ng-scope"></option>
+                                                                                                                        <option value="1" label="province1">province1</option>
+                                                                                                                        <option value="2" label="province2">province2</option>-->
                                                         </select>
                                                         <span class="help-block text-danger" ng-show="form.fprovince.$invalid && submitted" translate="PROVINCE_VALIDATION" class="ng-scope"></span>
                                                     </div>
@@ -177,21 +176,21 @@
                                                         <label for="title" translate="COUNTRY" class="ng-scope"></label>
                                                         <select name="country" id="country" class="form-control" ng-model="newform.country" ng-options="country.code as country.name for country in countries | filter: { code: newform.fprovince} " ng-change="changeDistrict()" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
                                                             <option value="" translate="SELECT_COUNTRY" class="ng-scope" disabled="disabled"></option>
-<!--                                                            <option value="1" label="Canada">Canada</option>
-                                                            <option value="2" label="America">America</option>-->
+                                                            <!--                                                            <option value="1" label="Canada">Canada</option>
+                                                                                                                        <option value="2" label="America">America</option>-->
                                                         </select>
                                                         <span class="help-block text-danger" ng-show="form.country.$invalid && submitted" translate="COUNTRY_VALIDATION" class="ng-scope"></span>
                                                     </div>
                                                 </div>
-                                               
+
                                                 <div class="form-group col-sm-4 col-md-4">
                                                     <div class="controls">
                                                         <label for="title " translate="STATE" class="ng-scope"></label>
                                                         <select name="state" id="state" class="form-control" ng-model="newform.state"  ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
                                                             <option value="" translate="SELECT_STATE" class="ng-scope" disabled="disabled"></option>
-                                                                <option value="1" label="Stste1">Stste1</option>
+                                                            <option value="1" label="Stste1">Stste1</option>
                                                             <option value="2" label="Stste2">Stste2</option>
-                                                           
+
                                                         </select>
                                                         <span class="help-block text-danger" ng-show="form.state.$invalid && submitted" translate="STATE_VALIDATION" class="ng-scope"></span>
                                                     </div>

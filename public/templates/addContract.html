@@ -105,8 +105,9 @@
                                             <label for="buyer_gender"  translate="GENDER"></label>
                                             <div class="controls">
                                                 <select name="buyer_gender" id="buyer_gender" class="form-control" ng-model="newform.buyer_gender" required>
-                                                    <option value="1" label="Male"  translate="BUYER_ID">Male</option>
-                                                    <option value="2" label="Female"  translate="BUYER_ID">Female</option>
+                                                    <option value="" selected="selected" disabled="disabled" >Select Gender</option>
+                                                    <option value="1" label="Male" >Male</option>
+                                                    <option value="2" label="Female">Female</option>
                                                 </select>
                                                 <!--<input id="buyer_gender" name="buyer_gender" type="text" class="form-control" ng-model="newform.buyer_gender" required/>-->
                                                 <span class="help-block text-danger" ng-show="form.buyer_gender.$invalid && submitted"><span translate="GENDER"></span> <span translate="IS_REQUIRED"></span></span>
@@ -168,6 +169,7 @@
                                                             <label for="seller_gender" translate="GENER"></label>
                                                             <div class="controls">
                                                                 <select name="seller_gender" id="seller_gender" class="form-control" ng-model="newform.seller_gender" required>
+                                                                 <option value="" selected="selected" disabled="disabled" >Select Gender</option>
                                                                     <option value="1" label="Male" >Male</option>
                                                                     <option value="2" label="Female" >Female</option>
                                                                 </select>
