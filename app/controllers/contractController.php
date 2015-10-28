@@ -56,7 +56,6 @@ class contractController extends BaseController {
         $contractData = DB::table('contract')->where('id', '=', $contractId)
                 ->select('id')
                 ->first();
-//        print_r($contractData);exit;
         if ($contractData) {
             DB::table('contract')->update(array('user_id' => $userId, 'seller' => $sellerId, 'buyer' => $buyerId, 'contract_type' => $contractType, 'contract_item_type' => $contractItemType));
             $contractId = $contractData->id;
