@@ -14,26 +14,16 @@
 
 <div class="row">
     <div class="col-md-6 col-lg-7 col-center">
-        <button class="btn btn-brand btn-md" ng-click="tab = 1">Buyer</button>
-        <button class="btn btn-brand btn-md" ng-click="tab = 2">Seller</button>
-        <button class="btn btn-brand btn-md" ng-click="tab = 3">Contract Type</button>
-
-        <!--        <div ng-show="tab == '1'">Tab 1 data</div>
-                <div ng-show="tab == '2'">Tab 2 data 2</div>
-                <div ng-show="tab == '3'">Tab 3 data 3</div>-->
 
         <div class="panel">
             <header class="panel-heading">
                 <h1>{{title}}</h1>
-                <!--                
-                                <select ng-model="changeMe" ng-options="d as d for d in dummyValues" ng-change="changeCounty()">
-                                <option value="">Change Me</option>
-                            </select>
-                            <select ng-model="filter.country" ng-options="country.code as country.name for country in countries | filter: { code: changeMe} ">
-                                <option value="">All Countries</option>
-                            </select>-->
 
             </header>
+                    <button class="btn btn-brand btn-md" ng-click="tab = 1">Buyer</button>
+        <button class="btn btn-brand btn-md" ng-click="tab = 2">Seller</button>
+        <button class="btn btn-brand btn-md" ng-click="tab = 3">Contract Type</button>
+
             <div class="panel-body">
                 <div>
                     <form name="form" role="form" method="POST" ng-submit="addcontract(newform, form.$valid)" novalidate nv-file-drop=""  filters="queueLimit, customFilter">

@@ -1,18 +1,15 @@
 <div class="row">
     <div class="col-md-6 col-lg-7 col-center">
-            <button class="btn btn-brand btn-md" ng-click="tab=1">Corporation Data</button>
-        <button class="btn btn-brand btn-md" ng-click="tab=2">Stock Information</button>
-        <button class="btn btn-brand btn-md" ng-click="tab=3">Board Of Directors</button>
-        <button class="btn btn-brand btn-md" ng-click="tab=4">Managers</button>
         
-<!--        <div ng-show="tab == '1'">Corporation Data</div>
-        <div ng-show="tab == '2'">Stock Information</div>
-        <div ng-show="tab == '3'">Board Of Directors</div>
-        <div ng-show="tab == '4'">Managers</div>-->
         <div class="panel">
             <header class="panel-heading">
                 <h1>{{title}}</h1>
             </header>
+                <button class="btn btn-brand btn-md" ng-click="tab=1">Corporation Data</button>
+        <button class="btn btn-brand btn-md" ng-click="tab=2">Stock Information</button>
+        <button class="btn btn-brand btn-md" ng-click="tab=3">Board Of Directors</button>
+        <button class="btn btn-brand btn-md" ng-click="tab=4">Managers</button>
+        
             <div class="panel-body">
                 <div>
                     <form name="form" role="form" method="POST" ng-submit="addcorporation(newform, form.$valid)" novalidate nv-file-drop=""  filters="queueLimit, customFilter">
