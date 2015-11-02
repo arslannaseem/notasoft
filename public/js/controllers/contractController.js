@@ -5,7 +5,7 @@
     angular.module("JobbaApp")
             .controller('contractController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', '$timeout', function($scope, $http, newClientFormDataService, $location, $routeParams, $timeout, $translate) {
      
-
+                     $scope.tab=1;
   
    
      

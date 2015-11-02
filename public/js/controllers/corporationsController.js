@@ -2,9 +2,11 @@
 
 (function() {
 
+
     angular.module("JobbaApp")
             .controller('corporationsController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', '$timeout', function($scope, $http, newClientFormDataService, $location, $routeParams, $timeout, $translate) {
 
+                    $scope.tab=1;
                     $scope.title = "Add Coporations";
 //            Quick Search Request To Get all Citizens
                     $http.post(path + '/get_corporation_ids').success(function(response) {

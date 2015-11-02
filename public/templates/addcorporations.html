@@ -1,5 +1,14 @@
 <div class="row">
     <div class="col-md-6 col-lg-7 col-center">
+            <button class="btn btn-brand btn-md" ng-click="tab=1">Corporation Data</button>
+        <button class="btn btn-brand btn-md" ng-click="tab=2">Stock Information</button>
+        <button class="btn btn-brand btn-md" ng-click="tab=3">Board Of Directors</button>
+        <button class="btn btn-brand btn-md" ng-click="tab=4">Managers</button>
+        
+<!--        <div ng-show="tab == '1'">Corporation Data</div>
+        <div ng-show="tab == '2'">Stock Information</div>
+        <div ng-show="tab == '3'">Board Of Directors</div>
+        <div ng-show="tab == '4'">Managers</div>-->
         <div class="panel">
             <header class="panel-heading">
                 <h1>{{title}}</h1>
@@ -7,7 +16,7 @@
             <div class="panel-body">
                 <div>
                     <form name="form" role="form" method="POST" ng-submit="addcorporation(newform, form.$valid)" novalidate nv-file-drop=""  filters="queueLimit, customFilter">
-
+                        <div ng-show="tab == '1'">
                         <div class="form-group" ng-class="error('title')" >
                             <label for="title " translate="ID_NUMBER"> </label>
                             <div class="controls">
@@ -60,7 +69,9 @@
                                             </div>
                                         </div>
                                         <hr>
+                                        </div>
                                         <!--Stock Information Block-->
+                                         <div ng-show="tab == '2'">
                                         <h3  translate="STOCK_INFORMATION" class="ng-scope"></h3>
 
                                         <div class="form-group" ng-class="error('typeId')">
@@ -107,7 +118,8 @@
                                                 <span class="help-block text-danger" ng-show="form.share_value.$invalid && submitted"><span translate="SHARE_VALUES"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
-
+                                        </div>
+                                    <div ng-show="tab == '3'">
                                         
 
                                         <h3>Board Of Directors</h3>
@@ -155,7 +167,8 @@
                                                 <span class="help-block text-danger" ng-show="form.secretary.$invalid && submitted"><span translate="SECRETARY"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
-
+                                        </div>
+                                         <div ng-show="tab == '4'">
                                         <h3   translate="MANAGERS" class="ng-scope"></h3>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('manager1')">
                                             <label for="manager1"  translate="MANAGERS1" class="ng-scope"></label>
@@ -171,10 +184,16 @@
                                                 <span class="help-block text-danger" ng-show="form.manager2.$invalid && submitted"><span translate="MANAGERS2"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
+                                        </div>
+                                        
                                         <div class="control-group">
                                             <div class="controls">
                                                 <button ng-click="submitted = true" class="btn btn-xl">Save</button>
                                             </div>
+                                            <div ng-show="form.$submitted && form.$invalid" style="color:red;">
+                                             <!--{{form.$error.required.length}} errors.-->
+                                                     Please Fill All Fields
+                                             </div>
                                         </div>
                                         </form>
                                         </div>

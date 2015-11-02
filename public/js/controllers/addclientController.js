@@ -5,7 +5,7 @@
     angular.module("JobbaApp")
             .controller('addclientController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', 'FileUploader', '$timeout', function($scope, $http, newClientFormDataService, $location, $routeParams, FileUploader, $timeout, $translate) {
 
-
+//                $scope.tab=1;
 // function on change the province
                     $scope.changeDistrict = function() {
                         $scope.districts = [
@@ -35,6 +35,7 @@
 //            Quick Search Request To Get all Citizens
                     $http.post(path + '/get_citizens').success(function(response) {
                         $scope.states = response;
+                        
                     });
                     $http.post(path + '/category_list').success(function(response) {
                         $scope.image_cat = response;

@@ -12,6 +12,7 @@
                 <div data-ng-controller='clientController'>
                 </div>
             </div>
+            <h3><div class="list-group-item" ng-show="clients.length == 0">No Client Found</div></h3>
             <div ng-repeat="client in clients|orderBy : 'Lastname1' ">
             <a href="#/addclients/{{client.usertype}}/{{client.passport}}{{client.idnumber}}" class="list-group-item">
                 <h4 class="list-group-item-heading">
