@@ -6,9 +6,7 @@
             .controller('contractController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', '$timeout', function($scope, $http, newClientFormDataService, $location, $routeParams, $timeout, $translate) {
      
                      $scope.tab=1;
-  
-   
-     
+             
 //                Quick Seacrh End
                     $http.post(path + '/get_citizens').success(function(response) {
                         $scope.states = response;
@@ -225,6 +223,21 @@
                     }else{
                         $scope.resetBuyerData();
                     }
+                }
+                // load data for vehicle
+                $scope.loadVehicleData = function(){
+//                    alert($('#vehicle_id').val());
+                     $http.post(path + '/load_vehicle_data', {vehicleId: $('#vehicle_id').val()}).success(function(response) {
+                         
+                     });
+                    
+                }
+                // load data for properties
+                $scope.loadPropertyData = function(){
+//                    alert($('#property_id').val());
+                 $http.post(path + '/load_property_data', {propertyId: $('#property_id').val()}).success(function(response) {
+                         
+                     });
                 }
                     
                     //                            loadSellererData

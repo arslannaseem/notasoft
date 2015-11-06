@@ -76,6 +76,26 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
+		'mysql2' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'notasoft_vehiculos',
+			'username'  => 'notasoft_shani',
+			'password'  => 'notasoft123',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
+		'mysql3' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'notasoft_propiedades',
+			'username'  => 'notasoft_shani',
+			'password'  => 'notasoft123',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
 
 		// Dev
 		// 'mysql' => array(
