@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2015 at 08:51 PM
+-- Generation Time: Nov 10, 2015 at 08:05 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -56,14 +56,16 @@ CREATE TABLE IF NOT EXISTS `available_corporations` (
   `page` varchar(50) DEFAULT NULL,
   `record` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `available_corporations`
 --
 
 INSERT INTO `available_corporations` (`id`, `corporation_type`, `corporation_name`, `idnumber`, `registration_book`, `province`, `country`, `district`, `capital`, `address1`, `address2`, `share_value`, `president`, `vice_president`, `secretary`, `treasurer`, `comptroller`, `manager1`, `manager2`, `created_at`, `updated_at`, `tomo`, `asiento`, `no_of_shares`, `shareholder`, `vice_president_2`, `page`, `record`) VALUES
-(1, 'jsds', 'sdsds', '123456789', 'sdkw', 'sdskdm', 'skdmskd', 'sdksmd', 'skmdsk', 'skmskd', 'ksmdskd', 'sdkmsd', 'sddms', 'dkmsdk', 'skdmsdk', 'skdmskd', 'ksdmskd', 'skdsmd', 'sdmskl', NULL, NULL, 'sdmsd', 'dmskd', '12', 'smdksdm', 'sdmsk', '12', '11');
+(1, 'jsds', 'sdsds', '123456789', 'sdkw', 'sdskdm', 'skdmskd', 'sdksmd', 'skmdsk', 'skmskd', 'ksmdskd', 'sdkmsd', 'sddms', 'dkmsdk', 'skdmsdk', 'skdmskd', 'ksdmskd', 'skdsmd', 'sdmskl', NULL, NULL, 'sdmsd', 'dmskd', '12', 'smdksdm', 'sdmsk', '12', '11'),
+(2, 'test', 'test', '123456788', 'test 1', 'test 2', 'test 3', 'test 4', ' test 5', 'cedula 1', 'cedula 2', 'test', '123456789', '123456789', '123456789', '123456789', '123456789', '123456789', '123456789', '2015-11-10 00:00:00', '2015-11-10 00:00:00', 'test', 'test', '2', '2', '123456789', '12', '22'),
+(3, 'test', 'test', '123456788', 'test 1', 'test 2', 'test 3', 'test 4', ' test 5', 'cedula 1', 'cedula 2', 'test', '123456789', '123456789', '123456789', '123456789', '123456789', '123456789', '123456789', '2015-11-10 00:00:00', '2015-11-10 00:00:00', 'test', 'test', '2', '2', '123456789', '12', '22');
 
 -- --------------------------------------------------------
 
@@ -1658,24 +1660,15 @@ CREATE TABLE IF NOT EXISTS `clients` (
   PRIMARY KEY (`cid`),
   KEY `idnumber` (`idnumber`),
   KEY `passport` (`passport`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `clients`
 --
 
 INSERT INTO `clients` (`cid`, `user_id`, `usertype`, `idnumber`, `passport`, `firstname`, `Lastname1`, `Lastname2`, `nationality`, `gender`, `province`, `county`, `district`, `country`, `fprovince`, `state`, `city`, `zip`, `address1`, `address2`, `postcode`, `dob`, `death`, `created_at`, `updated_at`, `phone1`, `email1`, `phone2`, `email2`, `cellphone`, `homephone`, `cellphone2`, `fax`, `facebook`, `twitter`, `linkedin`, `google`, `photoids`, `profile_image`, `active`) VALUES
-(21, NULL, 'foreign', '7777', '213123333', 'sad', 'test', '', 1, 2, '', '', '', '', '', '', '', '', 'asdasd', '', '232323', '19900501', 0, '2015-08-20 18:01:31', '2015-08-20 18:01:31', NULL, 'h@h.com', NULL, 'h@h.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Desert.jpg,Chrysanthemum.jpg', 'Desert.jpg', 1),
-(47, '2', '', '111970301', '', 'PAMELA DE LOS ANGELES', 'CAMACHO', 'FREER', 0, 2, '', '', '', '', '', '', '', '', '', '', '', '20151122', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, 'Desert.jpg', 0),
-(49, '2', 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, '2015-10-06 18:21:10', '2015-10-06 18:21:10', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Koala.jpg', NULL),
-(50, '2', '', '111970301', '', 'PAMELA DE LOS ANGELES', 'CAMACHO', 'FREER', 0, 2, '', '', '', '', '', '', '', '', '', '', '', '20151122', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
-(51, '2', '', '111970301', '', 'PAMELA DE LOS ANGELES', 'CAMACHO', 'FREER', 0, 2, '', '', '', '', '', '', '', '', '', '', '', '20151122', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
-(52, '2', '', '111970301', '', 'PAMELA DE LOS ANGELES', 'CAMACHO', 'FREER', 0, 2, '', '', '', '', '', '', '', '', '', '', '', '20151122', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
-(53, NULL, 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
-(54, NULL, 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
-(55, NULL, 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
-(56, NULL, 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0),
-(57, NULL, 'cedula', '111970302', '', 'MAUREN LUCRECIA', 'VINDAS', 'NU&#209;EZ', 0, 2, '0', '0', '0', '', '', '', '', '', 'ssdfdsfsdf', '', '12345', '19840131', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0);
+(1, NULL, 'cedula', '111970307', '', 'MICHAEL', 'SOTO', 'ARIAS', 0, 1, '1', '1', '1', '', '', '', '', '', 'test', 'tes 2', '123', '14-11-2015', 0, '2015-11-02 15:33:12', '2015-11-02 15:33:12', '111', 'h@H.com', '123', 'h@h.com', '123', '111', '1111', '111', 'facebook', 'twitter', 'linkedin', 'google.com', 'Penguins.jpg', 'Desert.jpg', 0),
+(2, NULL, '', '111970306', '', 'CARLOS EDGARDO', 'MARIN', 'VARGAS', 0, 1, '', '', '', '', '', '', '', '', '', '', '', '24-11-2015', 0, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1705,7 +1698,14 @@ CREATE TABLE IF NOT EXISTS `contract` (
   `contract_type` varchar(50) DEFAULT NULL,
   `contract_item_type` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `contract`
+--
+
+INSERT INTO `contract` (`id`, `user_id`, `seller`, `buyer`, `contract_type`, `contract_item_type`) VALUES
+(1, NULL, '111970307', '111970306', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -1731,7 +1731,14 @@ CREATE TABLE IF NOT EXISTS `contract_detail` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `contract_detail`
+--
+
+INSERT INTO `contract_detail` (`id`, `contract_id`, `user_id`, `contract_item_type`, `vehicle_no`, `vehicle_price`, `engine_no`, `vehicle_model`, `property_no`, `property_price`, `property_area`, `propert_location`, `other_name`, `other_amount`, `created_at`, `updated_at`) VALUES
+(1, '1', NULL, '1', '12', '122', '123', 'dsfs', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1811,15 +1818,30 @@ CREATE TABLE IF NOT EXISTS `corporations` (
   `page` varchar(50) DEFAULT NULL,
   `record` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `corporations`
+-- Table structure for table `counties`
 --
 
-INSERT INTO `corporations` (`id`, `user_id`, `corporation_type`, `corporation_name`, `idnumber`, `registration_book`, `province`, `country`, `district`, `capital`, `address1`, `address2`, `share_value`, `president`, `vice_president`, `secretary`, `treasurer`, `comptroller`, `manager1`, `manager2`, `created_at`, `updated_at`, `tomo`, `asiento`, `no_of_shares`, `shareholder`, `vice_president_2`, `page`, `record`) VALUES
-(22, '2', 'commercial', 'commercial 22', '123456783', 'djskdsdk', '0', '0', '0', '1', 'sdnskdnsd', 'sdnsdn', 'sdskdms', 'msndsmdns', 'smndsmd', 'smdnsd', 'smndsdn', 'smdnsdn', 'smndsdn', 'smdnsmd', '2015-09-30 20:02:23', '2015-09-30 20:02:23', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(34, NULL, 'commercial', 'sdsds', '123456789', 'sdkw', 'sdskdm', 'skdmskd', 'sdksmd', 'skmdsk', 'skmskd', 'ksmdskd', 'sdkmsd', 'sddms', 'dkmsdk', 'skdmsdk', 'skdmskd', 'ksdmskd', 'skdsmd', 'sdmskl', '2015-10-06 18:04:34', '2015-10-12 14:20:53', 'sdmsd', 'dmskd', '12', 'smdksdm', 'sdmsk', '12', '11');
+CREATE TABLE IF NOT EXISTS `counties` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `province_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `counties`
+--
+
+INSERT INTO `counties` (`id`, `province_id`, `name`) VALUES
+(1, 1, 'a'),
+(2, 2, 'b'),
+(3, 3, 'c'),
+(4, 4, 'd');
 
 -- --------------------------------------------------------
 
@@ -11876,6 +11898,30 @@ INSERT INTO `deaths` (`Cita_de_Defunción`, `Cita_de_Nacimiento`, `Conocido_como
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `districs`
+--
+
+CREATE TABLE IF NOT EXISTS `districs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `province_id` int(11) DEFAULT NULL,
+  `district_id` int(11) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `districs`
+--
+
+INSERT INTO `districs` (`id`, `province_id`, `district_id`, `name`) VALUES
+(1, 1, 1, 'test'),
+(2, 2, 2, 'test 2'),
+(3, 3, 3, 'check'),
+(4, 4, 4, 'ok');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `image_categories`
 --
 
@@ -13505,7 +13551,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `photoids` varchar(1000) COLLATE utf8_unicode_ci DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `users`
@@ -13513,7 +13559,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `gender`, `fristname`, `lastname`, `email`, `mobile`, `password`, `remember_token`, `lastIPAddress`, `year`, `month`, `date`, `created_at`, `death`, `updated_at`, `is_deleted`, `vcode`, `active`, `phone1`, `email1`, `phone2`, `email2`, `cellphone`, `homephone`, `cellphone2`, `fax`, `facebook`, `twitter`, `linkedin`, `google`, `photoids`) VALUES
 (1, NULL, 'haider', 'hussain', 'haider@gmail.com', NULL, '$2y$08$1SJlX.muZaJIIWv7ed3/a.fFC0nabBlNIcp/ugIgNSbQT7GSnu72K', '0', '0', NULL, NULL, NULL, '2015-09-20 11:38:37', 0, '2015-09-20 11:38:37', 0, 'zgmN1qnzCKg7tQK', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
-(2, NULL, 'h', 'h', 'h@h.com', NULL, '$2y$08$cDxFSdHJtBv7JbCdvbp2dOdLJ.kETC4Yy/t6/QtB7Kyh8cs4VIabS', '0', '127.0.0.1', NULL, NULL, NULL, '2015-10-06 11:46:15', 0, '2015-10-06 11:46:15', 0, 'v6WDNTXnJenPQWM', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+(2, NULL, 'h', 'h', 'h@h.com', NULL, '$2y$08$cDxFSdHJtBv7JbCdvbp2dOdLJ.kETC4Yy/t6/QtB7Kyh8cs4VIabS', '0', '127.0.0.1', NULL, NULL, NULL, '2015-10-06 11:46:15', 0, '2015-10-06 11:46:15', 0, 'v6WDNTXnJenPQWM', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
+(3, NULL, 'haider', 'hussain', 'haider.1232@yahoo.com', NULL, '$2y$08$b8c.y9xquqYI3218kuC2H.VmtPRbfDeI5z0MCibA1FPJOqk5LlBX2', '0', '127.0.0.1', NULL, NULL, NULL, '2015-11-10 04:04:53', 0, '2015-11-10 04:04:53', 0, 'mzQCpaAHt6RayzT', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

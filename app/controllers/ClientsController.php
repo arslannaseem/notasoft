@@ -129,5 +129,20 @@ class ClientsController extends BaseController {
         $data['image_categories'] = ImageCategories::get();      // loads all Image Categories from clients database
         return $data['image_categories'];
     }
+    public function get_counties(){
+        $province = Input::get('province');
+        $counties = DB::table('counties')->where('province_id', '=', $province)->get();
+        return $counties;
+    }
+    public function get_districts(){
+        $provinceId = Input::get('provinceId');
+        $countyId = Input::get('countyId');
+        $province = Input::get('province');
+        $districts = DB::table('districs')
+                ->where('province_id', '=', $provinceId)
+                ->where('district_id', '=', $countyId)
+                ->get();
+        return $districts;
+    }
 
 }

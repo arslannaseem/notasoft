@@ -129,7 +129,7 @@
                                     <div class="form-group col-sm-4 col-md-4">
                                         <div class="controls">
                                             <label for="title " translate="PROVINCE" class="ng-scope"></label>
-                                            <select name="province" id="province" class="form-control" ng-model="newform.province"  ng-change="changeCounty()" ng-required="newform.usertype == 'cedula'">
+                                            <select name="province" id="province" class="form-control" ng-model="newform.province"  ng-change="changeCounty(newform.province)" ng-required="newform.usertype == 'cedula'">
                                                 <option value=""  translate="SELECT_PROVINCE" class="ng-scope" disabled="disabled">Select your province</option>
                                                 <option value="1" selected="selected" label="San José">San José</option>
                                                 <option value="2" label="San José">Alajuela </option>
@@ -145,8 +145,9 @@
                                     <div class="form-group col-sm-4 col-md-4" >
                                         <div class="controls">
                                             <label for="title " translate="COUNTRY" class="ng-scope"></label>
-                                            <select name="county" id="county" class="form-control" ng-model="newform.county" ng-options="country.code as country.name for country in countries | filter: { code: newform.province} " ng-change="changeDistrict()" ng-required="newform.usertype == 'cedula'">
-                                                <option value="" translate="SELECT_COUNTRY" class="ng-scope" disabled="disabled">Select your county</option>
+                                            <select name="county" id="county" class="form-control" ng-model="newform.county"  ng-change="changeDistrict(newform.province,newform.county)" ng-required="newform.usertype == 'cedula'">
+                                                <option value="" translate="SELECT_COUNTRY" class="ng-scope" selected="selected">Select your county</option>
+                                                <option ng-repeat="county in counties" value="{{county.id}}">{{county.name}}</option>
                                             </select>
                                             <span class="help-block text-danger" ng-show="form.county.$invalid && submitted" translate="COUNTRY_VALIDATION" class="ng-scope"></span>
                                         </div>
@@ -154,8 +155,9 @@
                                     <div class="form-group col-sm-4 col-md-4" >
                                         <div class="controls">
                                             <label for="title "  translate="DISTRICT" class="ng-scope"></label>
-                                            <select name="district" id="district" class="form-control" ng-model="newform.district" ng-options="district.code as district.name for district in districts| filter: { code: newform.county} " ng-required="newform.usertype == 'cedula'">
-                                                <option value="" translate="SELECT_DISTRICT" class="ng-scope" disabled="disabled"></option>
+                                            <select name="district" id="district" class="form-control" ng-model="newform.district"  ng-required="newform.usertype == 'cedula'">
+                                                <option value="" translate="SELECT_DISTRICT" class="ng-scope" selected="selected"></option>
+                                                <option ng-repeat="distric in districs" value="{{distric.id}}">{{distric.name}}</option>
                                             </select>
                                             <span class="help-block text-danger" ng-show="form.district.$invalid && submitted" translate="DISTRICT_VALIDATION" class="ng-scope"></span>
                                         </div>
@@ -166,7 +168,7 @@
                                     <div class="form-group col-sm-4 col-md-4">
                                         <div class="controls">
                                             <label for="title "  translate="PROVINCE" class="ng-scope"></label>
-                                            <select name="fprovince" id="fprovince" ng-change="changeCounty()" class="form-control" ng-model="newform.fprovince" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
+                                            <select name="fprovince" id="fprovince" ng-change="changeCounty(newform.fprovince)" class="form-control" ng-model="newform.fprovince" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
                                                 <option value=""  translate="SELECT_PROVINCE" class="ng-scope" disabled="disabled">Select your province</option>
                                                 <option value="1" selected="selected" disabled="disabled" label="San José">San José</option>
                                                 <option value="2" label="San José">Alajuela </option>
@@ -185,8 +187,9 @@
                                     <div class="form-group col-sm-4 col-md-4">
                                         <div class="controls">
                                             <label for="title" translate="COUNTRY" class="ng-scope"></label>
-                                            <select name="country" id="country" class="form-control" ng-model="newform.country" ng-options="country.code as country.name for country in countries | filter: { code: newform.fprovince} " ng-change="changeDistrict()" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
+                                            <select name="country" id="country" class="form-control" ng-model="newform.country" ng-change="changeDistrict(newform.fprovince,ewform.country)" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
                                                 <option value="" translate="SELECT_COUNTRY" class="ng-scope" disabled="disabled"></option>
+                                                <option ng-repeat="county in counties" value="{{county.id}}">{{county.name}}</option>
                                                 <!--                                                            <option value="1" label="Canada">Canada</option>
                                                                                                             <option value="2" label="America">America</option>-->
                                             </select>

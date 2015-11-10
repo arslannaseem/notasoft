@@ -55,4 +55,8 @@ Route::get('/login', 'UserController@index');
  Route::post('/load_property_data','contractController@load_property_data');
  // load vehicle data
  Route::post('/load_vehicle_data','contractController@load_vehicle_data');
+ // get counties list
+ Route::post('/get_counties','ClientsController@get_counties');
+ // get Districts list
+ Route::post('/get_districts','ClientsController@get_districts');
  
