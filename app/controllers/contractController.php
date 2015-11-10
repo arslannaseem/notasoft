@@ -201,9 +201,17 @@ class contractController extends BaseController {
     }
 
     public function get_citizens() {
+        
+        $number = Input::get('number');
+        
         $citizens = DB::table('citizens')
-                ->select('Número_de_Cédula')
+                ->where('Número_de_Cédula', 'like', '%'.$number.'%')
+                ->take(10)
                 ->get();
+        
+//        $citizens = DB::table('citizens')
+//                ->select('Número_de_Cédula')
+//                ->get();
         $data = NULL;
         foreach ($citizens as $allCitizens) {
             $data .= $allCitizens->Número_de_Cédula;

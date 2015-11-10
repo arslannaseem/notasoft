@@ -8,9 +8,25 @@
                      $scope.tab=1;
              
 //                Quick Seacrh End
-                    $http.post(path + '/get_citizens').success(function(response) {
+//                    $http.post(path + '/get_citizens').success(function(response) {
+//                        $scope.states = response;
+//                    });
+                    $scope.buyerquicksearch = function (){
+//                        buyer_idnumber
+                        var idnumber = $('#buyer_idnumber').val();
+                         $http.post(path + '/get_citizens',{number: idnumber}).success(function(response) {
                         $scope.states = response;
+                        
                     });
+                    }
+                    $scope.selerquicksearch = function (){
+//                        buyer_idnumber
+                        var idnumber = $('#seller_idnumber').val();
+                         $http.post(path + '/get_citizens',{number: idnumber}).success(function(response) {
+                        $scope.states = response;
+                        
+                    });
+                    }
 
 
                     $scope.title = "Add Contract";
@@ -153,7 +169,14 @@
                                     $scope.newform.buyer_firstname = response.buyer[0].firstname;
                                     $scope.newform.buyer_Lastname1 = response.buyer[0].Lastname1;
                                     $scope.newform.buyer_Lastname2 = response.buyer[0].Lastname2;
-                                    $scope.newform.buyer_nationality = response.buyer[0].nationality;
+                                    
+                                    if(response.buyer[0].nationality == 0){
+                                        var nationality = 'Cedula';
+                                    }else{
+                                        var nationality = 'Foreign';
+                                    }
+                                    
+                                    $scope.newform.buyer_nationality = nationality;
                                     $scope.newform.buyer_gender = response.buyer[0].gender;
                                     $scope.newform.buyer_province = response.buyer[0].province;
                                     $scope.newform.buyer_county = response.buyer[0].county;
@@ -189,7 +212,13 @@
                                     $scope.newform.buyer_firstname = response.buyer[0].Nombre;
                                     $scope.newform.buyer_Lastname1 = response.buyer[0].Primer_Apellido;
                                     $scope.newform.buyer_Lastname2 = response.buyer[0].Segundo_Apellido;
-                                    $scope.newform.buyer_nationality = response.buyer[0].Nacionalidad_del_Inscrito;
+                                    if(response.buyer[0].Nacionalidad_del_Inscrito == 0){
+                                        var nationality = 'Cedula';
+                                    }else{
+                                        var nationality = 'Foreign';
+                                    }
+                                    $scope.newform.buyer_nationality = nationality;
+//                                    $scope.newform.buyer_nationality = response.buyer[0].Nacionalidad_del_Inscrito;
                                     $scope.newform.buyer_gender = response.buyer[0].Sexo;
                                     $scope.newform.buyer_province = '';
                                     $scope.newform.buyer_county = '';
@@ -202,7 +231,13 @@
                                     $scope.newform.buyer_address1 = '';
                                     $scope.newform.buyer_address2 = '';
                                     $scope.newform.buyer_postcode = '';
-                                    $scope.newform.buyer_dob = response.buyer[0].Fecha_del_Suceso;
+                                    
+                                      var num = response.buyer[0].Fecha_del_Suceso;
+                                        var date = num.toString().split('');
+                                         var final_date = date[6] + date[7] + '-' + date[4] + date[5] + '-'  + date[0]+ date[1]+ date[2]+ date[3];
+                                        
+                                    $scope.newform.buyer_dob = final_date;
+//                                    $scope.newform.buyer_dob = response.buyer[0].Fecha_del_Suceso;
                                     $scope.newform.buyer_death = response.buyer[0].Indicador_de_Defunción;
                                     $scope.newform.buyer_phone1 = '';
                                     $scope.newform.buyer_email1 = '';
@@ -260,7 +295,14 @@
                                     $scope.newform.seller_firstname = response.seller[0].firstname;
                                     $scope.newform.seller_Lastname1 = response.seller[0].Lastname1;
                                     $scope.newform.seller_Lastname2 = response.seller[0].Lastname2;
-                                    $scope.newform.seller_nationality = response.seller[0].nationality;
+                                    
+                                    if(response.seller[0].nationality == 0){
+                                        var nationality = 'Cedula';
+                                    }else{
+                                        var nationality = 'Foreign';
+                                    }
+                                    
+                                    $scope.newform.seller_nationality = nationality;
                                     $scope.newform.seller_gender = response.seller[0].gender;
                                     $scope.newform.seller_province = response.seller[0].province;
                                     $scope.newform.seller_county = response.seller[0].county;
@@ -296,7 +338,14 @@
                                     $scope.newform.seller_firstname = response.seller[0].Nombre;
                                     $scope.newform.seller_Lastname1 = response.seller[0].Primer_Apellido;
                                     $scope.newform.seller_Lastname2 = response.seller[0].Segundo_Apellido;
-                                    $scope.newform.seller_nationality = response.seller[0].Nacionalidad_del_Inscrito;
+                                    
+                                     if(response.seller[0].Nacionalidad_del_Inscrito == 0){
+                                        var nationality = 'Cedula';
+                                    }else{
+                                        var nationality = 'Foreign';
+                                    }
+                                    $scope.newform.seller_nationality = nationality;
+//                                    $scope.newform.seller_nationality = response.seller[0].Nacionalidad_del_Inscrito;
                                     $scope.newform.seller_gender = response.seller[0].Sexo;
                                     $scope.newform.seller_province = '';
                                     $scope.newform.seller_county = '';
@@ -309,7 +358,13 @@
                                     $scope.newform.seller_address1 = '';
                                     $scope.newform.seller_address2 = '';
                                     $scope.newform.seller_postcode = '';
-                                    $scope.newform.seller_dob = response.seller[0].Fecha_del_Suceso;
+                                     var num = response.seller[0].Fecha_del_Suceso;
+                                        var date = num.toString().split('');
+                                         var final_date = date[6] + date[7] + '-' + date[4] + date[5] + '-'  + date[0]+ date[1]+ date[2]+ date[3];
+                                    
+                                    
+                                    $scope.newform.seller_dob = final_date;
+//                                    $scope.newform.seller_dob = response.seller[0].Fecha_del_Suceso;
                                     $scope.newform.seller_death = response.seller[0].Indicador_de_Defunción;
                                     $scope.newform.seller_phone1 = '';
                                     $scope.newform.seller_email1 = '';

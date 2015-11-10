@@ -5,38 +5,120 @@
     angular.module("JobbaApp")
             .controller('addclientController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', 'FileUploader', '$timeout', function($scope, $http, newClientFormDataService, $location, $routeParams, FileUploader, $timeout, $translate) {
 
-//                $scope.tab=1;
 // function on change the province
+
+                    $scope.changeCounty = function() {
+                        $scope.countries = [
+                            {"code": "1", "name": "Acosta"},
+                            {"code": "1", "name": "Alajuelita"},
+                            {"code": "1", "name": "Aserrí"},
+                            {"code": "1", "name": "Central"},
+                            {"code": "1", "name": "Curridabat"},
+                            {"code": "1", "name": "Desamparados"},
+                            {"code": "1", "name": "Dota"},
+                            {"code": "1", "name": "Escazú"},
+                            {"code": "1", "name": "Goicoechea"},
+                            {"code": "1", "name": "León Cortés Castro"},
+                            {"code": "1", "name": "Montes de Oca"},
+                            {"code": "1", "name": "Mora"},
+                            {"code": "1", "name": "Moravia"},
+                            {"code": "1", "name": "Perez Zeledón"},
+                            {"code": "1", "name": "Puriscal"},
+                            {"code": "1", "name": "Santa Ana"},
+                            {"code": "1", "name": "Tarrazú"},
+                            {"code": "1", "name": "Tibás"},
+                            {"code": "1", "name": "Turrubares"},
+                            {"code": "1", "name": "Vazquez de Coronado"},
+                            {"code": "2", "name": "Central"},
+                            {"code": "2", "name": "Guatuso"},
+                            {"code": "2", "name": "Grecia"},
+                            {"code": "2", "name": "Upala"},
+                            {"code": "2", "name": "Los Chiles"},
+                            {"code": "2", "name": "Alfaro Ruiz"},
+                            {"code": "2", "name": "Atenas"},
+                            {"code": "2", "name": "Naranjo"},
+                            {"code": "2", "name": "Orotina"},
+                            {"code": "2", "name": "Palmares"},
+                            {"code": "2", "name": "Poás"},
+                            {"code": "2", "name": "San Carlos"},
+                            {"code": "2", "name": "San Ramón"},
+                            {"code": "2", "name": "Valverde Vega"},
+                            {"code": "2", "name": "San Mateo"},
+                            {"code": "3", "name": "Alvarado"},
+                            {"code": "3", "name": "Central"},
+                            {"code": "3", "name": "Guarco"},
+                            {"code": "3", "name": "Jiménez"},
+                            {"code": "3", "name": "Oreamuno"},
+                            {"code": "3", "name": "Paraíso"},
+                            {"code": "3", "name": "Turrialba"},
+                            {"code": "3", "name": "Unión"},
+                            {"code": "4", "name": "Central"},
+                            {"code": "4", "name": "Barva"},
+                            {"code": "4", "name": "Santo Domingo"},
+                            {"code": "4", "name": "Santa Bárbara"},
+                            {"code": "4", "name": "San Rafael"},
+                            {"code": "4", "name": "San Isidro"},
+                            {"code": "4", "name": "Belén"},
+                            {"code": "4", "name": "Flores"},
+                            {"code": "4", "name": "San Pablo"},
+                            {"code": "4", "name": "Sarapiquí"},
+                            {"code": "5", "name": "Central"},
+                            {"code": "5", "name": "Aguirre"},
+                            {"code": "5", "name": "Buenos Aires"},
+                            {"code": "5", "name": "Corredores"},
+                            {"code": "5", "name": "Coto Brus"},
+                            {"code": "5", "name": "Garabito"},
+                            {"code": "5", "name": "Golfito"},
+                            {"code": "5", "name": "Montes de Oro"},
+                            {"code": "5", "name": "Osa"},
+                            {"code": "5", "name": "Parrita"},
+                            {"code": "5", "name": "Esparza"},
+                            {"code": "6", "name": "Liberia"},
+                            {"code": "6", "name": "Nicoya"},
+                            {"code": "6", "name": "Santa Cruz"},
+                            {"code": "6", "name": "Carrillo"},
+                            {"code": "6", "name": "Cañas"},
+                            {"code": "6", "name": "Bagaces"},
+                            {"code": "6", "name": "Abangares"},
+                            {"code": "6", "name": "Tilarán"},
+                            {"code": "6", "name": "Nandayure"},
+                            {"code": "6", "name": "La Cruz"},
+                            {"code": "6", "name": "Hojancha"},
+                            {"code": "7", "name": "Central"},
+                            {"code": "7", "name": "Guácimo"},
+                            {"code": "7", "name": "Matina"},
+                            {"code": "7", "name": "Pococí"},
+                            {"code": "7", "name": "Siquirres"},
+                            {"code": "7", "name": "Talamanca"}
+                        ];
+                    };
+
+
                     $scope.changeDistrict = function() {
                         $scope.districts = [
                             {"code": "1", "name": "Cangrejal"},
-                            {"code": "2", "name": "Guaitil"},
-                            {"code": "3", "name": "Palmichal"},
-                            {"code": "4", "name": "Sabanillas"},
-                            {"code": "5", "name": "Cangrejal 2"},
-                            {"code": "6", "name": "Guaitil 2"},
-                            {"code": "7", "name": "Palmichal 2"}
-                        ];
-                    };
-                    $scope.changeCounty = function() {
-                        $scope.countries = [
-                            {"code": "1", "name": "Desamparados"},
-                            {"code": "2", "name": "Dota"},
-                            {"code": "3", "name": "Escazú"},
-                            {"code": "4", "name": "Goicoechea"},
-                            {"code": "5", "name": "Goicoechea2"},
-                            {"code": "6", "name": "Goicoechea3"},
-                            {"code": "7", "name": "Goicoechea4"}
+                            {"code": "1", "name": "Guaitil"},
+                            {"code": "1", "name": "Palmichal"},
+                            {"code": "1", "name": "Sabanillas"},
+                            {"code": "1", "name": "San Ignacio"},
+                            
+                            {"code": "2", "name": "ee"},
+                            {"code": "2", "name": "cc"},
+                            {"code": "2", "name": "dd"},
+                            {"code": "2", "name": "aa"},
+//                            {"code": "1", "name": "Cangrejal"},
+//                            {"code": "2", "name": "Guaitil"},
+//                            {"code": "3", "name": "Palmichal"},
+//                            {"code": "4", "name": "Sabanillas"},
+//                            {"code": "5", "name": "Cangrejal 2"},
+//                            {"code": "6", "name": "Guaitil 2"},
+//                            {"code": "7", "name": "Palmichal 2"}
                         ];
                     };
                     $scope.changeDistrict();
                     $scope.changeCounty();
 
-//            Quick Search Request To Get all Citizens
-                    $http.post(path + '/get_citizens').success(function(response) {
-                        $scope.states = response;
-                        
-                    });
+
                     $http.post(path + '/category_list').success(function(response) {
                         $scope.image_cat = response;
                     });
@@ -179,8 +261,20 @@
                         });
                     }
 
-                    // $scope.title = "Add Client";
 
+
+//            Quick Search Request To Get all Citizens
+//                    $http.post(path + '/get_citizens').success(function(response) {
+//                        $scope.states = response;
+//                        
+//                    });
+                    $scope.quicksearch = function() {
+                        var idnumber = $('#idnumber').val();
+                        $http.post(path + '/get_citizens', {number: idnumber}).success(function(response) {
+                            $scope.states = response;
+
+                        });
+                    }
                     $scope.loaddata = function() {         //load selected client data
                         var idnumber = $('#idnumber').val();
 
@@ -201,7 +295,12 @@
                                             $scope.newform.Lastname1 = response[0].Primer_Apellido;
                                             $scope.newform.Lastname2 = response[0].Segundo_Apellido;
                                             $scope.newform.death = response[0].Indicador_de_Defunción;
-                                            $scope.newform.dob = response[0].Fecha_del_Suceso;
+                                            var num = response[0].Fecha_del_Suceso;
+                                            var date = num.toString().split('');
+                                            var final_date = date[6] + date[7] + '-' + date[4] + date[5] + '-' + date[0] + date[1] + date[2] + date[3];
+                                            $scope.newform.dob = final_date;
+
+//                                            $scope.newform.dob = response[0].Fecha_del_Suceso;
                                             $scope.newform.firstname = response[0].Nombre;
                                             $scope.newform.nationality = response[0].Nacionalidad_del_Inscrito
                                             $scope.newform.gender = response[0].Sexo;
@@ -223,7 +322,10 @@
                                         $scope.newform.Lastname1 = response[0].Primer_Apellido;
                                         $scope.newform.Lastname2 = response[0].Segundo_Apellido;
                                         $scope.newform.death = response[0].Indicador_de_Defunción;
-                                        $scope.newform.dob = response[0].Fecha_del_Suceso;
+                                        var num = response[0].Fecha_del_Suceso;
+                                        var date = num.toString().split('');
+                                        var final_date = date[6] + date[7] + '-' + date[4] + date[5] + '-' + date[0] + date[1] + date[2] + date[3];
+                                        $scope.newform.dob = final_date;
                                         $scope.newform.firstname = response[0].Nombre;
                                         $scope.newform.nationality = response[0].Nacionalidad_del_Inscrito
                                         $scope.newform.gender = response[0].Sexo;
@@ -303,7 +405,7 @@
                         }
                         return string.replace(/[\s|.]/g, '');
                     };
-                    
+
 
                     //function to update comma separated selected file names
                     //Old Function with categories

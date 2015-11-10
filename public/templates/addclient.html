@@ -58,7 +58,7 @@
                             <div class="form-group" ng-class="error('title')" ng-show="newform.usertype == 'cedula'">
                                 <label for="title " translate="ID_NUMBER" class="ng-scope"></label>
                                 <div class="controls">
-                                    <input id="idnumber" ng-change="loaddata()" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-minlength="9" ng-maxlength="9" name="idnumber" type="text"  class="form-control" ng-model="newform.idnumber" ng-required="newform.usertype == 'cedula'"/>
+                                    <input id="idnumber" ng-change="loaddata();quicksearch()" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8"  ng-maxlength="9" name="idnumber" type="text"  class="form-control" ng-model="newform.idnumber" ng-required="newform.usertype == 'cedula'"/>
                                     <span class="help-block text-danger" ng-show="form.idnumber.$invalid && submitted" translate="ID_DIGIT" class="ng-scope"></span>
                                     <span><button ng-click="loaddata()" class="btn btn-xl">Load</button></span>
                                     <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
@@ -114,7 +114,7 @@
                                     <label for="postcode" translate="GENDER" class="ng-scope"></label>
                                     <div class="controls">
                                         <select name="gender" id="gender" class="form-control" ng-model="newform.gender" required>
-                                            <option value="" translate="SELECT_GENDER" class="ng-scope"></option>
+                                            <option value=""  class="ng-scope">Select Gender</option>
                                             <option value="1" label="Male" translate="MALE" class="ng-scope"></option>
                                             <option value="2" label="Female" translate="FEMALE" class="ng-scope"></option>
                                         </select>

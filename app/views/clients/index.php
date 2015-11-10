@@ -21,14 +21,18 @@
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="button-group text-center">
-                    <a href="#/login"> <button class="btn btn-brand btn-md">Login</button></a>
-                    <a href="#/register"><button class="btn btn-brand btn-md">Register</button></a>
+                    <?php if (Auth::check()) { ?>
                     <a href="#/newclient"><button class="btn btn-brand btn-md">Add Client</button></a>
                     <a href="#/clients"><button class="btn btn-brand btn-md">List Clients</button></a>
                     <a href="#/addcorporations"><button class="btn btn-brand btn-md">Add Corporation</button></a>
                     <a href="#/corporations"><button class="btn btn-brand btn-md">List Corporations</button></a>
                     <a href="#/addcontract"><button class="btn btn-brand btn-md">Add Contract</button></a>
                     <a href="#/contracts"><button class="btn btn-brand btn-md">List Contracts</button></a>
+                    <?php }else{ ?>
+                    <a href="#/login"> <button class="btn btn-brand btn-md">Login</button></a>
+                    <a href="#/register"><button class="btn btn-brand btn-md">Register</button></a>
+                    
+                   <?php } ?>
                 </div>
         </nav>
         <section class="content-panel">

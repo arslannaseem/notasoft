@@ -43,7 +43,7 @@
                             <div class="form-group" ng-class="error('title')" >
                                 <label for="title " translate="BUYER_ID"></label>
                                 <div class="controls">
-                                    <input id="buyer_idnumber" ng-change="loadBuyerData()" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-minlength="9" ng-maxlength="9" name="buyer_idnumber" type="text"  class="form-control" ng-model="newform.buyer_idnumber" required/>
+                                    <input id="buyer_idnumber" ng-change="loadBuyerData();buyerquicksearch()" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8"  ng-maxlength="9" name="buyer_idnumber" type="text"  class="form-control" ng-model="newform.buyer_idnumber" required/>
 
                                     <span class="help-block text-danger" ng-show="form.buyer_idnumber.$invalid && submitted">Please Enter valid 9 digit ID!</span>
                                     <span><button type="button" ng-click="loadBuyerData()" class="btn btn-xl">Load</button><span>
@@ -112,7 +112,7 @@
                                                 <div class="form-group" ng-class="error('title')" >
                                                     <label for="title " translate="SELLER_ID"> </label>
                                                     <div class="controls">
-                                                        <input id="seller_idnumber" ng-change="loadSellererData()" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-minlength="9" ng-maxlength="9" name="seller_idnumber" type="text"  class="form-control" ng-model="newform.seller_idnumber" required/>
+                                                        <input id="seller_idnumber" ng-change="loadSellererData();selerquicksearch()" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8"  ng-maxlength="9" name="seller_idnumber" type="text"  class="form-control" ng-model="newform.seller_idnumber" required/>
                                                         <span class="help-block text-danger" ng-show="form.seller_idnumber.$invalid && submitted">Please Enter valid 9 digit ID!</span>
                                                         <span><button type="button" ng-click="loadSellererData()" class="btn btn-xl">Load</button><span>
                                                                 <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->

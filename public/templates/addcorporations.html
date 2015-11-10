@@ -123,21 +123,21 @@
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
                                             <label for="president"  translate="PRESIDENT" class="ng-scope"></label>
                                             <div class="controls">
-                                                <input id="president" name="president" type="text" class="form-control" ng-model="newform.president" required/>
+                                                <input id="president" name="president" ng-change="presidentquicksearch()" type="text" class="form-control" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-model="newform.president" required/>
                                                 <span class="help-block text-danger" ng-show="form.president.$invalid && submitted"><span translate="PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('vice_president')">
                                             <label for="vice_president"  translate="VICE_PRESIDENT" class="ng-scope"></label>
                                             <div class="controls">
-                                                <input id="vice_president" name="vice_president" type="text" class="form-control" ng-model="newform.vice_president" required/>
+                                                <input id="vice_president" ng-change="vicepresidentquicksearch()" name="vice_president" type="text" class="form-control" ng-model="newform.vice_president" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" required/>
                                                 <span class="help-block text-danger" ng-show="form.vice_president.$invalid && submitted"><span translate="VICE_PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('secretary')">
                                             <label for="secretary"  translate="VICE_PRESIDENT_2" class="ng-scope"></label>
                                             <div class="controls">
-                                                <input id="vice_president_2" name="vice_president_2" type="text" class="form-control" ng-model="newform.vice_president_2" required/>
+                                                <input id="vice_president_2" ng-change="vicepresident2quicksearch()" name="vice_president_2" type="text" class="form-control" ng-model="newform.vice_president_2" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" required/>
                                                 <span class="help-block text-danger" ng-show="form.vice_president_2.$invalid && submitted"><span translate="VICE_PRESIDENT_2"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
@@ -146,21 +146,21 @@
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('treasurer')">
                                             <label for="treasurer"  translate="TREASURER" class="ng-scope"></label>
                                             <div class="controls">
-                                                <input id="email2" name="treasurer" type="text" class="form-control" ng-model="newform.treasurer" required/>
+                                                <input id="treasurer" ng-change="treasurerquicksearch()" name="treasurer" type="text" class="form-control" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-model="newform.treasurer" required/>
                                                 <span class="help-block text-danger" ng-show="form.treasurer.$invalid && submitted"><span translate="TREASURER"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('comptroller')">
                                             <label for="comptroller"  translate="Comptroller" class="ng-scope"></label>
                                             <div class="controls">
-                                                <input id="comptroller" name="comptroller" type="text" class="form-control" ng-model="newform.comptroller" required/>
+                                                <input id="comptroller" ng-change="comptrollerquicksearch()" name="comptroller" type="text" class="form-control" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-model="newform.comptroller" required/>
                                                 <span class="help-block text-danger" ng-show="form.comptroller.$invalid && submitted"><span translate="Comptroller"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('secretary')">
                                             <label for="secretary"  translate="SECRETARY" class="ng-scope"></label>
                                             <div class="controls">
-                                                <input id="email1" name="secretary" type="text" class="form-control" ng-model="newform.secretary" required/>
+                                                <input id="secretary" ng-change="secretaryquicksearch()" name="secretary" type="text" class="form-control" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-model="newform.secretary" required/>
                                                 <span class="help-block text-danger" ng-show="form.secretary.$invalid && submitted"><span translate="SECRETARY"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
@@ -170,14 +170,14 @@
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('manager1')">
                                             <label for="manager1"  translate="MANAGERS1" class="ng-scope"></label>
                                             <div class="controls">
-                                                <input id="twitter" name="manager1" type="text" class="form-control" ng-model="newform.manager1" required/>
+                                                <input id="manager1" name="manager1" ng-change="manager1quicksearch()" type="text" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control" ng-model="newform.manager1" required/>
                                                 <span class="help-block text-danger" ng-show="form.manager1.$invalid && submitted"><span translate="MANAGERS1"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('manager2')">
                                             <label for="manager2"  translate="MANAGERS2" class="ng-scope"></label>
                                             <div class="controls">
-                                                <input id="linkedin" name="manager2" type="text" class="form-control" ng-model="newform.manager2" required/>
+                                                <input id="manager2" name="manager2" ng-change="manager2quicksearch()" type="text" class="form-control" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-model="newform.manager2" required/>
                                                 <span class="help-block text-danger" ng-show="form.manager2.$invalid && submitted"><span translate="MANAGERS2"></span> <span translate="IS_REQUIRED"></span></span>
                                             </div>
                                         </div>

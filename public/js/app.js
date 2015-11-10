@@ -180,7 +180,7 @@
                     PROVINCE: 'Province',
                     SELECT_PROVINCE: 'Select Your Province',
                     COUNTRY: 'County',
-                    SELECT_COUNTRY: 'Select Your Country',
+                    SELECT_COUNTRY: 'Select Your County',
                     DISTRICT: 'District',
                     SELECT_DISTRICT: 'Select Your District',
                     CITY: 'city',

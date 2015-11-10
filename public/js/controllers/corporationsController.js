@@ -126,6 +126,79 @@
                                     $scope.newform.manager1 = '';
                                     $scope.newform.manager2 = '';
                 }
+                // presedent quick search
+                    $scope.presidentquicksearch = function(){
+                        var idnumber = $('#president').val();
+                         $http.post(path + '/get_citizens',{number: idnumber}).success(function(response) {
+                        $scope.states = response;
+                        
+                    });
+                    }
+                    //  president quick search
+                    $scope.presidentquicksearch = function(){
+                        var idnumber = $('#president').val();
+                         $http.post(path + '/get_citizens',{number: idnumber}).success(function(response) {
+                        $scope.states = response;
+                        
+                    });
+                    }
+                    // vice president quick search
+                    $scope.vicepresidentquicksearch = function(){
+                        var idnumber = $('#vice_president').val();
+                         $http.post(path + '/get_citizens',{number: idnumber}).success(function(response) {
+                        $scope.states = response;
+                        
+                    });
+                    }
+                    // vice president 2 quick search
+                    $scope.vicepresident2quicksearch = function(){
+                        var idnumber = $('#vice_president_2').val();
+                         $http.post(path + '/get_citizens',{number: idnumber}).success(function(response) {
+                        $scope.states = response;
+                        
+                    });
+                    }
+                    
+//                   treasurer quick search
+                    $scope.treasurerquicksearch = function(){
+                        var idnumber = $('#treasurer').val();
+                         $http.post(path + '/get_citizens',{number: idnumber}).success(function(response) {
+                        $scope.states = response;
+                        
+                    });
+                    }
+//                   comptroller quick search
+                    $scope.comptrollerquicksearch = function(){
+                        var idnumber = $('#comptroller').val();
+                         $http.post(path + '/get_citizens',{number: idnumber}).success(function(response) {
+                        $scope.states = response;
+                        
+                    });
+                    }
+//                   comptroller quick search
+                    $scope.secretaryquicksearch = function(){
+                        var idnumber = $('#secretary').val();
+                         $http.post(path + '/get_citizens',{number: idnumber}).success(function(response) {
+                        $scope.states = response;
+                        
+                    });
+                    }
+//                   manager1 quick search
+                    $scope.manager1quicksearch = function(){
+                        var idnumber = $('#manager1').val();
+                         $http.post(path + '/get_citizens',{number: idnumber}).success(function(response) {
+                        $scope.states = response;
+                        
+                    });
+                    }
+//                   manager2 quick search
+                    $scope.manager2quicksearch = function(){
+                        var idnumber = $('#manager2').val();
+                         $http.post(path + '/get_citizens',{number: idnumber}).success(function(response) {
+                        $scope.states = response;
+                        
+                    });
+                    }
 
 
                 }]
