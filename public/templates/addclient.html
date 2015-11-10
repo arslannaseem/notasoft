@@ -147,10 +147,6 @@
                                             <label for="title " translate="COUNTRY" class="ng-scope"></label>
                                             <select name="county" id="county" class="form-control" ng-model="newform.county" ng-options="country.code as country.name for country in countries | filter: { code: newform.province} " ng-change="changeDistrict()" ng-required="newform.usertype == 'cedula'">
                                                 <option value="" translate="SELECT_COUNTRY" class="ng-scope" disabled="disabled">Select your county</option>
-                                                <!--                                                            <option value="0" label="Desamparados">Desamparados</option>
-                                                                                                            <option value="1" label="Dota">Dota</option>
-                                                                                                            <option value="2" label="Escazú">Escazú</option>
-                              R                                                                              <option value="3" label="Goicoechea">Goicoechea</option>-->
                                             </select>
                                             <span class="help-block text-danger" ng-show="form.county.$invalid && submitted" translate="COUNTRY_VALIDATION" class="ng-scope"></span>
                                         </div>
@@ -160,10 +156,6 @@
                                             <label for="title "  translate="DISTRICT" class="ng-scope"></label>
                                             <select name="district" id="district" class="form-control" ng-model="newform.district" ng-options="district.code as district.name for district in districts| filter: { code: newform.county} " ng-required="newform.usertype == 'cedula'">
                                                 <option value="" translate="SELECT_DISTRICT" class="ng-scope" disabled="disabled"></option>
-                                                <!--                                                            <option value="0" label="Cangrejal">Cangrejal</option>
-                                                                                                            <option value="1" label="Guaitil">Guaitil</option>
-                                                                                                            <option value="2" label="Palmichal">Palmichal</option>
-                                                                                                            <option value="3" label="Sabanillas">Sabanillas</option>-->
                                             </select>
                                             <span class="help-block text-danger" ng-show="form.district.$invalid && submitted" translate="DISTRICT_VALIDATION" class="ng-scope"></span>
                                         </div>
