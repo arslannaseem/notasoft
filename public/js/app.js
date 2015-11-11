@@ -8,7 +8,7 @@
              -----------------------------------------------------------------------------*/
             var jobbaLandingApplication = angular.module("JobbaLandingApp", ['ngSanitize']);
 
-            var jobbaApplication = angular.module("JobbaApp", ['ngRoute', 'ngSanitize', 'angular-loading-bar', 'ngAnimate','ui.bootstrap', 'ui.date', 'ngAutocomplete', 'ngCookies', 'angularFileUpload', 'pascalprecht.translate']);
+            var jobbaApplication = angular.module("JobbaApp", ['ngRoute', 'ngSanitize', 'angular-loading-bar', 'ngAnimate','ui.bootstrap', 'ui.date', 'ngAutocomplete', 'ngCookies', 'angularFileUpload', 'pascalprecht.translate', 'ngCookies']);
             jobbaApplication.filter('nospace', function() {
                 return function(value) {
                     return (!value) ? '' : value.replace(/ /g, '');

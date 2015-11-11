@@ -18,8 +18,7 @@
                                         $('#uname').html(data.str);
 
                                             $cookies.user_login = 1;
-                                            
-                                            $location.path('/newclient');
+                                            $location.path('/newclient').replace();
 
                                     }).
                                     error(function (data, status, headers, config) {

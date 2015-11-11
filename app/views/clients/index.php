@@ -116,6 +116,7 @@
 
         <?php echo HTML::script('public/js/lib/angular-1.3.12/angular-touch.min.js') ?>       
         <?php echo HTML::script('public/js/lib/angular-1.3.12/angular-cookies.js') ?>       
+        <?php echo HTML::script('public/js/lib/angular-1.3.12/angular-cookies.min.js') ?>       
         <?php echo HTML::script('public/js/lib/angular-1.3.12/angularjs-geolocation.min.js') ?>  
 
         <!--Library for localization -->
