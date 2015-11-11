@@ -18,7 +18,7 @@
                                         $('#uname').html(data.str);
 
 //                                            $cookies.user_login = 1;
-                                           $window.location.href = '#/newclient';
+                                           $window.location = '#/newclient';
 //                                            $location.path('/newclient');
 
                                     }).
