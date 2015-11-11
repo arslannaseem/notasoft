@@ -18,7 +18,7 @@
                                         $('#uname').html(data.str);
 
 //                                            $cookies.user_login = 1;
-                                           $window.location = '#/newclient';
+                                           $window.location = 'http://37.60.236.222/~notasoft/#/newclient';
 //                                            $location.path('/newclient');
 
                                     }).
