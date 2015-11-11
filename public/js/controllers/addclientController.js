@@ -3,10 +3,10 @@
 (function() {
 
     angular.module("JobbaApp")
-            .controller('addclientController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', 'FileUploader', '$timeout', function($scope, $http, newClientFormDataService, $location, $routeParams, FileUploader, $timeout, $translate) {
+            .controller('addclientController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', 'FileUploader', '$timeout', '$cookies', function($scope, $http, newClientFormDataService, $location, $routeParams, FileUploader, $timeout, $translate, $cookies) {
 
 // function on change the province
-
+                    alert($cookies.login);
                     $scope.changeCounty = function(province) {
                         
                         $http.post(path + '/get_counties', {province: province}).success(function(response) {

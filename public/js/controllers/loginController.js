@@ -17,7 +17,7 @@
                                         $('#nameme').html(data.firstName + ' ' + data.lastName);
                                         $('#uname').html(data.str);
 
-                                            $cookies.user_login = 0;
+                                            $cookies.user_login = 1;
                                             
                                             $location.path('/newclient');
 
