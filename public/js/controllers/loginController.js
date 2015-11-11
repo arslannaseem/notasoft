@@ -1,9 +1,14 @@
 "use strict";
 (function () {
     angular.module("JobbaApp")
-            .controller("loginController", ['$scope', '$location', 'userAuthService','$cookies','$window',
-                function ($scope, $location, userAuthService, $cookies, $window) {
-
+            .controller("loginController", ['$scope', '$location', 'userAuthService','$cookies','$window','$route',
+                function ($scope, $location, userAuthService, $cookies, $window, $route) {
+                    
+                    if($cookies.user_login == 1){
+                        $cookies.user_login = 0;
+                        $window.location = 'http://37.60.236.222/~notasoft/#/newclient';
+                    }
+                        
                     $scope.login = function (newuser, validity) {
                         if (validity) {
                                         $('#verifyerr').addClass('hidden');
@@ -17,8 +22,9 @@
                                         $('#nameme').html(data.firstName + ' ' + data.lastName);
                                         $('#uname').html(data.str);
 
-//                                            $cookies.user_login = 1;
-                                           $window.location = 'http://37.60.236.222/~notasoft/#/newclient';
+                                            $cookies.user_login = 1;
+                                            $route.reload();
+//                                           $window.location = 'http://37.60.236.222/~notasoft/#/newclient';
 //                                            $location.path('/newclient');
 
                                     }).
