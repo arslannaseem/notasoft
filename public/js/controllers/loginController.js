@@ -1,8 +1,8 @@
 "use strict";
 (function () {
     angular.module("JobbaApp")
-            .controller("loginController", ['$scope', '$location', 'userAuthService','$cookies',
-                function ($scope, $location, userAuthService, $cookies) {
+            .controller("loginController", ['$scope', '$location', 'userAuthService','$cookies','$window',
+                function ($scope, $location, userAuthService, $cookies, $window) {
 
                     $scope.login = function (newuser, validity) {
                         if (validity) {
@@ -18,7 +18,8 @@
                                         $('#uname').html(data.str);
 
 //                                            $cookies.user_login = 1;
-                                            $location.path('/newclient').replace();
+                                           $window.location.href = '#/newclient';
+//                                            $location.path('/newclient');
 
                                     }).
                                     error(function (data, status, headers, config) {
