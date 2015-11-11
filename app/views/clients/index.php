@@ -29,7 +29,7 @@
                     <a href="#/addcontract"><button class="btn btn-brand btn-md">Add Contract</button></a>
                     <a href="#/contracts"><button class="btn btn-brand btn-md">List Contracts</button></a>
                     <?php }else{ ?>
-                    <a href="#/login"> <button class="btn btn-brand btn-md">Login</button></a>
+                    <!--<a href="#/login"> <button class="btn btn-brand btn-md">Login</button></a>-->
                     <a href="#/register"><button class="btn btn-brand btn-md">Register</button></a>
                     
                    <?php } ?>
