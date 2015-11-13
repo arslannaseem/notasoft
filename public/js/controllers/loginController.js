@@ -18,7 +18,6 @@
                                         $('#uname').html(data.str);
 
                                             $cookies.user_login = 0;
-                                            
                                             $location.path('/newclient');
 
                                     }).

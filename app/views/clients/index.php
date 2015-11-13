@@ -10,6 +10,7 @@
         <?php echo HTML::style('public/css/frontend.css') ?>
         <?php echo HTML::style('public/css/custom_css.css') ?>
         <?php echo HTML::script('public/js/lib/modernizr.custom.js') ?>
+        <?php echo HTML::script('public/js/lib/angular-cookies.js') ?>
 
 
     </head>
@@ -29,7 +30,7 @@
                     <a href="#/addcontract"><button class="btn btn-brand btn-md">Add Contract</button></a>
                     <a href="#/contracts"><button class="btn btn-brand btn-md">List Contracts</button></a>
                     <?php }else{ ?>
-                    <a href="#/login"> <button class="btn btn-brand btn-md">Login</button></a>
+                    <!--<a href="#/login"> <button class="btn btn-brand btn-md">Login</button></a>-->
                     <a href="#/register"><button class="btn btn-brand btn-md">Register</button></a>
                     
                    <?php } ?>
@@ -116,6 +117,7 @@
 
         <?php echo HTML::script('public/js/lib/angular-1.3.12/angular-touch.min.js') ?>       
         <?php echo HTML::script('public/js/lib/angular-1.3.12/angular-cookies.js') ?>       
+        <?php echo HTML::script('public/js/lib/angular-1.3.12/angular-cookies.min.js') ?>       
         <?php echo HTML::script('public/js/lib/angular-1.3.12/angularjs-geolocation.min.js') ?>  
 
         <!--Library for localization -->

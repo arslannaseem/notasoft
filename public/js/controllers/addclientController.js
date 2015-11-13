@@ -3,8 +3,130 @@
 (function() {
 
     angular.module("JobbaApp")
-            .controller('addclientController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', 'FileUploader', '$timeout', function($scope, $http, newClientFormDataService, $location, $routeParams, FileUploader, $timeout, $translate) {
-//            window.location.reload();
+//            .controller('addclientController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', 'FileUploader', '$timeout', function($scope, $http, newClientFormDataService, $location, $routeParams, FileUploader, $timeout, $translate) {
+
+            .controller('addclientController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', 'FileUploader', '$timeout', '$cookies', function($scope, $http, newClientFormDataService, $location, $routeParams, FileUploader, $timeout, $translate, $cookies) {
+
+// function on change the province
+//                    console.log($cookies);
+
+                    $scope.changeCounty = function(province) {
+                        
+                        $http.post(path + '/get_counties', {province: province}).success(function(response) {
+                            $scope.counties = response;
+
+                        });
+                        
+                        
+//                        $scope.countries = [
+//                            {"code": "1", "name": "Acosta"},
+//                            {"code": "1", "name": "Alajuelita"},
+//                            {"code": "1", "name": "Aserrí"},
+//                            {"code": "1", "name": "Central"},
+//                            {"code": "1", "name": "Curridabat"},
+//                            {"code": "1", "name": "Desamparados"},
+//                            {"code": "1", "name": "Dota"},
+//                            {"code": "1", "name": "Escazú"},
+//                            {"code": "1", "name": "Goicoechea"},
+//                            {"code": "1", "name": "León Cortés Castro"},
+//                            {"code": "1", "name": "Montes de Oca"},
+//                            {"code": "1", "name": "Mora"},
+//                            {"code": "1", "name": "Moravia"},
+//                            {"code": "1", "name": "Perez Zeledón"},
+//                            {"code": "1", "name": "Puriscal"},
+//                            {"code": "1", "name": "Santa Ana"},
+//                            {"code": "1", "name": "Tarrazú"},
+//                            {"code": "1", "name": "Tibás"},
+//                            {"code": "1", "name": "Turrubares"},
+//                            {"code": "1", "name": "Vazquez de Coronado"},
+//                            {"code": "2", "name": "Central"},
+//                            {"code": "2", "name": "Guatuso"},
+//                            {"code": "2", "name": "Grecia"},
+//                            {"code": "2", "name": "Upala"},
+//                            {"code": "2", "name": "Los Chiles"},
+//                            {"code": "2", "name": "Alfaro Ruiz"},
+//                            {"code": "2", "name": "Atenas"},
+//                            {"code": "2", "name": "Naranjo"},
+//                            {"code": "2", "name": "Orotina"},
+//                            {"code": "2", "name": "Palmares"},
+//                            {"code": "2", "name": "Poás"},
+//                            {"code": "2", "name": "San Carlos"},
+//                            {"code": "2", "name": "San Ramón"},
+//                            {"code": "2", "name": "Valverde Vega"},
+//                            {"code": "2", "name": "San Mateo"},
+//                            {"code": "3", "name": "Alvarado"},
+//                            {"code": "3", "name": "Central"},
+//                            {"code": "3", "name": "Guarco"},
+//                            {"code": "3", "name": "Jiménez"},
+//                            {"code": "3", "name": "Oreamuno"},
+//                            {"code": "3", "name": "Paraíso"},
+//                            {"code": "3", "name": "Turrialba"},
+//                            {"code": "3", "name": "Unión"},
+//                            {"code": "4", "name": "Central"},
+//                            {"code": "4", "name": "Barva"},
+//                            {"code": "4", "name": "Santo Domingo"},
+//                            {"code": "4", "name": "Santa Bárbara"},
+//                            {"code": "4", "name": "San Rafael"},
+//                            {"code": "4", "name": "San Isidro"},
+//                            {"code": "4", "name": "Belén"},
+//                            {"code": "4", "name": "Flores"},
+//                            {"code": "4", "name": "San Pablo"},
+//                            {"code": "4", "name": "Sarapiquí"},
+//                            {"code": "5", "name": "Central"},
+//                            {"code": "5", "name": "Aguirre"},
+//                            {"code": "5", "name": "Buenos Aires"},
+//                            {"code": "5", "name": "Corredores"},
+//                            {"code": "5", "name": "Coto Brus"},
+//                            {"code": "5", "name": "Garabito"},
+//                            {"code": "5", "name": "Golfito"},
+//                            {"code": "5", "name": "Montes de Oro"},
+//                            {"code": "5", "name": "Osa"},
+//                            {"code": "5", "name": "Parrita"},
+//                            {"code": "5", "name": "Esparza"},
+//                            {"code": "6", "name": "Liberia"},
+//                            {"code": "6", "name": "Nicoya"},
+//                            {"code": "6", "name": "Santa Cruz"},
+//                            {"code": "6", "name": "Carrillo"},
+//                            {"code": "6", "name": "Cañas"},
+//                            {"code": "6", "name": "Bagaces"},
+//                            {"code": "6", "name": "Abangares"},
+//                            {"code": "6", "name": "Tilarán"},
+//                            {"code": "6", "name": "Nandayure"},
+//                            {"code": "6", "name": "La Cruz"},
+//                            {"code": "6", "name": "Hojancha"},
+//                            {"code": "7", "name": "Central"},
+//                            {"code": "7", "name": "Guácimo"},
+//                            {"code": "7", "name": "Matina"},
+//                            {"code": "7", "name": "Pococí"},
+//                            {"code": "7", "name": "Siquirres"},
+//                            {"code": "7", "name": "Talamanca"}
+//                        ];
+                    };
+
+
+                    $scope.changeDistrict = function(provinceId,countyId) {
+                        
+                         $http.post(path + '/get_districts', {provinceId: provinceId,countyId:countyId}).success(function(response) {
+                            $scope.districs = response;
+
+                        });
+                        
+//                        $scope.districts = [
+//                         
+//                            {"code": "1", "name": "Cangrejal"},
+//                            {"code": "2", "name": "Guaitil"},
+//                            {"code": "3", "name": "Palmichal"},
+//                            {"code": "4", "name": "Sabanillas"},
+//                            {"code": "5", "name": "Cangrejal 2"},
+//                            {"code": "6", "name": "Guaitil 2"},
+//                            {"code": "7", "name": "Palmichal 2"}
+//                        ];
+                    };
+                    $scope.changeDistrict();
+                    $scope.changeCounty();
+
+
+>>>>>>> 75d0c4702fcc9a5238bc8bf7a82948cb5772931b
                     $http.post(path + '/category_list').success(function(response) {
                         $scope.image_cat = response;
                     });
