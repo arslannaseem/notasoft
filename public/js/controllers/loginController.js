@@ -19,13 +19,17 @@
 
                                             $cookies.user_login = 0;
                                             $location.path('/newclient');
+                                            window.location.reload();
 
                                     }).
                                     error(function (data, status, headers, config) {
                                         if(data.login == 2)
                                             $('#verifyerr').removeClass('hidden');
+                                            
+                                         
                                         else 
                                             $('#errorme').removeClass('hidden');
+                                            
                                     });
 
 

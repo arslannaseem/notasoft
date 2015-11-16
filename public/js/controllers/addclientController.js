@@ -7,26 +7,24 @@
 
             .controller('addclientController', ['$scope', '$http', 'newClientFormDataService', '$location', '$routeParams', 'FileUploader', '$timeout', function($scope, $http, newClientFormDataService, $location, $routeParams, FileUploader, $timeout, $translate) {
 
-
-                    $scope.changeCounty = function(province) {
-                        
-                        $http.post(path + '/get_counties', {province: province}).success(function(response) {
-                            $scope.counties = response;
-
-                        });
-                    };
-
-
-                    $scope.changeDistrict = function(provinceId,countyId) {
-                        
-                         $http.post(path + '/get_districts', {provinceId: provinceId,countyId:countyId}).success(function(response) {
-                            $scope.districs = response;
-
-                        });
-                        
-                    };
-                    $scope.changeDistrict();
-                    $scope.changeCounty();
+//
+//                    $scope.changeCounty = function(province) {
+//                        
+//                        $http.post(path + '/get_counties', {province: province}).success(function(response) {
+//                            $scope.counties = response;
+//
+//                        });
+//                    };
+//                    $scope.changeDistrict = function(provinceId,countyId) {
+//                        
+//                         $http.post(path + '/get_districts', {provinceId: provinceId,countyId:countyId}).success(function(response) {
+//                            $scope.districs = response;
+//
+//                        });
+//                        
+//                    };
+//                    $scope.changeDistrict();
+//                    $scope.changeCounty();
 
                     $http.post(path + '/category_list').success(function(response) {
                         $scope.image_cat = response;
@@ -37,6 +35,7 @@
                     $scope.title = "Add Client";
                     $scope.path = path;
                     if ($routeParams.type) {            //if the page is opened for editing perform editing functions
+//                        alert('edit');
                         $scope.newform.usertype = $routeParams.type;
                         $http.post(path + '/edit_client_data', {idnumber: $routeParams.value, type: $routeParams.type}).success(function(response) {
                             if (response == '') {
@@ -73,8 +72,8 @@
 
                                     // functions to call county and districts
 
-                                    $scope.changeCounty(response[0].province);
-                                    $scope.changeDistrict(response[0].province, response[0].county);
+                                    $scope.changeCountyEdit(response[0].province);
+                                    $scope.changeDistrictEdit(response[0].province, response[0].county);
 
                                 } else if ($routeParams.type == 'foreign') {
                                     $scope.newform.idnumber = parseFloat(response[0].idnumber, 10);
@@ -417,10 +416,26 @@
                     $scope.changeCounty = function(province) {
                         $http.post(path + '/get_counties', {province: province}).success(function(response) {
                             $scope.counties = response;
+                            $scope.newform.county = response[1];
+                            $scope.newform.district = response[1];
                         });
                     };
 
                     $scope.changeDistrict = function(provinceId, countyId) {
+                        $http.post(path + '/get_districts', {provinceId: provinceId, countyId: countyId}).success(function(response) {
+                            $scope.districs = response;
+                            $scope.newform.district = response[1];
+                        });
+                    };
+                    $scope.changeCountyEdit = function(province) {
+//                        alert('okk');
+                        $http.post(path + '/get_counties', {province: province}).success(function(response) {
+                            $scope.counties = response;
+                        });
+                    };
+
+                    $scope.changeDistrictEdit = function(provinceId, countyId) {
+//                        alert('no');
                         $http.post(path + '/get_districts', {provinceId: provinceId, countyId: countyId}).success(function(response) {
                             $scope.districs = response;
                         });
