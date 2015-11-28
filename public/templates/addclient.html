@@ -285,7 +285,8 @@
                                 <div class="form-group col-sm-6 col-md-6" ng-class="error('suburb')">
                                     
                                     <!--Show while user is dead or not-->
-                                    <h4><label for="suburb"><span translate="DEAD" class="ng-scope"></span> : {{newform.death?'Yes':'No'}}</label></h4>
+                                    <h4><label for="suburb"><span translate="DEAD" class="ng-scope"></span> : {{dead}}</label></h4>
+<!--                                    <h4><label for="suburb"><span translate="DEAD" class="ng-scope"></span> : {{newform.death?'Yes':'No'}}</label></h4>-->
                                     <input type="hidden" name="death" id="death" class="form-control" ng-model="newform.death" />
                                 </div>
                                 <!--                                            <div class="form-group col-sm-6 col-md-6" ng-class="error('suburb')">

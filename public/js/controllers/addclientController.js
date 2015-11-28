@@ -200,7 +200,7 @@
                     }
                     
 //                    Function to laod data on the basis of id numner and show all data in the form
-
+    $scope.dead = "No";
                     $scope.loaddata = function() {         //load selected client data
                         var idnumber = $('#idnumber').val();
 
@@ -218,6 +218,7 @@
                                 } else {
 //                                    alert(response[0].Indicador_de_Defunción);
                                     if (response[0].Indicador_de_Defunción == 1) {
+                                        $scope.dead = "Yes";
                                         if (confirm("THIS PERSON IS DEAD. DO YOU WANT TO PROCEED???")) {
                                             $scope.newform.Lastname1 = response[0].Primer_Apellido;
                                             $scope.newform.Lastname2 = response[0].Segundo_Apellido;
@@ -246,6 +247,7 @@
                                             //                                   $scope.newform.district = response[0].district;
                                         }
                                     } else {
+                                        $scope.dead = "No";
                                         $scope.newform.Lastname1 = response[0].Primer_Apellido;
                                         $scope.newform.Lastname2 = response[0].Segundo_Apellido;
                                         $scope.newform.death = response[0].Indicador_de_Defunción;
