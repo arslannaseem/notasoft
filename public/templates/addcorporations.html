@@ -1,3 +1,5 @@
+<!--Html page for add corporations-->
+
 <div class="row">
     <div class="col-md-6 col-lg-7 col-center">
         
@@ -13,6 +15,7 @@
             <div class="panel-body">
                 <div>
                     <form name="form" role="form" method="POST" ng-submit="addcorporation(newform, form.$valid)" novalidate nv-file-drop=""  filters="queueLimit, customFilter">
+                       <!--div to show corporation data-->
                         <div ng-show="tab == '1'">
                         <div class="form-group" ng-class="error('title')" >
                             <label for="title " translate="ID_NUMBER"> </label>
@@ -116,9 +119,9 @@
                                             </div>
                                         </div>
                                         </div>
-                                    <div ng-show="tab == '3'">
+                                        <!-- Section of board of directors-->
                                         
-
+                                    <div ng-show="tab == '3'">
                                         <h3>Board Of Directors</h3>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
                                             <label for="president"  translate="PRESIDENT" class="ng-scope"></label>
@@ -165,6 +168,7 @@
                                             </div>
                                         </div>
                                         </div>
+                                        <!-- Section of Managers-->
                                          <div ng-show="tab == '4'">
                                         <h3   translate="MANAGERS" class="ng-scope"></h3>
                                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('manager1')">

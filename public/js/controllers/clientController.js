@@ -1,3 +1,5 @@
+//Controller for listing all clients
+
 'use strict';
 
 (function () {
@@ -6,6 +8,9 @@
             .controller('clientController', ['$scope', '$http', 'newClientFormDataService', '$location', function ($scope, $http, newClientFormDataService, $location) {
 
                 $scope.title = "Clients";   //loads existing data from clients database
+        
+//                Function to load all clients
+
                         $http.post(path + '/load_clients').success(function (response) {
                                 $scope.clients = response;
                                 $scope.path = path;

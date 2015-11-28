@@ -7,6 +7,9 @@ class CorporationController extends BaseController {
      *
      * @return Response 
      */
+    
+//    Function add corporation
+    
     public function add_corporation() {
         $userId = Session::get('userId');
         $data = Input::all();
@@ -29,6 +32,8 @@ class CorporationController extends BaseController {
         return $data['Corporations'];
     }
 
+//    Function to oad data of single corporation
+    
     public function corporation_data() {
 
         $idNumber = Input::get('idnumber');
@@ -43,6 +48,9 @@ class CorporationController extends BaseController {
         }
         return $data['Corporations'];
     }
+    
+//    Get all ids of corporation for quick search
+    
      public function get_corporation_ids() {
         $corporationsIds = DB::table('available_corporations')
                 ->select('idnumber')

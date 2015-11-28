@@ -1,3 +1,5 @@
+//angular js controller for add corporation
+
 'use strict';
 
 (function() {
@@ -14,6 +16,9 @@
                     });
 
                     $scope.newform = {};
+                    
+//                    Function to add corporation
+
                     $scope.addcorporation = function(newcorporation, validity) {
                         if (validity) {
                             $http.post(path + '/add_corporation', {data: newcorporation}).success(function(response) {
@@ -23,6 +28,8 @@
                         }
                     }
                     if ($routeParams.idnumber) {
+//                        Function to add TO load corporation data for edit
+
                         $http.post(path + '/load_corporation_data', {idnumber: $routeParams.idnumber}).success(function(response) {
                             if (response == '') {
 
@@ -58,7 +65,7 @@
                         });
 
                     }
-
+//                   Function Load data of corporation and fill in the input fields
                     $scope.loaddata = function() {
                         var idnumber = $('#idnumber').val();
                         if ((idnumber).length >= 8 && (idnumber).length <= 10){
@@ -99,6 +106,7 @@
                         $scope.reset();
                     }
                 }
+//                Function to Reset Form data
                 $scope.reset = function(){
                       $scope.newform.tomo = '';
                                     $scope.newform.asiento = '';

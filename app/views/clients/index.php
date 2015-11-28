@@ -1,10 +1,10 @@
-
-
 <!DOCTYPE html>
 <html class="no-js" lang="en" ng-app="JobbaApp">
 
     <head>
         <meta charset="utf-8">
+        <!--Include all Css and js in the project-->
+        
         <?php echo HTML::style('public/bower_components/angular-loading-bar/build/loading-bar.min.css') ?>
         <?php echo HTML::style('public/bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css') ?>
         <?php echo HTML::style('public/css/frontend.css') ?>
@@ -23,6 +23,9 @@
             <div class="container-fluid">
                 <div class="button-group text-center">
                     <?php if (Auth::check()) { ?>
+                    
+                    <!--List of Main menu-->
+                    
                     <a href="#/newclient"><button class="btn btn-brand btn-md">Add Client</button></a>
                     <a href="#/clients"><button class="btn btn-brand btn-md">List Clients</button></a>
                     <a href="#/addcorporations"><button class="btn btn-brand btn-md">Add Corporation</button></a>
@@ -59,10 +62,10 @@
         </footer>
 
 
-
+        <!--Load library of angular js-->
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 
 

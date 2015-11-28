@@ -1,3 +1,4 @@
+//Angular controller Of add contract
 'use strict';
 
 (function() {
@@ -7,10 +8,7 @@
      
                      $scope.tab=1;
              
-//                Quick Seacrh End
-//                    $http.post(path + '/get_citizens').success(function(response) {
-//                        $scope.states = response;
-//                    });
+//      Quick search function of buyer
                     $scope.buyerquicksearch = function (){
 //                        buyer_idnumber
                         var idnumber = $('#buyer_idnumber').val();
@@ -19,6 +17,7 @@
                         
                     });
                     }
+                    //      Quick search function of Seller
                     $scope.selerquicksearch = function (){
 //                        buyer_idnumber
                         var idnumber = $('#seller_idnumber').val();
@@ -31,9 +30,13 @@
 
                     $scope.title = "Add Contract";
                     $scope.newform = {};
+                    
+//                    Load add contract item types
+
                     $http.post(path + '/contract_item_types').success(function(response) {
                         $scope.contractItemTypes = response;
                     });
+                    //      Function to load all contract types on load
                     $http.post(path + '/contract_types').success(function(response) {
 //                             console.log('conract ' + response[0].id);
                         $scope.contractTypes = response;
@@ -47,9 +50,12 @@
                         $scope.resetBuyerData();
                       
                     });
-//                    alert($routeParams.contract_id);
+                    
                     if ($routeParams.contract_id) {
                         $scope.title = "Edit Contract";
+                        
+//                        Function  to load contract data and fill all input Fields
+
                         $http.post(path + '/load_contract_data', {id: $routeParams.contract_id}).success(function(response) {
 //                            alert(response[0].contract_type);
                                 $scope.newform.contract_type = response[0].contract_type;
@@ -151,6 +157,7 @@
                         });
                     }
 
+//                    Function to load single buyer data on the basis of id numner
 
                     $scope.loadBuyerData = function() {
                          var buyerIdnumber = $('#buyer_idnumber').val();
@@ -275,7 +282,7 @@
                      });
                 }
                     
-                    //                            loadSellererData
+                    //   loadSellererData
                     $scope.loadSellererData = function() {
                             var sellerIdnumber = $('#seller_idnumber').val();
                           if ((sellerIdnumber).length >= 8 && (sellerIdnumber).length <= 10){
@@ -386,6 +393,8 @@
                          $scope.resetSellerData();
                     }
                 }
+//                Function to reset seller data
+
                      $scope.resetSellerData = function (){
                          $scope.newform.sellerDetail = 0;
                                 $scope.newform.seller_usertype = '';
@@ -422,6 +431,8 @@
                                 $scope.newform.seller_linkedin = '';
                                 $scope.newform.seller_google = '';
                      }
+                     
+                     //   Function to reset Buyer data
                      $scope.resetBuyerData = function (){
                       $scope.newform.buyerDetail = 0;
                                 $scope.newform.buyer_usertype = '';
@@ -458,6 +469,8 @@
                                 $scope.newform.buyer_linkedin = '';
                                 $scope.newform.buyer_google = '';
                 }
+//                Function TO add contract in the databse
+
                     $scope.addcontract = function(newcontract, validity) {
                         if (validity) {
                             $http.post(path + '/add_contract', {data: newcontract}).success(function(response) {

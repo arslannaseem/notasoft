@@ -16,6 +16,9 @@ class ClientsController extends BaseController {
      *
      * @return Response 
      */
+    
+//    function to create new client
+    
     public function create_new_client() {
         $idnumber = Input::get('idnumber');
         $userId = Session::get('userId');
@@ -43,6 +46,9 @@ class ClientsController extends BaseController {
      *
      * @return Response 
      */
+    
+//    load data of client on id number
+    
     public function load_client_data() {
 
         $idnumber = Input::get('idnumber');
@@ -56,6 +62,9 @@ class ClientsController extends BaseController {
      *
      * @return Response 
      */
+    
+//    function to edit client dat
+    
     public function edit_client_data() {
 
         $idnumber = Input::get('idnumber');
@@ -69,6 +78,8 @@ class ClientsController extends BaseController {
      *
      * @return Response 
      */
+//    function to load all clients of the user
+    
     public function load_clients() {
 
         $userId = Session::get('userId');
@@ -125,15 +136,22 @@ class ClientsController extends BaseController {
         //
     }
 
+//        function to get all images categories
+    
     public function image_categories() {
         $data['image_categories'] = ImageCategories::get();      // loads all Image Categories from clients database
         return $data['image_categories'];
     }
+    
+//    Function to get all counties on the basis of provinces
+    
     public function get_counties(){
         $province = Input::get('province');
         $counties = DB::table('counties')->where('province_id', '=', $province)->get();
         return $counties;
     }
+    //    Function to get all Districts on the basis of counties
+    
     public function get_districts(){
         $provinceId = Input::get('provinceId');
         $countyId = Input::get('countyId');

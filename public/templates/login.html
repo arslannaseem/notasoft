@@ -1,11 +1,16 @@
+<!--Html page for login page-->
+
 <div class="row row-space-top-4">
     <div class="col-md-5 col-lg-5 col-center">
         <div class="alert alert-danger alert-dismissible hidden" role="alert" id="errorme">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <!--wrong password error-->
             <strong>Wrong username or password!</strong> Please try again.
         </div>
         <div class="alert alert-warning alert-dismissible hidden" role="alert" id="verifyerr">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            
+          <!--Error while account is not verified-->
             <strong>Your account is not verified!</strong> Please verify your account and try again!
         </div>
         <div class="panel">
@@ -16,6 +21,7 @@
             </header>
             <div class="panel-body">
             <hr>
+                            <!--Include controller of Login user and this is only controller for this page-->
                 <div ng-controller="loginController">
                     <form name="form" role="form" method="POST" ng-submit="login(newuser, form.$valid)" novalidate>
                         <div class="form-group" ng-class="error('email')">

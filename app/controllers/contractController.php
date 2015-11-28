@@ -13,9 +13,10 @@ class contractController extends BaseController {
         return $contractTypes;
     }
 
+//    function to load buyer data on the basis of id number
+    
     public function load_buyer_data() {
         $idNumber = Input::get('idnumber');
-//        print_r();exit;
         $buyerData = DB::table('clients')->where('idnumber', '=', $idNumber)->get();
         if ($buyerData) {
             $data['buyerDetail'] = 1;
@@ -26,7 +27,8 @@ class contractController extends BaseController {
         }
         return $data;
     }
-
+//    function to load seller data on the basis of id number
+    
     public function load_seller_data() {
         $idNumber = Input::get('idnumber');
         $sellerData = DB::table('clients')->where('idnumber', '=', $idNumber)->get();
@@ -39,7 +41,9 @@ class contractController extends BaseController {
         }
         return $data;
     }
-
+    
+//    Function to add contract in the database
+    
     public function add_contract() {
 
         $data = Input::get();
@@ -173,10 +177,13 @@ class contractController extends BaseController {
         }
     }
 
+//    function to get all contract item types    
+    
     public function contract_item_types() {
         $contractItemTypes = DB::table('contract_item_types')->get();
         return $contractItemTypes;
     }
+//    function to get all Contracts    
 
     public function load_contracts() {
         $userId = Session::get('userId');
@@ -187,6 +194,8 @@ class contractController extends BaseController {
         return $contracts;
     }
 
+//    Function to get data of single contract
+    
     public function load_contract_data() {
 
         $userId = Session::get('userId');
@@ -200,6 +209,8 @@ class contractController extends BaseController {
         return $contractDetail;
     }
 
+//    Function to get all id numner of citizens
+    
     public function get_citizens() {
         
         $number = Input::get('number');

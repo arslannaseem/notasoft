@@ -1,3 +1,5 @@
+
+<!--html page to register new user-->
 <div class="row">
     <div class="col-md-6 col-lg-6 col-center">
         <div class="alert alert-danger hidden" role="alert" id="errorme">
@@ -8,7 +10,9 @@
                 <h1>{{title}}</h1>
             </header>
             <div class="panel-body">
+                <!--Include controller of register new user and this is only controller for this page-->
                 <div data-ng-controller='registerController'>
+                    
                     <form name="form" role="form" method="POST" ng-submit="registeruser(newuser, form.$valid)" novalidate>
                         <div class="form-group" ng-class="error('firstName')">
                             <label for="firstName" translate="FIRST_NAME" class="ng-scope"></label>

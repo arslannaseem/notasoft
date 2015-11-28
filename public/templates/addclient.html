@@ -1,3 +1,4 @@
+<!--Js Script for date picker-->
 <script>
     $(function() {
     $("#dob").datepicker({
@@ -5,7 +6,7 @@
     });
     });</script>
 
-
+<!--Html page for add client-->
 <div class="row" >
 
     <div class="col-md-6 col-lg-7 col-center">
@@ -21,16 +22,19 @@
             <header class="panel-heading">
 
                 <h1>{{title}}</h1>
-               
-
             </header>
+            <!--tabs button of different section of add client page-->
+            
             <button class="btn btn-brand btn-md" ng-click="tab = 1" >Legal Information</button>
             <button class="btn btn-brand btn-md" ng-click="tab = 2" >Contact Information</button>
             <button class="btn btn-brand btn-md" ng-click="tab = 3">ID's And Photos</button>
             <div class="panel-body">
+          
+                <!--Include controller of add client in htl page and this is only controller for this page-->
                 <div data-ng-controller='addclientController'>
                     <form name="form" role="form" method="POST" ng-submit="addclient(newform, form.$valid)" novalidate nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
                        
+                        <!--div to show the legal information tab-->
                         <div ng-show="tab != '2' && tab != '3'">
                             <div class="form-group" ng-class="error('typeId')">
                                 <label for="typeId" translate="USER_TYPE" class="ng-scope"></label>
@@ -43,7 +47,7 @@
                                     <span class="help-block text-danger" ng-show="form.usertype.$invalid && submitted"></span>
                                 </div>
                             </div>
-                            <!-- <p translate="FOO" class="ng-scope"></p> -->
+                            <!--this div show when user will be foreign-->
                             <div class="form-group" ng-class="error('typeId')" ng-show="newform.usertype == 'foreign'">
                                 <label for="typeId" translate="RESIDENCE" class="ng-scope"></label>
                                 <div class="controls">
@@ -55,6 +59,7 @@
                                     <span class="help-block text-danger" ng-show="form.residence.$invalid && submitted">Residence is required</span>
                                 </div>
                             </div>
+                            <!--this div show when user will be cedula-->
                             <div class="form-group" ng-class="error('title')" ng-show="newform.usertype == 'cedula'">
                                 <label for="title " translate="ID_NUMBER" class="ng-scope"></label>
                                 <div class="controls">
@@ -127,6 +132,8 @@
                             <div class="row" >
                                 <div id="ced_address" ng-show="newform.usertype == 'cedula' || newform.residence == 'costrica'">
                                     <div class="form-group col-sm-4 col-md-4">
+                                        
+                                        <!--List Of all provinces-->
                                         <div class="controls">
                                             <label for="title " translate="PROVINCE" class="ng-scope"></label>
                                             <select name="province" id="province" class="form-control" ng-model="newform.province"  ng-change="changeCounty(newform.province)" ng-required="newform.usertype == 'cedula'">
@@ -145,6 +152,8 @@
                                     <div class="form-group col-sm-4 col-md-4" >
                                         <div class="controls">
                                             <label for="title " translate="COUNTRY" class="ng-scope"></label>
+                                            <!--List of all counties and will change on the change of provinces-->
+                                            
                                             <select name="county" id="county" class="form-control" ng-model="newform.county"  ng-change="changeDistrict(newform.province,newform.county)" ng-required="newform.usertype == 'cedula'">
 
                                                 <option value="" disabled selected>Select your county</option>
@@ -156,6 +165,9 @@
                                     <div class="form-group col-sm-4 col-md-4" >
                                         <div class="controls">
                                             <label for="title "  translate="DISTRICT" class="ng-scope"></label>
+                                            
+                                                <!--List of all Districs and will change on the change of Counties-->
+                                                
                                             <select name="district" id="district" class="form-control" ng-model="newform.district"  ng-required="newform.usertype == 'cedula'">
                                                 <option value="" translate="SELECT_DISTRICT" class="ng-scope" ></option>
                                                 <option ng-repeat="distric in districs" value="{{distric.id}}" ng-selected="newform.district == distric.id">{{distric.name}}</option>
@@ -169,6 +181,8 @@
                                     <div class="form-group col-sm-4 col-md-4">
                                         <div class="controls">
                                             <label for="title "  translate="PROVINCE" class="ng-scope"></label>
+                                           <!--List Of all provinces-->
+                                           
                                             <select name="fprovince" id="fprovince" ng-change="changeCounty(newform.fprovince)" class="form-control" ng-model="newform.fprovince" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
                                                 <option value=""  translate="SELECT_PROVINCE" class="ng-scope" disabled="disabled">Select your province</option>
                                                 <option value="1" selected="selected" disabled="disabled" label="San José">San José</option>
@@ -188,6 +202,7 @@
                                     <div class="form-group col-sm-4 col-md-4">
                                         <div class="controls">
                                             <label for="title" translate="COUNTRY" class="ng-scope"></label>
+                                             <!--List of all counties and will change on the change of provinces-->
                                             <select name="country" id="country" class="form-control" ng-model="newform.country" ng-change="changeDistrict(newform.fprovince,ewform.country)" ng-required="newform.usertype == 'foreign' && newform.residence != 'costrica' ">
                                                 <option value="" translate="SELECT_COUNTRY" class="ng-scope" disabled="disabled"></option>
                                                 <option ng-repeat="county in counties" value="{{county.id}}">{{county.name}}</option>
@@ -268,6 +283,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-sm-6 col-md-6" ng-class="error('suburb')">
+                                    
+                                    <!--Show while user is dead or not-->
                                     <h4><label for="suburb"><span translate="DEAD" class="ng-scope"></span> : {{newform.death?'Yes':'No'}}</label></h4>
                                     <input type="hidden" name="death" id="death" class="form-control" ng-model="newform.death" />
                                 </div>
@@ -282,9 +299,11 @@
                             </div>
 
                         </div>
-
+                        <!--Show contact information TAb-->
                         <div ng-show="tab == '2'">
-
+                            
+                            <!--List of all contact information fields-->
+                            
                             <h3 translate="CONTACT_INFO" class="ng-scope"></h3>
                             <div class="form-group  col-sm-6 col-md-6" ng-class="error('phone1')">
                                 <label for="phone1" translate="PHONE1" class="ng-scope"></label>
@@ -378,6 +397,10 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <!--Show tab of Profile images-->
+                        
+                        <!--Section to upload profile images and categories images-->
                         <div ng-show="tab == '3'">
                             <div class="form-group  col-sm-12 col-md-12" ng-class="error('google')">
                                 <div class="col-md-12">

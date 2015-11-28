@@ -1,3 +1,5 @@
+<!--Html page for add contract--> 
+<!--Script for date picker-->
 <script>
     $(function() {
         $("#buyer_dob").datepicker({
@@ -35,7 +37,7 @@
                                 <span class="help-block text-danger" ng-show="form.contract_type.$invalid && submitted"><span translate="CONTRACT_TYPE"></span> <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
-                        <!--Stock Information Block-->
+                        <!--Buyer Information Block-->
                         <div ng-show="tab == '1'">
 
                             <h3 translate="BUYER_INFORMATION"></h3>
@@ -107,6 +109,7 @@
                                                 </div>
                                             </div>
                                             </div>
+                         <!--Seller Information Block-->
                                             <div ng-show="tab == '2'">
                                                 <h3 translate="SELLER_INFORMATION"></h3>
                                                 <div class="form-group" ng-class="error('title')" >
@@ -175,6 +178,7 @@
 
                                                                 </div>
                                                                 </div>
+                          <!--Contract Type Block-->
                                                                 <div ng-show="tab == '3'">
                                                                     <div class="form-group" ng-class="error('contract')">
                                                                         <label for="contract" translate="CONTRACT_ITEM_TYPE"></label>

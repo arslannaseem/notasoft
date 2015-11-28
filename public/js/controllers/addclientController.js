@@ -1,3 +1,5 @@
+//Add client controller
+
 'use strict';
 
 (function() {
@@ -25,6 +27,7 @@
 //                    };
 //                    $scope.changeDistrict();
 //                    $scope.changeCounty();
+//                    Get list of all images categories
 
                     $http.post(path + '/category_list').success(function(response) {
                         $scope.image_cat = response;
@@ -37,6 +40,9 @@
                     if ($routeParams.type) {            //if the page is opened for editing perform editing functions
 //                        alert('edit');
                         $scope.newform.usertype = $routeParams.type;
+                        
+//                        Function to edit client data and fetch all record
+
                         $http.post(path + '/edit_client_data', {idnumber: $routeParams.value, type: $routeParams.type}).success(function(response) {
                             if (response == '') {
                                 $scope.editMode = 1;
@@ -182,6 +188,9 @@
 //                        $scope.states = response;
 //                        
 //                    });
+                    
+//                function of quick search 
+
                     $scope.quicksearch = function() {
                         var idnumber = $('#idnumber').val();
                         $http.post(path + '/get_citizens', {number: idnumber}).success(function(response) {
@@ -189,6 +198,9 @@
 
                         });
                     }
+                    
+//                    Function to laod data on the basis of id numner and show all data in the form
+
                     $scope.loaddata = function() {         //load selected client data
                         var idnumber = $('#idnumber').val();
 
@@ -204,6 +216,7 @@
                                     $scope.newform.gender = '';
                                     $scope.newform.nationality = '';
                                 } else {
+//                                    alert(response[0].Indicador_de_Defunción);
                                     if (response[0].Indicador_de_Defunción == 1) {
                                         if (confirm("THIS PERSON IS DEAD. DO YOU WANT TO PROCEED???")) {
                                             $scope.newform.Lastname1 = response[0].Primer_Apellido;
@@ -250,6 +263,9 @@
                             $scope.reset();
                         }
                     }
+                    
+//                    Function to reset the all input Fiedls
+                    
                     $scope.reset = function() {    //reset complete form
 //                        $scope.newform.idnumber = '';
                         $scope.newform.passport = '';
@@ -271,6 +287,8 @@
 //                        $scope.newform.district = '';
                         $scope.newform.residence = '';
                     };
+                    
+//                    Function to add client in the database
 
                     $scope.addclient = function(newclient, validity) {     // sends the data from form object to backend using service
                         $scope.fileslist();
@@ -412,7 +430,9 @@
                     uploader.onCompleteAll = function() {
                         console.info('onCompleteAll');
                     };
-
+                    
+//                    
+//                    
                     $scope.changeCounty = function(province) {
                         $http.post(path + '/get_counties', {province: province}).success(function(response) {
                             $scope.counties = response;
@@ -420,20 +440,21 @@
                             $scope.newform.district = response[1];
                         });
                     };
-
+                //function to get Districts on the Basisi of Counties
                     $scope.changeDistrict = function(provinceId, countyId) {
                         $http.post(path + '/get_districts', {provinceId: provinceId, countyId: countyId}).success(function(response) {
                             $scope.districs = response;
                             $scope.newform.district = response[1];
                         });
                     };
+//                    function to get counties on the Basisi of province for edit
                     $scope.changeCountyEdit = function(province) {
 //                        alert('okk');
                         $http.post(path + '/get_counties', {province: province}).success(function(response) {
                             $scope.counties = response;
                         });
                     };
-
+      //function to get Districts on the Basisi of Counties for edit
                     $scope.changeDistrictEdit = function(provinceId, countyId) {
 //                        alert('no');
                         $http.post(path + '/get_districts', {provinceId: provinceId, countyId: countyId}).success(function(response) {
