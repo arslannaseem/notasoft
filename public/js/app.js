@@ -109,6 +109,11 @@
                                         templateUrl: 'public/templates/addcorporations.html',
                                         controller: 'corporationsController'
                                     })
+                            .when('/vehicles',
+                                    {
+                                        templateUrl: 'public/templates/vehicles.html',
+                                        controller: 'vehiclesController'
+                                    })
                             .otherwise(
                                     {
                                         templateUrl: 'public/templates/login.html',

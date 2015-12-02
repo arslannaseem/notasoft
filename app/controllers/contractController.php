@@ -237,6 +237,21 @@ class contractController extends BaseController {
 //    function to load vehicle data
     public function load_vehicle_data() {
         $vehicleId = Input::get('vehicleId');
+        $data =  DB::connection('mysql2')->table('bmfd016')->where('N_VIN','=',$vehicleId)->get();
+        return $data;
+        
+    }
+    public function vehicles_detail(){
+         $vinId = Input::get('vinId');
+          $data =  DB::connection('mysql2')->table('bmfd016')->where('bmfd016.N_VIN','=',$vinId)
+                  ->join('bmfd017', 'bmfd017.N_BIEN', '=', 'bmfd016.N_BIEN')
+                  ->join('bmfd085', 'bmfd085.N_BIEN', '=', 'bmfd016.N_BIEN')
+//                  ->join('bmfd017', 'bmfd017.N_BIEN', '=', 'bmfd016.N_BIEN' AND 'bmfd017.C_TIPOBIEN', '=', 'bmfd016.C_TIPOBIEN' AND 'bmfd017.C_CLASEBIEN', '=', 'bmfd016.C_CLASEBIEN' AND 'bmfd017.C_CÓDIGOBIEN', '=', 'bmfd016.C_CÓDIGOBIEN' )
+//                  ->join('bmfd085', 'bmfd085.N_BIEN', '=', 'bmfd016.N_BIEN' AND 'bmfd085.C_TIPOBIEN', '=', 'bmfd016.C_TIPOBIEN' AND 'bmfd085.C_CLASEBIEN', '=', 'bmfd016.C_CLASEBIEN' AND 'bmfd085.C_CÓDIGOBIEN', '=', 'bmfd016.C_CÓDIGOBIEN' )
+//                  ->join('bmfd085', 'bmfd085.N_BIEN', '=', 'bmfd016.N_BIEN')
+                  ->select('bmfd016.N_ANOFABRI','bmfd016.D_ESTILO','bmfd016.N_SERIE','bmfd016.N_PESOBRUTO','bmfd016.C_COLOR','bmfd016.C_TRACCION','bmfd016.N_LONGITUD','bmfd017.C_MARCA','bmfd017.C_COMBUSTIBLE','bmfd017.D_MODELO','bmfd085.M_VALHACIENDA','bmfd085.N_CLASETRIB')
+                  ->get();
+     return $data;
     }
 
     // function to load property data

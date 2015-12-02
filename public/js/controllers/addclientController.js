@@ -29,9 +29,9 @@
 //                    $scope.changeCounty();
 //                    Get list of all images categories
 
-                    $http.post(path + '/category_list').success(function(response) {
-                        $scope.image_cat = response;
-                    });
+//                    $http.post(path + '/category_list').success(function(response) {
+//                        $scope.image_cat = response;
+//                    });
 
                     $scope.result2 = '';
                     $scope.newform = {};
@@ -144,6 +144,8 @@
 
                                 //converting string to array
                                 $scope.existing_images = new Array();
+                                
+                                
                                 $scope.existing_images = $scope.newform.photoids.split(',');
                                 // console.log('exploded images ' + existing_images[1]);
 
@@ -203,7 +205,7 @@
     $scope.dead = "No";
                     $scope.loaddata = function() {         //load selected client data
                         var idnumber = $('#idnumber').val();
-
+                        
                         if ((idnumber).length >= 8 && (idnumber).length <= 10) {
 
                             $http.post(path + '/load_client_data', {idnumber: $('#idnumber').val()}).success(function(response) {
@@ -294,7 +296,10 @@
 
                     $scope.addclient = function(newclient, validity) {     // sends the data from form object to backend using service
                         $scope.fileslist();
-                        console.log(newclient);
+//                        console.log($scope.newclient.photoids);
+//                        console.log(newclient.photoids);
+//                        angular.forEach($scope.photoids, function(value, key) {
+//                        });
                         if (validity) {
                             console.log(newclient);
                             newClientFormDataService.registerNewJob(newclient)
@@ -362,12 +367,19 @@
 //                    }
                     $scope.fileslist = function() {
                         angular.forEach(uploader.queue, function(value, key) {
-                            if (key == 0)
+                            
+                            if (key == 0){
                                 $scope.newform.photoids = value.file.name;
-                            else
+//                                $scope.newform.photocat = value.file.name +'_cat' ;
+//                                alert($scope.removespaces(value.file.name));
+//                                 alert($('#'+$scope.removespaces(value.file.name)+'_category').val());
+                            }else{
                                 $scope.newform.photoids += ',' + value.file.name;
+//                                $scope.newform.photocat += ',' + value.file.name +'_cat';
+                            }
                         });
-                        console.log($scope.newform.photoids);
+//                        console.log($scope.newform.photoids);
+//                        console.log($scope.newform.photocat);
                     }
 
                     var uploader = $scope.uploader = new FileUploader({

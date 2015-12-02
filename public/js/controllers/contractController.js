@@ -270,7 +270,12 @@
                 $scope.loadVehicleData = function(){
 //                    alert($('#vehicle_id').val());
                      $http.post(path + '/load_vehicle_data', {vehicleId: $('#vehicle_id').val()}).success(function(response) {
-                         
+                         if(response[0] != ''){
+                             $scope.newform.vehicle_no =  response[0].N_SERIE;
+                             $scope.newform.engine_no =  response[0].N_CHASIS;
+                             $scope.newform.vehicle_model =  response[0].C_MARCA;
+                           
+                         }
                      });
                     
                 }

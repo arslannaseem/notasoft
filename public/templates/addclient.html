@@ -445,6 +445,7 @@
                             </div>
                             <h3 translate="PHOTO_ID" class="ng-scope"></h3>
                             <input id="photoids" name="photoids" type="hidden" class="form-control" ng-model="newform.photoids" />
+                            <input id="photocat" name="photocat" type="hidden" class="form-control" ng-model="newform.photocat" />
                             <div class="form-group  col-sm-12 col-md-12" ng-class="error('google')">
 
                                 <div class="col-md-12">
@@ -466,14 +467,17 @@
 
                                         <tr ng-repeat="item in uploader.queue">
                                             <td id="{{removespaces(item.file.name)}}" style="width: 150px"></td>
+                                            <td  style="width: 120px;">
+                                                <input type="text" id="{{removespaces(item.file.name)}}_category" value="test">
+                                            </td>
                                             <!--  <td><input type="text" ng-model="newform.image_name"></td>  -->
-                                            <td >
+<!--                                            <td >
                                                 <select id="{{removespaces(item.file.name)}}_category" >
                                                     <option ng-repeat=" category in image_cat" value="{{category.id}}">{{category.category_name}}
                                                     </option>
                                                 </select> 
                                             </td>
-                                            <td>
+                                            <td>-->
                                                 <!-- <img style="height :100px; width : 133px;"   
                                                 src="{{path}}/public/upload_images/id_images/{{item.file.name}}" />
                                                 </td>  -->

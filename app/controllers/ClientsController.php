@@ -20,6 +20,9 @@ class ClientsController extends BaseController {
 //    function to create new client
     
     public function create_new_client() {
+//        echo '<pre>';
+//        print_r( Input::all());exit;
+        
         $idnumber = Input::get('idnumber');
         $userId = Session::get('userId');
         $data = Input::all();

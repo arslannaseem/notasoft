@@ -66,6 +66,8 @@ return array(
 
 
 		// Staging
+            
+           
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
