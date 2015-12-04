@@ -1,0 +1,30 @@
+<!--Html page to show all contracts list --> 
+<div class="row">
+    <div class="col-md-6 col-lg-7 col-center">
+        <div class="panel">
+            <header class="panel-heading">
+                <h1 >Vehicles</h1>
+<!--    <div><span class="cursor" ng-click="album = true">Album</span> 
+    <span  class="cursor padding1" ng-click="album = false" >List Display</span>-->
+     </div>
+                   
+            </header>
+            <div class="panel-body">
+                <!--Include corporation controller --> 
+                <div data-ng-controller='allVehiclesController'>
+                </div>
+            </div>
+            <h3><div class="list-group-item" ng-show="vehicles.length == 0">No Contract Found</div></h3>
+            <div ng-repeat="vehicle in vehicles  ">
+            <a href="#/vehicles/{{vehicle.vin_number}}" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    <!--<span >{{corporation.idnumber}}</span></br>-->
+                    <span >  {{vehicle.series_number}}</span>
+                </h4>
+                <!--<p class="list-group-item-text">{{client.firstname}} {{client.Lastname1}}</p>-->
+            </a>
+</div>
+        </div>
+    </div>
+</div>
+
