@@ -61,4 +61,10 @@ Route::get('/login', 'UserController@index');
  Route::post('/get_counties','ClientsController@get_counties');
  // get Districts list
  Route::post('/get_districts','ClientsController@get_districts');
+ // Add vehicles data
+ Route::post('/add_vehicles','contractController@add_vehicles');
+ // Load vehicles data
+ Route::post('/load_vehicles','contractController@load_vehicles');
+ // Load vehicles data
+ Route::post('/vehicle_data','contractController@vehicle_data');
  

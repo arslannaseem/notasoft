@@ -114,6 +114,16 @@
                                         templateUrl: 'public/templates/vehicles.html',
                                         controller: 'vehiclesController'
                                     })
+                            .when('/allvehicles',
+                                    {
+                                        templateUrl: 'public/templates/allVehicles.html',
+                                        controller: 'allVehiclesController'
+                                    })
+                                     .when('/vehicles/:vin_number',
+                                    {
+                                        templateUrl: 'public/templates/vehicles.html',
+                                        controller: 'vehiclesController'
+                                    })
                             .otherwise(
                                     {
                                         templateUrl: 'public/templates/login.html',

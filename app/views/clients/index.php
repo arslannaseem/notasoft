@@ -32,7 +32,8 @@
                     <a href="#/corporations"><button class="btn btn-brand btn-md">List Corporations</button></a>
                     <a href="#/addcontract"><button class="btn btn-brand btn-md">Add Contract</button></a>
                     <a href="#/contracts"><button class="btn btn-brand btn-md">List Contracts</button></a>
-                    <a href="#/vehicles"><button class="btn btn-brand btn-md">Vehicles</button></a>
+                    <a href="#/vehicles"><button class="btn btn-brand btn-md">Add Vehicle</button></a>
+                    <a href="#/allvehicles"><button class="btn btn-brand btn-md">List Vehicles</button></a>
                     <?php }else{ ?>
                     <a href="#/login"> <button class="btn btn-brand btn-md">Login</button></a>
                     <a href="#/register"><button class="btn btn-brand btn-md">Register</button></a>
@@ -107,6 +108,7 @@
         <?php echo HTML::script('public/js/controllers/contractController.js') ?>
         <?php echo HTML::script('public/js/controllers/allContractsController.js') ?>
         <?php echo HTML::script('public/js/controllers/vehiclesController.js') ?>
+        <?php echo HTML::script('public/js/controllers/allVehiclesController.js') ?>
 
 
 

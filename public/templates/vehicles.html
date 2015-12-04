@@ -11,100 +11,100 @@
 
             <div class="panel-body">
                 <div>
-                    <form name="form" role="form" method="POST" ng-submit="addvehicles(newform, form.$valid)" novalidate nv-file-drop=""  filters="queueLimit, customFilter">
+                    <form name="form" role="form" method="POST" ng-submit="vehicles(newform, form.$valid)" novalidate nv-file-drop=""  filters="queueLimit, customFilter">
 
 
 
                         <h3>Vehicles Detail</h3>
                         <div class="controls">
                               <label  >Vin Number</label>
-                                    <input id="idnumber"  name="idnumber" type="text"  class="form-control" ng-model="newform.idnumber" ng-required="newform.usertype == 'cedula'"/>
-                                    <span class="help-block text-danger" ng-show="form.idnumber.$invalid && submitted" translate="ID_DIGIT" class="ng-scope"></span>
+                                    <input id="vin_number"  name="vin_number" type="text"  class="form-control" ng-model="newform.vin_number" requied/>
+                                    <span class="help-block text-danger" ng-show="form.vin_number.$invalid && submitted" >Vin Number Is Required</span>
                                     <span><button ng-click="loaddata()" class="btn btn-xl">Load</button></span>
                                     <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
                                 </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
                             <label >Year</label>
                             <div class="controls">
-                                <input id="president" name="president"  type="text" class="form-control"  ng-model="newform.year" required/>
-                                <span class="help-block text-danger" ng-show="form.president.$invalid && submitted"><span translate="PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="year" name="year"  type="text" class="form-control"  ng-model="newform.year" required/>
+                                <span class="help-block text-danger" ng-show="form.year.$invalid && submitted">Year <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('vice_president')">
                             <label >Style</label>
                             <div class="controls">
-                                <input id="vice_president" ng-change="vicepresidentquicksearch()" name="vice_president" type="text" class="form-control" ng-model="newform.style"  required/>
-                                <span class="help-block text-danger" ng-show="form.vice_president.$invalid && submitted"><span translate="VICE_PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="style"  name="style" type="text" class="form-control" ng-model="newform.style"  required/>
+                                <span class="help-block text-danger" ng-show="form.style.$invalid && submitted">Style <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
                             <label >Series Number</label>
                             <div class="controls">
-                                <input id="president" name="president"  type="text" class="form-control"  ng-model="newform.series_number" required/>
-                                <span class="help-block text-danger" ng-show="form.president.$invalid && submitted"><span translate="PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="series_number" name="series_number"  type="text" class="form-control"  ng-model="newform.series_number" required/>
+                                <span class="help-block text-danger" ng-show="form.series_number.$invalid && submitted">Series Number <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('vice_president')">
                             <label>Weight</label>
                             <div class="controls">
-                                <input id="vice_president" ng-change="vicepresidentquicksearch()" name="vice_president" type="text" class="form-control" ng-model="newform.weight"  required/>
-                                <span class="help-block text-danger" ng-show="form.vice_president.$invalid && submitted"><span translate="VICE_PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="weight"  name="weight" type="text" class="form-control" ng-model="newform.weight"  required/>
+                                <span class="help-block text-danger" ng-show="form.weight.$invalid && submitted">Weight <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
                             <label>Colour</label>
                             <div class="controls">
-                                <input id="president" name="president"  type="text" class="form-control" ng-model="newform.color" required/>
-                                <span class="help-block text-danger" ng-show="form.president.$invalid && submitted"><span translate="PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="color" name="color"  type="text" class="form-control" ng-model="newform.color" required/>
+                                <span class="help-block text-danger" ng-show="form.color.$invalid && submitted">Color <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('vice_president')">
                             <label>Traction Code</label>
                             <div class="controls">
-                                <input id="vice_president"  name="vice_president" type="text" class="form-control" ng-model="newform.tranction_code"  required/>
-                                <span class="help-block text-danger" ng-show="form.vice_president.$invalid && submitted"><span translate="VICE_PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="tranction_code"  name="tranction_code" type="text" class="form-control" ng-model="newform.tranction_code"  required/>
+                                <span class="help-block text-danger" ng-show="form.tranction_code.$invalid && submitted">Tranction Code <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
                             <label>Length</label>
                             <div class="controls">
-                                <input id="president" name="president"  type="text" class="form-control"  ng-model="newform.length" required/>
-                                <span class="help-block text-danger" ng-show="form.president.$invalid && submitted"><span translate="PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="length" name="length"  type="text" class="form-control"  ng-model="newform.length" required/>
+                                <span class="help-block text-danger" ng-show="form.length.$invalid && submitted">Length <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('vice_president')">
                             <label>Brand</label>
                             <div class="controls">
-                                <input id="vice_president"  name="vice_president" type="text" class="form-control" ng-model="newform.brand" required/>
-                                <span class="help-block text-danger" ng-show="form.vice_president.$invalid && submitted"><span translate="VICE_PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="brand"  name="brand" type="text" class="form-control" ng-model="newform.brand" required/>
+                                <span class="help-block text-danger" ng-show="form.brand.$invalid && submitted">Brand <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
                             <label>Fuel Type</label>
                             <div class="controls">
-                                <input id="president" name="president"  type="text" class="form-control"  ng-model="newform.fuel_type" required/>
-                                <span class="help-block text-danger" ng-show="form.president.$invalid && submitted"><span translate="PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="fuel_type" name="fuel_type"  type="text" class="form-control"  ng-model="newform.fuel_type" required/>
+                                <span class="help-block text-danger" ng-show="form.fuel_type.$invalid && submitted">Fuel Type <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('vice_president')">
                             <label>Model</label>
                             <div class="controls">
-                                <input id="vice_president"  name="vice_president" type="text" class="form-control" ng-model="newform.model" required/>
-                                <span class="help-block text-danger" ng-show="form.vice_president.$invalid && submitted"><span translate="VICE_PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="model"  name="model" type="text" class="form-control" ng-model="newform.model" required/>
+                                <span class="help-block text-danger" ng-show="form.model.$invalid && submitted">Model <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('president')">
                             <label>Tax Value</label>
                             <div class="controls">
-                                <input id="president" name="president"  type="text" class="form-control"  ng-model="newform.tax_value" required/>
-                                <span class="help-block text-danger" ng-show="form.president.$invalid && submitted"><span translate="PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="tax_value" name="tax_value"  type="text" class="form-control"  ng-model="newform.tax_value" required/>
+                                <span class="help-block text-danger" ng-show="form.tax_value.$invalid && submitted">Tax Value<span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         <div class="form-group  col-sm-6 col-md-6" ng-class="error('vice_president')">
                             <label>Tax Class</label>
                             <div class="controls">
-                                <input id="vice_president" name="vice_president" type="text" class="form-control" ng-model="newform.tax_class"  required/>
-                                <span class="help-block text-danger" ng-show="form.vice_president.$invalid && submitted"><span translate="VICE_PRESIDENT"></span> <span translate="IS_REQUIRED"></span></span>
+                                <input id="tax_class" name="tax_class" type="text" class="form-control" ng-model="newform.tax_class"  required/>
+                                <span class="help-block text-danger" ng-show="form.tax_class.$invalid && submitted">Tax Class <span translate="IS_REQUIRED"></span></span>
                             </div>
                         </div>
                         
@@ -112,10 +112,7 @@
                             <div class="controls">
                                 <button ng-click="submitted = true" class="btn btn-xl">Save</button>
                             </div>
-                            <div ng-show="form.$submitted && form.$invalid" style="color:red;">
-                                <!--{{form.$error.required.length}} errors.-->
-                                Please Fill All Fields
-                            </div>
+                            
                         </div>
                     </form>
                 </div>

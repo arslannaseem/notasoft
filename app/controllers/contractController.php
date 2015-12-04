@@ -14,7 +14,7 @@ class contractController extends BaseController {
     }
 
 //    function to load buyer data on the basis of id number
-    
+
     public function load_buyer_data() {
         $idNumber = Input::get('idnumber');
         $buyerData = DB::table('clients')->where('idnumber', '=', $idNumber)->get();
@@ -27,8 +27,9 @@ class contractController extends BaseController {
         }
         return $data;
     }
+
 //    function to load seller data on the basis of id number
-    
+
     public function load_seller_data() {
         $idNumber = Input::get('idnumber');
         $sellerData = DB::table('clients')->where('idnumber', '=', $idNumber)->get();
@@ -41,9 +42,9 @@ class contractController extends BaseController {
         }
         return $data;
     }
-    
+
 //    Function to add contract in the database
-    
+
     public function add_contract() {
 
         $data = Input::get();
@@ -103,7 +104,7 @@ class contractController extends BaseController {
             'google' => $data['data']['buyer_google'],
             'active' => 0,
         );
-        
+
         $sellerData = array(
             'usertype' => $data['data']['seller_usertype'],
             'user_id' => $userId,
@@ -178,11 +179,12 @@ class contractController extends BaseController {
     }
 
 //    function to get all contract item types    
-    
+
     public function contract_item_types() {
         $contractItemTypes = DB::table('contract_item_types')->get();
         return $contractItemTypes;
     }
+
 //    function to get all Contracts    
 
     public function load_contracts() {
@@ -195,7 +197,7 @@ class contractController extends BaseController {
     }
 
 //    Function to get data of single contract
-    
+
     public function load_contract_data() {
 
         $userId = Session::get('userId');
@@ -210,16 +212,16 @@ class contractController extends BaseController {
     }
 
 //    Function to get all id numner of citizens
-    
+
     public function get_citizens() {
-        
+
         $number = Input::get('number');
-        
+
         $citizens = DB::table('citizens')
-                ->where('Número_de_Cédula', 'like', '%'.$number.'%')
+                ->where('Número_de_Cédula', 'like', '%' . $number . '%')
                 ->take(10)
                 ->get();
-        
+
 //        $citizens = DB::table('citizens')
 //                ->select('Número_de_Cédula')
 //                ->get();
@@ -237,26 +239,84 @@ class contractController extends BaseController {
 //    function to load vehicle data
     public function load_vehicle_data() {
         $vehicleId = Input::get('vehicleId');
-        $data =  DB::connection('mysql2')->table('bmfd016')->where('N_VIN','=',$vehicleId)->get();
+        $data = DB::connection('mysql2')->table('bmfd016')->where('N_VIN', '=', $vehicleId)->get();
         return $data;
-        
     }
-    public function vehicles_detail(){
-         $vinId = Input::get('vinId');
-          $data =  DB::connection('mysql2')->table('bmfd016')->where('bmfd016.N_VIN','=',$vinId)
-                  ->join('bmfd017', 'bmfd017.N_BIEN', '=', 'bmfd016.N_BIEN')
-                  ->join('bmfd085', 'bmfd085.N_BIEN', '=', 'bmfd016.N_BIEN')
+
+    public function vehicles_detail() {
+        $vinId = Input::get('vinId');
+        $data = DB::connection('mysql2')->table('bmfd016')->where('bmfd016.N_VIN', '=', $vinId)
+                ->join('bmfd017', 'bmfd017.N_BIEN', '=', 'bmfd016.N_BIEN')
+                ->join('bmfd085', 'bmfd085.N_BIEN', '=', 'bmfd016.N_BIEN')
 //                  ->join('bmfd017', 'bmfd017.N_BIEN', '=', 'bmfd016.N_BIEN' AND 'bmfd017.C_TIPOBIEN', '=', 'bmfd016.C_TIPOBIEN' AND 'bmfd017.C_CLASEBIEN', '=', 'bmfd016.C_CLASEBIEN' AND 'bmfd017.C_CÓDIGOBIEN', '=', 'bmfd016.C_CÓDIGOBIEN' )
 //                  ->join('bmfd085', 'bmfd085.N_BIEN', '=', 'bmfd016.N_BIEN' AND 'bmfd085.C_TIPOBIEN', '=', 'bmfd016.C_TIPOBIEN' AND 'bmfd085.C_CLASEBIEN', '=', 'bmfd016.C_CLASEBIEN' AND 'bmfd085.C_CÓDIGOBIEN', '=', 'bmfd016.C_CÓDIGOBIEN' )
 //                  ->join('bmfd085', 'bmfd085.N_BIEN', '=', 'bmfd016.N_BIEN')
-                  ->select('bmfd016.N_ANOFABRI','bmfd016.D_ESTILO','bmfd016.N_SERIE','bmfd016.N_PESOBRUTO','bmfd016.C_COLOR','bmfd016.C_TRACCION','bmfd016.N_LONGITUD','bmfd017.C_MARCA','bmfd017.C_COMBUSTIBLE','bmfd017.D_MODELO','bmfd085.M_VALHACIENDA','bmfd085.N_CLASETRIB')
-                  ->get();
-     return $data;
+                ->select('bmfd016.N_ANOFABRI', 'bmfd016.D_ESTILO', 'bmfd016.N_SERIE', 'bmfd016.N_PESOBRUTO', 'bmfd016.C_COLOR', 'bmfd016.C_TRACCION', 'bmfd016.N_LONGITUD', 'bmfd017.C_MARCA', 'bmfd017.C_COMBUSTIBLE', 'bmfd017.D_MODELO', 'bmfd085.M_VALHACIENDA', 'bmfd085.N_CLASETRIB')
+                ->get();
+        return $data;
     }
 
     // function to load property data
     public function load_property_data() {
         $propertyId = Input::get('propertyId');
+    }
+
+    // function to Add vehicle data
+    public function add_vehicles() {
+        $vehicleData = Input::all();
+        
+        @$id = @$vehicleData['vehiclesDetail']['id'];
+        $vehicleDetail = $vehicleData['vehiclesDetail'];
+         $userId = Session::get('userId');
+//         print_r($userId);exit;
+        $vechileDaa = array(
+            'vin_number' => $vehicleDetail['vin_number'],
+            'user_id' => $userId,
+            'year' => $vehicleDetail['year'],
+            'style' => $vehicleDetail['style'],
+            'series_number' => $vehicleDetail['series_number'],
+            'weight' => $vehicleDetail['weight'],
+            'color' => $vehicleDetail['color'],
+            'tranction_code' => $vehicleDetail['tranction_code'],
+            'length' => $vehicleDetail['length'],
+            'brand' => $vehicleDetail['brand'],
+            'fuel_type' => $vehicleDetail['fuel_type'],
+            'model' => $vehicleDetail['model'],
+            'tax_value' => $vehicleDetail['tax_value'],
+            'tax_class' => $vehicleDetail['tax_class']
+            
+        );
+        
+        $vehicleDataId = DB::table('vehicles')->where('id', '=', $id)
+                ->select('id')
+                ->first();
+        if ($vehicleDataId) {
+            DB::table('vehicles')
+                    ->where('id', $vehicleDataId->id)
+                    ->update($vechileDaa);
+        } else {
+            DB::table('vehicles')->insert($vechileDaa);
+        }
+
+//        return TRUE;
+    }
+
+    public function load_vehicles() {
+         $userId = Session::get('userId');
+        $vehicles = DB::table('vehicles')
+                ->where('user_id', $userId)
+                ->get();
+        return $vehicles;
+    }
+
+    public function vehicle_data() {
+
+
+        $vin_number = Input::get('vin_number');
+        $vehicleData = DB::table('vehicles')
+                ->where('vin_number', $vin_number)
+                ->get();
+        return $vehicleData;
     }
 
 }
