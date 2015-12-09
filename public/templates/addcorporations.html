@@ -20,12 +20,14 @@
                         <div class="form-group" ng-class="error('title')" >
                             <label for="title " translate="ID_NUMBER"> </label>
                             <div class="controls">
-                                <input id="idnumber" ng-change="loaddata()" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-minlength="9" ng-maxlength="9" name="idnumber" type="text"  class="form-control" ng-model="newform.idnumber" required/>
+                                <input id="idnumber"  name="idnumber" type="text"  class="form-control" ng-model="newform.idnumber" required/>
+<!--                                <input id="idnumber" ng-change="loaddata()" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" ng-minlength="9" ng-maxlength="9" name="idnumber" type="text"  class="form-control" ng-model="newform.idnumber" required/>-->
                                 <span class="help-block text-danger" ng-show="form.idnumber.$invalid && submitted">Please Enter valid 9 digit ID!</span>
                                 <span><button type="button" ng-click="loaddata()" class="btn btn-xl">Load</button><span>
                                         <!--<p class="text-muted">Tell us more about this Jobba i.e. Mixologist, Cocktail Whiz.</p>-->
                                         </div>
                                         </div>
+                              <input  type="hidden" class="form-control" ng-model="newform.corporation_name" />
                                         <div class="form-group" ng-class="error('title')">
                                             <label for="title " translate="TOMO" class="ng-scope"></label>
                                             <div class="controls">

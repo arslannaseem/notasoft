@@ -33,6 +33,7 @@ Route::get('/login', 'UserController@index');
  Route::post('/load_corporations','CorporationController@load_corporation');
 // load corporation Data
  Route::post('/load_corporation_data','CorporationController@corporation_data');
+ Route::post('/load_corporation_data_edit','CorporationController@corporation_data_edit');
  // load all contract types
  Route::post('/contract_types','contractController@contract_types');
  // load data of buyer 
